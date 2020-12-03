@@ -1,3 +1,4 @@
+import os
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -77,9 +78,10 @@ def train(num_epoch, device, lr, batch_size, momentum):
                 print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                         e, batch_idx * len(data), len(train_loader.dataset),
                     100. * batch_idx / len(train_loader), loss.item()))
-
-    torch.save(network.state_dict(), './model.pth')
-    torch.save(optimizer.state_dict(), './optimizer.pth')
+    
+    cwd = os.path.dirname(os.path.abspath(__file__))
+    torch.save(network.state_dict(), cwd+ '/model.pth')
+    torch.save(optimizer.state_dict(), cwd+ '/optimizer.pth')
 
 def eval(network):
     network.eval()
@@ -110,16 +112,31 @@ def eval(network):
         print('\nTest set: Avg. loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
             test_loss, correct, len(test_loader.dataset),
             100. * correct / len(test_loader.dataset)))
-def model_as_txt(network):
+#def model_as_txt(network):
     
 
 if __name__ == '__main__':
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-#    train(num_epoch=20, device=device, lr=0.01, batch_size=64, momentum=0.5)
+    #train(num_epoch=20, device=device, lr=0.01, batch_size=64, momentum=0.5)
+
+    cwd = os.path.dirname(os.path.abspath(__file__))
 
     network = Net()
-    network.load_state_dict(torch.load('./model.pth'))
+    network.load_state_dict(torch.load(cwd + '/model.pth'))
+
+    cnn1 = network.cnn1.weight.data.numpy()
+    #print(cnn1)
+
+    file1 = open(cwd + "/cnn1.txt","w") 
+    for x in np.nditer(cnn1):
+        #print(x)
+        file1.write(str(x)+"\n")
+    file1.close()
+
+
+
+    #test = model.
     
     # print(network.layers[1].weight.shape)
     # print(network.layers[1].bias.shape)
