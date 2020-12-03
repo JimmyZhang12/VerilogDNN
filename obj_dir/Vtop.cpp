@@ -105,100 +105,82 @@ void Vtop::_settle__TOP__1(Vtop__Syms* __restrict vlSymsp) {
         [1U];
     vlTOPp->top__DOT__L1_to_L2_out_index[0U] = vlTOPp->top__DOT____Vcellout__l1__out_index
         [0U];
-    vlTOPp->top__DOT____Vcellinp__l1__in_index_act[2U] 
-        = vlTOPp->input_index[2U];
-    vlTOPp->top__DOT____Vcellinp__l1__in_index_act[1U] 
-        = vlTOPp->input_index[1U];
-    vlTOPp->top__DOT____Vcellinp__l1__in_index_act[0U] 
-        = vlTOPp->input_index[0U];
-    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index[2U] 
-        = vlTOPp->top__DOT____Vcellinp__l1__in_index_act
-        [2U];
-    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index[1U] 
-        = vlTOPp->top__DOT____Vcellinp__l1__in_index_act
-        [1U];
-    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index[0U] 
-        = vlTOPp->top__DOT____Vcellinp__l1__in_index_act
-        [0U];
 }
 
-VL_INLINE_OPT void Vtop::_combo__TOP__2(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_combo__TOP__2\n"); );
+VL_INLINE_OPT void Vtop::_sequent__TOP__2(Vtop__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_sequent__TOP__2\n"); );
     Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->top__DOT____Vcellinp__l1__in_index_act[2U] 
-        = vlTOPp->input_index[2U];
-    vlTOPp->top__DOT____Vcellinp__l1__in_index_act[1U] 
-        = vlTOPp->input_index[1U];
-    vlTOPp->top__DOT____Vcellinp__l1__in_index_act[0U] 
-        = vlTOPp->input_index[0U];
-}
-
-VL_INLINE_OPT void Vtop::_sequent__TOP__3(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_sequent__TOP__3\n"); );
-    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    VL_WRITEF("CONV LAYER: write_data %f\n",64,VL_CVT_D_Q(vlTOPp->input_data));
-    if (VL_UNLIKELY(vlTOPp->write)) {
+    if (VL_UNLIKELY(vlTOPp->input_write_weights)) {
+        VL_WRITEF("TOP: = [%1#][%1#][%1#][%1#] = %f\n",
+                  1,vlTOPp->input_index3,1,(IData)(vlTOPp->input_index2),
+                  1,vlTOPp->input_index1,1,(IData)(vlTOPp->input_index0),
+                  64,VL_CVT_D_Q(vlTOPp->input_data));
+    }
+    if (VL_UNLIKELY(vlTOPp->input_write_weights)) {
+        VL_WRITEF("INPUT LAYER: = [%1#][%1#][%1#][%1#] = %f\n",
+                  1,vlTOPp->input_index3,1,(IData)(vlTOPp->input_index2),
+                  1,vlTOPp->input_index1,1,(IData)(vlTOPp->input_index0),
+                  64,VL_CVT_D_Q(vlTOPp->input_data));
+    }
+    if (vlTOPp->input_write_act) {
         vlTOPp->top__DOT__l1__DOT__activation__DOT____Vlvbound1 
             = vlTOPp->input_data;
-        VL_WRITEF("WRITE, mem[%5#][%5#][%5#] = %f\n",
-                  16,vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                  [2U],16,vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                  [1U],16,vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                  [0U],64,VL_CVT_D_Q(vlTOPp->input_data));
         if ((0xc3ffU >= (0xffffU & ((((IData)(0xc400U) 
-                                      * vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                                      [2U]) + (0xffffU 
-                                               & ((IData)(0x700U) 
-                                                  * 
-                                                  vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                                                  [1U]))) 
-                                    + (0x7ffU & (vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                                                 [0U] 
+                                      * (IData)(vlTOPp->input_index2)) 
+                                     + (0xffffU & ((IData)(0x700U) 
+                                                   * (IData)(vlTOPp->input_index1)))) 
+                                    + (0x7ffU & ((IData)(vlTOPp->input_index0) 
                                                  << 6U)))))) {
             VL_ASSIGNSEL_WIIQ(64,(0xffffU & ((((IData)(0xc400U) 
-                                               * vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                                               [2U]) 
+                                               * (IData)(vlTOPp->input_index2)) 
                                               + (0xffffU 
                                                  & ((IData)(0x700U) 
-                                                    * 
-                                                    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                                                    [1U]))) 
+                                                    * (IData)(vlTOPp->input_index1)))) 
                                              + (0x7ffU 
-                                                & (vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index
-                                                   [0U] 
+                                                & ((IData)(vlTOPp->input_index0) 
                                                    << 6U)))), vlTOPp->top__DOT__l1__DOT__activation__DOT__mem, vlTOPp->top__DOT__l1__DOT__activation__DOT____Vlvbound1);
         }
     }
-}
-
-VL_INLINE_OPT void Vtop::_combo__TOP__4(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_combo__TOP__4\n"); );
-    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index[2U] 
-        = vlTOPp->top__DOT____Vcellinp__l1__in_index_act
-        [2U];
-    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index[1U] 
-        = vlTOPp->top__DOT____Vcellinp__l1__in_index_act
-        [1U];
-    vlTOPp->top__DOT__l1__DOT____Vcellinp__activation__in_index[0U] 
-        = vlTOPp->top__DOT____Vcellinp__l1__in_index_act
-        [0U];
+    if (VL_UNLIKELY(vlTOPp->input_write_weights)) {
+        vlTOPp->top__DOT__l1__DOT__weights__DOT____Vlvbound1 
+            = vlTOPp->input_data;
+        VL_WRITEF("INPUT LAYER WEIGHT_MEM : WRITE : mem[%1#][%1#][%1#][%1#] = %f\n",
+                  1,vlTOPp->input_index3,1,(IData)(vlTOPp->input_index2),
+                  1,vlTOPp->input_index1,1,(IData)(vlTOPp->input_index0),
+                  64,VL_CVT_D_Q(vlTOPp->input_data));
+        if ((0x23ffU >= (0x3fffU & (((((IData)(0x2400U) 
+                                       * (IData)(vlTOPp->input_index3)) 
+                                      + (0x3fffU & 
+                                         ((IData)(0x240U) 
+                                          * (IData)(vlTOPp->input_index2)))) 
+                                     + (0x3ffU & ((IData)(0xc0U) 
+                                                  * (IData)(vlTOPp->input_index1)))) 
+                                    + (0xffU & ((IData)(vlTOPp->input_index0) 
+                                                << 6U)))))) {
+            VL_ASSIGNSEL_WIIQ(64,(0x3fffU & (((((IData)(0x2400U) 
+                                                * (IData)(vlTOPp->input_index3)) 
+                                               + (0x3fffU 
+                                                  & ((IData)(0x240U) 
+                                                     * (IData)(vlTOPp->input_index2)))) 
+                                              + (0x3ffU 
+                                                 & ((IData)(0xc0U) 
+                                                    * (IData)(vlTOPp->input_index1)))) 
+                                             + (0xffU 
+                                                & ((IData)(vlTOPp->input_index0) 
+                                                   << 6U)))), vlTOPp->top__DOT__l1__DOT__weights__DOT__mem, vlTOPp->top__DOT__l1__DOT__weights__DOT____Vlvbound1);
+        }
+    }
 }
 
 void Vtop::_eval(Vtop__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_eval\n"); );
     Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->_combo__TOP__2(vlSymsp);
-    vlTOPp->__Vm_traceActivity = (2U | vlTOPp->__Vm_traceActivity);
     if (((IData)(vlTOPp->clk) & (~ (IData)(vlTOPp->__Vclklast__TOP__clk)))) {
-        vlTOPp->_sequent__TOP__3(vlSymsp);
-        vlTOPp->__Vm_traceActivity = (4U | vlTOPp->__Vm_traceActivity);
+        vlTOPp->_sequent__TOP__2(vlSymsp);
+        vlTOPp->__Vm_traceActivity = (2U | vlTOPp->__Vm_traceActivity);
     }
-    vlTOPp->_combo__TOP__4(vlSymsp);
     // Final
     vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
 }
@@ -238,40 +220,45 @@ VL_INLINE_OPT QData Vtop::_change_request(Vtop__Syms* __restrict vlSymsp) {
 void Vtop::_eval_debug_assertions() {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_eval_debug_assertions\n"); );
     // Body
-    if (VL_UNLIKELY((write & 0xfeU))) {
-        Verilated::overWidthError("write");}
     if (VL_UNLIKELY((clk & 0xfeU))) {
         Verilated::overWidthError("clk");}
+    if (VL_UNLIKELY((input_index3 & 0xfeU))) {
+        Verilated::overWidthError("input_index3");}
+    if (VL_UNLIKELY((input_index2 & 0xfeU))) {
+        Verilated::overWidthError("input_index2");}
+    if (VL_UNLIKELY((input_index1 & 0xfeU))) {
+        Verilated::overWidthError("input_index1");}
+    if (VL_UNLIKELY((input_index0 & 0xfeU))) {
+        Verilated::overWidthError("input_index0");}
+    if (VL_UNLIKELY((input_write_act & 0xfeU))) {
+        Verilated::overWidthError("input_write_act");}
+    if (VL_UNLIKELY((input_write_weights & 0xfeU))) {
+        Verilated::overWidthError("input_write_weights");}
 }
 #endif  // VL_DEBUG
 
 void Vtop::_ctor_var_reset() {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_ctor_var_reset\n"); );
     // Body
-    input_data = VL_RAND_RESET_Q(64);
-    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
-            input_index[__Vi0] = VL_RAND_RESET_I(16);
-    }}
-    write = VL_RAND_RESET_I(1);
     clk = VL_RAND_RESET_I(1);
+    input_data = VL_RAND_RESET_Q(64);
+    input_index3 = VL_RAND_RESET_I(1);
+    input_index2 = VL_RAND_RESET_I(1);
+    input_index1 = VL_RAND_RESET_I(1);
+    input_index0 = VL_RAND_RESET_I(1);
+    input_write_act = VL_RAND_RESET_I(1);
+    input_write_weights = VL_RAND_RESET_I(1);
     top__DOT__out_data = VL_RAND_RESET_Q(64);
     top__DOT__output_valid = VL_RAND_RESET_I(1);
     { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
             top__DOT__L1_to_L2_out_index[__Vi0] = VL_RAND_RESET_I(16);
     }}
     { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
-            top__DOT____Vcellinp__l1__in_index_act[__Vi0] = VL_RAND_RESET_I(16);
-    }}
-    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
             top__DOT____Vcellout__l1__out_index[__Vi0] = VL_RAND_RESET_I(16);
-    }}
-    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
-            top__DOT__l1__DOT__entry[__Vi0] = VL_RAND_RESET_I(1);
-    }}
-    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
-            top__DOT__l1__DOT____Vcellinp__activation__in_index[__Vi0] = VL_RAND_RESET_I(16);
     }}
     VL_RAND_RESET_W(50176, top__DOT__l1__DOT__activation__DOT__mem);
     top__DOT__l1__DOT__activation__DOT____Vlvbound1 = VL_RAND_RESET_Q(64);
+    VL_RAND_RESET_W(9216, top__DOT__l1__DOT__weights__DOT__mem);
+    top__DOT__l1__DOT__weights__DOT____Vlvbound1 = VL_RAND_RESET_Q(64);
     __Vm_traceActivity = 0;
 }

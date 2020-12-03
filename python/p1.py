@@ -126,23 +126,16 @@ if __name__ == '__main__':
     network.load_state_dict(torch.load(cwd + '/model.pth'))
 
     cnn1 = network.cnn1.weight.data.numpy()
+    print(network.cnn1.weight.shape)
     #print(cnn1)
 
     file1 = open(cwd + "/cnn1.txt","w") 
+    for x in network.cnn1.weight.shape:
+        file1.write(str(x)+"\n")
+
     for x in np.nditer(cnn1):
         #print(x)
         file1.write(str(x)+"\n")
     file1.close()
-
-
-
-    #test = model.
-    
-    # print(network.layers[1].weight.shape)
-    # print(network.layers[1].bias.shape)
-    # print(network.layers[4].weight.shape)
-    # print(network.layers[4].bias.shape)
-    # print(network.layers[7].weight.shape)
-    # print(network.layers[7].bias.shape)
 
     eval(network)

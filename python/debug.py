@@ -46,4 +46,4 @@ img.putdata(data)
 img.save('my.png')
 
 for i,x in enumerate(data):
-    print(str(i) + ", :" + str(x))
+    print(str(i//28) + " " + str(i%28)+ " : "+str(x))

@@ -19,8 +19,6 @@ uchar** read_mnist_images(string full_path, int& number_of_images, int& image_si
         return ((int)c1 << 24) + ((int)c2 << 16) + ((int)c3 << 8) + c4;
     };
 
-    typedef unsigned char uchar;
-
     ifstream file(full_path, ios::binary);
 
     if(file.is_open()) {
@@ -48,6 +46,44 @@ uchar** read_mnist_images(string full_path, int& number_of_images, int& image_si
         throw runtime_error("Cannot open file `" + full_path + "`!");
     }
 }
+double*** read_weights(string full_path, int& num_inputs, int& num_outputs, int& kernel_dim){
+
+    ifstream file(full_path, ios::in);
+
+    if(file.is_open()) {
+        string tp;
+        getline(file, tp);
+        int n_i = stoi(tp);
+        memcpy(&num_outputs, &n_i, sizeof(n_i));
+        //num_inputs = stoi(tp);
+        getline(file, tp);
+        num_inputs = stoi(tp);
+        getline(file, tp);
+        kernel_dim = stoi(tp);
+
+        getline(file, tp);
+        double*** _weights = new double**[num_inputs];
+
+        for(int i = 0; i < num_inputs; i++) {
+            _weights[i] = new double*[num_outputs];
+            for(int j = 0; j < num_outputs; j++){
+                _weights[i][j] = new double[kernel_dim*kernel_dim];
+                    for(int k = 0; k < kernel_dim*kernel_dim; k++){
+                        getline(file, tp);
+                        _weights[i][j][k] = stof(tp);
+                    }
+            }
+        }
+
+        file.close(); //close the file object.
+        return _weights;
+    } else {
+        throw runtime_error("Cannot open file `" + full_path + "`!");
+    }
+
+}
+
+
 uint64 toBits(double data){
     uint64 data_int;
     memcpy(&data_int, &data, sizeof(data));
@@ -57,41 +93,86 @@ int main(int argc, char** argv, char** env) {
     Verilated::commandArgs(argc, argv);
     Vtop* top = new Vtop;
 
+    //load input
     std::string fname = "t10k-images.idx3-ubyte";
     int num_images;
     int image_size;
     int image_dim;
     uchar** _dataset = read_mnist_images(fname,num_images, image_size, image_dim);
-    
-    bool clk = 0;
 
-    top->clk = clk;
+    //load weights
+    fname = "cnn1.txt";
+    int num_inputs;
+    int num_outputs;
+    int kernel_dim;
+    double*** _weights  = read_weights(fname, num_inputs, num_outputs, kernel_dim);
+
+    top->input_write_act = 0;
+    top->input_write_weights = 0;
+    top->input_index3 = 0;
+    top->input_index2 = 0;
+    top->input_index1 = 0;
+    top->input_index0 = 0;
+    top->clk = 0;
     top->eval();
-    
-    std::printf("\n*****LOAD IMAGE INTO INPUT LAYER*****\n");
-    top->write = 1;
-    for(int i = 0; i<image_size; i++){
-        clk = 1;
-        top->clk = clk;
 
-        (top->input_index)[0] = 0;
-        (top->input_index)[0] = (uint16) i/image_dim;
-        (top->input_index)[0] = (uint16) i%image_dim;
+    //std::printf("\n*****LOAD IMAGE INTO INPUT LAYER*****\n");
 
+    top->input_write_act = 1;
+    for(int i = 0; i<image_dim*image_dim; i++){
+        top->clk = 1;
+
+        top->input_index2 = 0;
+        top->input_index1 = i/image_dim;
+        top->input_index0 = i%image_dim;
+        
         double data = (double) (_dataset[0][i]);
         uint64 data_int;
         memcpy(&data_int, &data, sizeof(data));
         top->input_data = data_int;
 
-        cout <<endl<<"**********************CYCLE: "<< i << " CLK:" << clk <<"**********************" <<endl;
+        //cout <<endl<<"**********************CYCLE: "<< i <<"**********************" <<endl;
         top->eval();
 
         //negedge
-        clk = 0;
-        top->clk = clk;
-
+        top->clk = 0;
         top->eval();
     }
+
+    top->input_write_act = 0;
+    top->input_write_weights = 0;
+    top->input_index3 = 0;
+    top->input_index2 = 0;
+    top->input_index1 = 0;
+    top->input_index0 = 0;
+    top->clk = 0;
+
+    std::printf("\n*****LOAD WEIGHTS INTO INPUT LAYER*****\n");
+    top->input_write_weights = 1;
+    for(int j = 0; j<num_inputs; j++){
+        for(int k = 0; k<num_outputs; k++){
+            for(int i = 0; i<kernel_dim*kernel_dim; i++){
+                top->clk = 1;
+
+                top->input_index3 = j;
+                top->input_index2 = k;
+                top->input_index1 = i/kernel_dim;
+                top->input_index0 = i%kernel_dim;
+
+                uint64 data_int;
+                memcpy(&data_int, &(_weights[j][k][i]), sizeof((_weights[j][k][i])));
+                top->input_data = data_int;
+
+                cout <<endl<<"**********************CYCLE: "<< j*num_outputs+k*kernel_dim*kernel_dim+i << "**********************" <<endl;
+                top->eval();
+
+                //negedge
+                top->clk = 0;
+                top->eval();
+            }
+        }
+    }
+    top->input_write_weights = 0;
 
 
 
