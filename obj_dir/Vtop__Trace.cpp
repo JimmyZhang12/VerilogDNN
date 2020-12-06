@@ -27,10 +27,21 @@ void Vtop::traceChgThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint
         if (VL_UNLIKELY((1U & vlTOPp->__Vm_traceActivity))) {
             vlTOPp->traceChgThis__2(vlSymsp, vcdp, code);
         }
-        if (VL_UNLIKELY((2U & vlTOPp->__Vm_traceActivity))) {
+        if (VL_UNLIKELY((1U & ((vlTOPp->__Vm_traceActivity 
+                                | (vlTOPp->__Vm_traceActivity 
+                                   >> 1U)) | (vlTOPp->__Vm_traceActivity 
+                                              >> 2U))))) {
             vlTOPp->traceChgThis__3(vlSymsp, vcdp, code);
         }
-        vlTOPp->traceChgThis__4(vlSymsp, vcdp, code);
+        if (VL_UNLIKELY((1U & (vlTOPp->__Vm_traceActivity 
+                               | (vlTOPp->__Vm_traceActivity 
+                                  >> 2U))))) {
+            vlTOPp->traceChgThis__4(vlSymsp, vcdp, code);
+        }
+        if (VL_UNLIKELY((4U & vlTOPp->__Vm_traceActivity))) {
+            vlTOPp->traceChgThis__5(vlSymsp, vcdp, code);
+        }
+        vlTOPp->traceChgThis__6(vlSymsp, vcdp, code);
     }
     // Final
     vlTOPp->__Vm_traceActivity = 0U;
@@ -54,8 +65,7 @@ void Vtop::traceChgThis__3(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, u
     if (0 && vcdp && c) {}  // Prevent unused
     // Body
     {
-        vcdp->chgArray(c+25,(vlTOPp->top__DOT__l1__DOT__activation__DOT__mem),50176);
-        vcdp->chgArray(c+12569,(vlTOPp->top__DOT__l1__DOT__weights__DOT__mem),9216);
+        vcdp->chgBit(c+25,(vlTOPp->top__DOT__l1__DOT__weight_write));
     }
 }
 
@@ -65,279 +75,192 @@ void Vtop::traceChgThis__4(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, u
     if (0 && vcdp && c) {}  // Prevent unused
     // Body
     {
-        vcdp->chgBit(c+14873,(vlTOPp->clk));
-        vcdp->chgQuad(c+14881,(vlTOPp->input_data),64);
-        vcdp->chgBit(c+14897,(vlTOPp->input_index3));
-        vcdp->chgBit(c+14905,(vlTOPp->input_index2));
-        vcdp->chgBit(c+14913,(vlTOPp->input_index1));
-        vcdp->chgBit(c+14921,(vlTOPp->input_index0));
-        vcdp->chgBit(c+14929,(vlTOPp->input_write_act));
-        vcdp->chgBit(c+14937,(vlTOPp->input_write_weights));
-        vcdp->chgQuad(c+14945,(((0xc3ffU >= (0xffffU 
-                                             & ((((IData)(0xc400U) 
-                                                  * (IData)(vlTOPp->input_index2)) 
-                                                 + 
-                                                 (0xffffU 
-                                                  & ((IData)(0x700U) 
-                                                     * (IData)(vlTOPp->input_index1)))) 
-                                                + (0x7ffU 
-                                                   & ((IData)(vlTOPp->input_index0) 
-                                                      << 6U)))))
-                                 ? (((0U == (0x1fU 
-                                             & ((((IData)(0xc400U) 
-                                                  * (IData)(vlTOPp->input_index2)) 
-                                                 + 
-                                                 (0xffffU 
-                                                  & ((IData)(0x700U) 
-                                                     * (IData)(vlTOPp->input_index1)))) 
-                                                + (0x7ffU 
-                                                   & ((IData)(vlTOPp->input_index0) 
-                                                      << 6U)))))
-                                      ? VL_ULL(0) : 
-                                     ((QData)((IData)(
-                                                      vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                      ((IData)(2U) 
-                                                       + 
-                                                       (0x7ffU 
-                                                        & (((((IData)(0xc400U) 
-                                                              * (IData)(vlTOPp->input_index2)) 
-                                                             + 
-                                                             (0xffffU 
-                                                              & ((IData)(0x700U) 
-                                                                 * (IData)(vlTOPp->input_index1)))) 
-                                                            + 
-                                                            (0x7ffU 
-                                                             & ((IData)(vlTOPp->input_index0) 
-                                                                << 6U))) 
-                                                           >> 5U)))])) 
-                                      << ((IData)(0x40U) 
-                                          - (0x1fU 
-                                             & ((((IData)(0xc400U) 
-                                                  * (IData)(vlTOPp->input_index2)) 
-                                                 + 
-                                                 (0xffffU 
-                                                  & ((IData)(0x700U) 
-                                                     * (IData)(vlTOPp->input_index1)))) 
-                                                + (0x7ffU 
-                                                   & ((IData)(vlTOPp->input_index0) 
-                                                      << 6U))))))) 
-                                    | (((QData)((IData)(
-                                                        vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                        ((IData)(1U) 
-                                                         + 
-                                                         (0x7ffU 
-                                                          & (((((IData)(0xc400U) 
-                                                                * (IData)(vlTOPp->input_index2)) 
-                                                               + 
-                                                               (0xffffU 
-                                                                & ((IData)(0x700U) 
-                                                                   * (IData)(vlTOPp->input_index1)))) 
-                                                              + 
-                                                              (0x7ffU 
-                                                               & ((IData)(vlTOPp->input_index0) 
-                                                                  << 6U))) 
-                                                             >> 5U)))])) 
-                                        << ((0U == 
-                                             (0x1fU 
-                                              & ((((IData)(0xc400U) 
-                                                   * (IData)(vlTOPp->input_index2)) 
-                                                  + 
-                                                  (0xffffU 
-                                                   & ((IData)(0x700U) 
-                                                      * (IData)(vlTOPp->input_index1)))) 
-                                                 + 
-                                                 (0x7ffU 
-                                                  & ((IData)(vlTOPp->input_index0) 
-                                                     << 6U)))))
-                                             ? 0x20U
-                                             : ((IData)(0x20U) 
-                                                - (0x1fU 
-                                                   & ((((IData)(0xc400U) 
-                                                        * (IData)(vlTOPp->input_index2)) 
-                                                       + 
-                                                       (0xffffU 
-                                                        & ((IData)(0x700U) 
-                                                           * (IData)(vlTOPp->input_index1)))) 
-                                                      + 
-                                                      (0x7ffU 
-                                                       & ((IData)(vlTOPp->input_index0) 
-                                                          << 6U))))))) 
-                                       | ((QData)((IData)(
-                                                          vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                          (0x7ffU 
-                                                           & (((((IData)(0xc400U) 
-                                                                 * (IData)(vlTOPp->input_index2)) 
-                                                                + 
-                                                                (0xffffU 
-                                                                 & ((IData)(0x700U) 
-                                                                    * (IData)(vlTOPp->input_index1)))) 
-                                                               + 
-                                                               (0x7ffU 
-                                                                & ((IData)(vlTOPp->input_index0) 
-                                                                   << 6U))) 
-                                                              >> 5U))])) 
-                                          >> (0x1fU 
-                                              & ((((IData)(0xc400U) 
-                                                   * (IData)(vlTOPp->input_index2)) 
-                                                  + 
-                                                  (0xffffU 
-                                                   & ((IData)(0x700U) 
-                                                      * (IData)(vlTOPp->input_index1)))) 
-                                                 + 
-                                                 (0x7ffU 
-                                                  & ((IData)(vlTOPp->input_index0) 
-                                                     << 6U)))))))
-                                 : VL_ULL(0))),64);
-        vcdp->chgQuad(c+14961,(((0x23ffU >= (0x3fffU 
-                                             & (((((IData)(0x2400U) 
-                                                   * (IData)(vlTOPp->input_index3)) 
-                                                  + 
-                                                  (0x3fffU 
-                                                   & ((IData)(0x240U) 
-                                                      * (IData)(vlTOPp->input_index2)))) 
-                                                 + 
-                                                 (0x3ffU 
-                                                  & ((IData)(0xc0U) 
-                                                     * (IData)(vlTOPp->input_index1)))) 
-                                                + (0xffU 
-                                                   & ((IData)(vlTOPp->input_index0) 
-                                                      << 6U)))))
-                                 ? (((0U == (0x1fU 
-                                             & (((((IData)(0x2400U) 
-                                                   * (IData)(vlTOPp->input_index3)) 
-                                                  + 
-                                                  (0x3fffU 
-                                                   & ((IData)(0x240U) 
-                                                      * (IData)(vlTOPp->input_index2)))) 
-                                                 + 
-                                                 (0x3ffU 
-                                                  & ((IData)(0xc0U) 
-                                                     * (IData)(vlTOPp->input_index1)))) 
-                                                + (0xffU 
-                                                   & ((IData)(vlTOPp->input_index0) 
-                                                      << 6U)))))
-                                      ? VL_ULL(0) : 
-                                     ((QData)((IData)(
-                                                      vlTOPp->top__DOT__l1__DOT__weights__DOT__mem[
-                                                      ((IData)(2U) 
+        vcdp->chgQuad(c+33,(vlTOPp->top__DOT__l1__DOT__act_out_data),64);
+        vcdp->chgQuad(c+49,(vlTOPp->top__DOT__l1__DOT__weights_out_data),64);
+        vcdp->chgBit(c+65,(vlTOPp->top__DOT__l1__DOT__outmem_want_write));
+        vcdp->chgBit(c+73,(vlTOPp->top__DOT__l1__DOT__state));
+    }
+}
+
+void Vtop::traceChgThis__5(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) {
+    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    int c = code;
+    if (0 && vcdp && c) {}  // Prevent unused
+    // Body
+    {
+        vcdp->chgQuad(c+81,(((0xc7fU >= (0xfffU & (
+                                                   (((IData)(0x640U) 
+                                                     * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                    + 
+                                                    (0x7ffU 
+                                                     & ((IData)(0x140U) 
+                                                        * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                   + 
+                                                   (0x1ffU 
+                                                    & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                       << 6U)))))
+                              ? (((0U == (0x1fU & (
+                                                   (((IData)(0x640U) 
+                                                     * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                    + 
+                                                    (0x7ffU 
+                                                     & ((IData)(0x140U) 
+                                                        * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                   + 
+                                                   (0x1ffU 
+                                                    & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                       << 6U)))))
+                                   ? VL_ULL(0) : ((QData)((IData)(
+                                                                  vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem[
+                                                                  ((IData)(2U) 
+                                                                   + 
+                                                                   (0x7fU 
+                                                                    & (((((IData)(0x640U) 
+                                                                          * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                                         + 
+                                                                         (0x7ffU 
+                                                                          & ((IData)(0x140U) 
+                                                                             * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                                        + 
+                                                                        (0x1ffU 
+                                                                         & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                                            << 6U))) 
+                                                                       >> 5U)))])) 
+                                                  << 
+                                                  ((IData)(0x40U) 
+                                                   - 
+                                                   (0x1fU 
+                                                    & ((((IData)(0x640U) 
+                                                         * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                        + 
+                                                        (0x7ffU 
+                                                         & ((IData)(0x140U) 
+                                                            * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
                                                        + 
                                                        (0x1ffU 
-                                                        & ((((((IData)(0x2400U) 
-                                                               * (IData)(vlTOPp->input_index3)) 
-                                                              + 
-                                                              (0x3fffU 
-                                                               & ((IData)(0x240U) 
-                                                                  * (IData)(vlTOPp->input_index2)))) 
-                                                             + 
-                                                             (0x3ffU 
-                                                              & ((IData)(0xc0U) 
-                                                                 * (IData)(vlTOPp->input_index1)))) 
-                                                            + 
-                                                            (0xffU 
-                                                             & ((IData)(vlTOPp->input_index0) 
-                                                                << 6U))) 
-                                                           >> 5U)))])) 
-                                      << ((IData)(0x40U) 
-                                          - (0x1fU 
-                                             & (((((IData)(0x2400U) 
-                                                   * (IData)(vlTOPp->input_index3)) 
-                                                  + 
-                                                  (0x3fffU 
-                                                   & ((IData)(0x240U) 
-                                                      * (IData)(vlTOPp->input_index2)))) 
-                                                 + 
-                                                 (0x3ffU 
-                                                  & ((IData)(0xc0U) 
-                                                     * (IData)(vlTOPp->input_index1)))) 
-                                                + (0xffU 
-                                                   & ((IData)(vlTOPp->input_index0) 
-                                                      << 6U))))))) 
-                                    | (((QData)((IData)(
-                                                        vlTOPp->top__DOT__l1__DOT__weights__DOT__mem[
-                                                        ((IData)(1U) 
-                                                         + 
-                                                         (0x1ffU 
-                                                          & ((((((IData)(0x2400U) 
-                                                                 * (IData)(vlTOPp->input_index3)) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * (IData)(vlTOPp->input_index2)))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * (IData)(vlTOPp->input_index1)))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & ((IData)(vlTOPp->input_index0) 
-                                                                  << 6U))) 
-                                                             >> 5U)))])) 
-                                        << ((0U == 
-                                             (0x1fU 
-                                              & (((((IData)(0x2400U) 
-                                                    * (IData)(vlTOPp->input_index3)) 
-                                                   + 
-                                                   (0x3fffU 
-                                                    & ((IData)(0x240U) 
-                                                       * (IData)(vlTOPp->input_index2)))) 
-                                                  + 
-                                                  (0x3ffU 
-                                                   & ((IData)(0xc0U) 
-                                                      * (IData)(vlTOPp->input_index1)))) 
-                                                 + 
-                                                 (0xffU 
-                                                  & ((IData)(vlTOPp->input_index0) 
-                                                     << 6U)))))
-                                             ? 0x20U
-                                             : ((IData)(0x20U) 
-                                                - (0x1fU 
-                                                   & (((((IData)(0x2400U) 
-                                                         * (IData)(vlTOPp->input_index3)) 
-                                                        + 
-                                                        (0x3fffU 
-                                                         & ((IData)(0x240U) 
-                                                            * (IData)(vlTOPp->input_index2)))) 
-                                                       + 
-                                                       (0x3ffU 
-                                                        & ((IData)(0xc0U) 
-                                                           * (IData)(vlTOPp->input_index1)))) 
+                                                        & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                           << 6U))))))) 
+                                 | (((QData)((IData)(
+                                                     vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem[
+                                                     ((IData)(1U) 
                                                       + 
-                                                      (0xffU 
-                                                       & ((IData)(vlTOPp->input_index0) 
-                                                          << 6U))))))) 
-                                       | ((QData)((IData)(
-                                                          vlTOPp->top__DOT__l1__DOT__weights__DOT__mem[
-                                                          (0x1ffU 
-                                                           & ((((((IData)(0x2400U) 
-                                                                  * (IData)(vlTOPp->input_index3)) 
-                                                                 + 
-                                                                 (0x3fffU 
-                                                                  & ((IData)(0x240U) 
-                                                                     * (IData)(vlTOPp->input_index2)))) 
-                                                                + 
-                                                                (0x3ffU 
-                                                                 & ((IData)(0xc0U) 
-                                                                    * (IData)(vlTOPp->input_index1)))) 
-                                                               + 
-                                                               (0xffU 
-                                                                & ((IData)(vlTOPp->input_index0) 
-                                                                   << 6U))) 
-                                                              >> 5U))])) 
-                                          >> (0x1fU 
-                                              & (((((IData)(0x2400U) 
-                                                    * (IData)(vlTOPp->input_index3)) 
-                                                   + 
-                                                   (0x3fffU 
-                                                    & ((IData)(0x240U) 
-                                                       * (IData)(vlTOPp->input_index2)))) 
-                                                  + 
-                                                  (0x3ffU 
-                                                   & ((IData)(0xc0U) 
-                                                      * (IData)(vlTOPp->input_index1)))) 
+                                                      (0x7fU 
+                                                       & (((((IData)(0x640U) 
+                                                             * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                            + 
+                                                            (0x7ffU 
+                                                             & ((IData)(0x140U) 
+                                                                * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                           + 
+                                                           (0x1ffU 
+                                                            & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                               << 6U))) 
+                                                          >> 5U)))])) 
+                                     << ((0U == (0x1fU 
+                                                 & ((((IData)(0x640U) 
+                                                      * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                     + 
+                                                     (0x7ffU 
+                                                      & ((IData)(0x140U) 
+                                                         * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                    + 
+                                                    (0x1ffU 
+                                                     & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                        << 6U)))))
+                                          ? 0x20U : 
+                                         ((IData)(0x20U) 
+                                          - (0x1fU 
+                                             & ((((IData)(0x640U) 
+                                                  * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
                                                  + 
-                                                 (0xffU 
-                                                  & ((IData)(vlTOPp->input_index0) 
-                                                     << 6U)))))))
-                                 : VL_ULL(0))),64);
+                                                 (0x7ffU 
+                                                  & ((IData)(0x140U) 
+                                                     * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                + (0x1ffU 
+                                                   & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                      << 6U))))))) 
+                                    | ((QData)((IData)(
+                                                       vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem[
+                                                       (0x7fU 
+                                                        & (((((IData)(0x640U) 
+                                                              * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                                             + 
+                                                             (0x7ffU 
+                                                              & ((IData)(0x140U) 
+                                                                 * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                                            + 
+                                                            (0x1ffU 
+                                                             & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                                << 6U))) 
+                                                           >> 5U))])) 
+                                       >> (0x1fU & 
+                                           ((((IData)(0x640U) 
+                                              * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_entry)) 
+                                             + (0x7ffU 
+                                                & ((IData)(0x140U) 
+                                                   * (IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_y)))) 
+                                            + (0x1ffU 
+                                               & ((IData)(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__read_index_x) 
+                                                  << 6U)))))))
+                              : VL_ULL(0))),64);
+        vcdp->chgQuad(c+97,(vlTOPp->top__DOT__l1__DOT__outmem_write_data),64);
+        vcdp->chgBus(c+113,(vlTOPp->top__DOT__l1__DOT__weight_read_index[0]),16);
+        vcdp->chgBus(c+114,(vlTOPp->top__DOT__l1__DOT__weight_read_index[1]),16);
+        vcdp->chgBus(c+115,(vlTOPp->top__DOT__l1__DOT__weight_read_index[2]),16);
+        vcdp->chgBus(c+116,(vlTOPp->top__DOT__l1__DOT__weight_read_index[3]),16);
+        vcdp->chgBus(c+145,(vlTOPp->top__DOT__l1__DOT__act_read_index[0]),16);
+        vcdp->chgBus(c+146,(vlTOPp->top__DOT__l1__DOT__act_read_index[1]),16);
+        vcdp->chgBus(c+147,(vlTOPp->top__DOT__l1__DOT__act_read_index[2]),16);
+        vcdp->chgBus(c+169,(vlTOPp->top__DOT__l1__DOT__outmem_index[0]),16);
+        vcdp->chgBus(c+170,(vlTOPp->top__DOT__l1__DOT__outmem_index[1]),16);
+        vcdp->chgBus(c+171,(vlTOPp->top__DOT__l1__DOT__outmem_index[2]),16);
+        vcdp->chgBus(c+193,(vlTOPp->top__DOT__l1__DOT__act_read_index
+                            [2U]),16);
+        vcdp->chgBus(c+201,(vlTOPp->top__DOT__l1__DOT__act_read_index
+                            [1U]),16);
+        vcdp->chgBus(c+209,(vlTOPp->top__DOT__l1__DOT__act_read_index
+                            [0U]),16);
+        vcdp->chgArray(c+217,(vlTOPp->top__DOT__l1__DOT__activation__DOT__mem),3200);
+        vcdp->chgBit(c+1017,((1U & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                              [3U])));
+        vcdp->chgBit(c+1025,((1U & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                              [2U])));
+        vcdp->chgBit(c+1033,((1U & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                              [1U])));
+        vcdp->chgBit(c+1041,((1U & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                              [0U])));
+        vcdp->chgArray(c+1049,(vlTOPp->top__DOT__l1__DOT__weights__DOT__mem),2304);
+        vcdp->chgBus(c+1625,(vlTOPp->top__DOT__l1__DOT__outmem_index
+                             [2U]),16);
+        vcdp->chgBus(c+1633,(vlTOPp->top__DOT__l1__DOT__outmem_index
+                             [1U]),16);
+        vcdp->chgBus(c+1641,(vlTOPp->top__DOT__l1__DOT__outmem_index
+                             [0U]),16);
+        vcdp->chgArray(c+1649,(vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem),3200);
+    }
+}
+
+void Vtop::traceChgThis__6(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) {
+    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    int c = code;
+    if (0 && vcdp && c) {}  // Prevent unused
+    // Body
+    {
+        vcdp->chgBit(c+2449,(vlTOPp->clk));
+        vcdp->chgQuad(c+2457,(vlTOPp->input_data),64);
+        vcdp->chgBit(c+2473,(vlTOPp->input_index[0]));
+        vcdp->chgBit(c+2474,(vlTOPp->input_index[1]));
+        vcdp->chgBit(c+2475,(vlTOPp->input_index[2]));
+        vcdp->chgBit(c+2476,(vlTOPp->input_index[3]));
+        vcdp->chgBit(c+2505,(vlTOPp->input_write_act));
+        vcdp->chgBit(c+2513,(vlTOPp->input_write_weights));
+        vcdp->chgBit(c+2521,(vlTOPp->compute));
+        vcdp->chgBit(c+2529,(vlTOPp->input_index[3U]));
+        vcdp->chgBit(c+2537,(vlTOPp->input_index[2U]));
+        vcdp->chgBit(c+2545,(vlTOPp->input_index[1U]));
+        vcdp->chgBit(c+2553,(vlTOPp->input_index[0U]));
+        vcdp->chgBus(c+2561,(vlTOPp->input_index[2U]),16);
+        vcdp->chgBus(c+2569,(vlTOPp->input_index[1U]),16);
+        vcdp->chgBus(c+2577,(vlTOPp->input_index[0U]),16);
     }
 }

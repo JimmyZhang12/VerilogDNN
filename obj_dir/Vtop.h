@@ -22,21 +22,32 @@ VL_MODULE(Vtop) {
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
     VL_IN8(clk,0,0);
-    VL_IN8(input_index3,0,0);
-    VL_IN8(input_index2,0,0);
-    VL_IN8(input_index1,0,0);
-    VL_IN8(input_index0,0,0);
     VL_IN8(input_write_act,0,0);
     VL_IN8(input_write_weights,0,0);
+    VL_IN8(compute,0,0);
     VL_IN64(input_data,63,0);
+    VL_IN8(input_index[4],0,0);
     
     // LOCAL SIGNALS
     // Internals; generally not touched by application code
     CData/*0:0*/ top__DOT__output_valid;
+    CData/*0:0*/ top__DOT__l1__DOT__weight_write;
+    CData/*0:0*/ top__DOT__l1__DOT__outmem_want_write;
+    CData/*0:0*/ top__DOT__l1__DOT__state;
+    SData/*15:0*/ top__DOT__l1__DOT__out_memory__DOT__read_index_entry;
+    SData/*15:0*/ top__DOT__l1__DOT__out_memory__DOT__read_index_y;
+    SData/*15:0*/ top__DOT__l1__DOT__out_memory__DOT__read_index_x;
     QData/*63:0*/ top__DOT__out_data;
-    WData/*50175:0*/ top__DOT__l1__DOT__activation__DOT__mem[1568];
-    WData/*9215:0*/ top__DOT__l1__DOT__weights__DOT__mem[288];
+    QData/*63:0*/ top__DOT__l1__DOT__act_out_data;
+    QData/*63:0*/ top__DOT__l1__DOT__weights_out_data;
+    QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data;
+    WData/*3199:0*/ top__DOT__l1__DOT__activation__DOT__mem[100];
+    WData/*2303:0*/ top__DOT__l1__DOT__weights__DOT__mem[72];
+    WData/*3199:0*/ top__DOT__l1__DOT__out_memory__DOT__mem[100];
     SData/*15:0*/ top__DOT__L1_to_L2_out_index[3];
+    SData/*15:0*/ top__DOT__l1__DOT__weight_read_index[4];
+    SData/*15:0*/ top__DOT__l1__DOT__act_read_index[3];
+    SData/*15:0*/ top__DOT__l1__DOT__outmem_index[3];
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
@@ -44,6 +55,7 @@ VL_MODULE(Vtop) {
     IData/*31:0*/ __Vm_traceActivity;
     QData/*63:0*/ top__DOT__l1__DOT__activation__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l1__DOT__weights__DOT____Vlvbound1;
+    QData/*63:0*/ top__DOT__l1__DOT__out_memory__DOT____Vlvbound1;
     SData/*15:0*/ top__DOT____Vcellout__l1__out_index[3];
     
     // INTERNAL VARIABLES
@@ -89,12 +101,16 @@ VL_MODULE(Vtop) {
   public:
     static void _eval_initial(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _eval_settle(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _initial__TOP__4(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _sequent__TOP__2(Vtop__Syms* __restrict vlSymsp);
+    static void _sequent__TOP__3(Vtop__Syms* __restrict vlSymsp);
     static void _settle__TOP__1(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void traceChgThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__2(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__3(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__4(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
+    static void traceChgThis__5(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
+    static void traceChgThis__6(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceFullThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;
     static void traceFullThis__1(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;
     static void traceInitThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;

@@ -89,6 +89,17 @@ uint64 toBits(double data){
     memcpy(&data_int, &data, sizeof(data));
     return data_int;
 }
+void reset(Vtop* top){
+    top->input_write_act = 0;
+    top->input_write_weights = 0;
+    top->input_index[3] = 0;
+    top->input_index[2] = 0;
+    top->input_index[1] = 0;
+    top->input_index[0] = 0;
+    top->clk = 0;
+    top->eval();
+}
+
 int main(int argc, char** argv, char** env) {
     Verilated::commandArgs(argc, argv);
     Vtop* top = new Vtop;
@@ -107,26 +118,21 @@ int main(int argc, char** argv, char** env) {
     int kernel_dim;
     double*** _weights  = read_weights(fname, num_inputs, num_outputs, kernel_dim);
 
-    top->input_write_act = 0;
-    top->input_write_weights = 0;
-    top->input_index3 = 0;
-    top->input_index2 = 0;
-    top->input_index1 = 0;
-    top->input_index0 = 0;
-    top->clk = 0;
-    top->eval();
+
 
     //std::printf("\n*****LOAD IMAGE INTO INPUT LAYER*****\n");
+    reset(top);
 
     top->input_write_act = 1;
     for(int i = 0; i<image_dim*image_dim; i++){
         top->clk = 1;
 
-        top->input_index2 = 0;
-        top->input_index1 = i/image_dim;
-        top->input_index0 = i%image_dim;
+        top->input_index[2] = 0;
+        top->input_index[1] = i/image_dim;
+        top->input_index[0] = i%image_dim;
         
-        double data = (double) (_dataset[0][i]);
+        double data = 1.0;
+        //double data = (double) (_dataset[0][i]);
         uint64 data_int;
         memcpy(&data_int, &data, sizeof(data));
         top->input_data = data_int;
@@ -139,13 +145,7 @@ int main(int argc, char** argv, char** env) {
         top->eval();
     }
 
-    top->input_write_act = 0;
-    top->input_write_weights = 0;
-    top->input_index3 = 0;
-    top->input_index2 = 0;
-    top->input_index1 = 0;
-    top->input_index0 = 0;
-    top->clk = 0;
+    reset(top);
 
     std::printf("\n*****LOAD WEIGHTS INTO INPUT LAYER*****\n");
     top->input_write_weights = 1;
@@ -154,10 +154,11 @@ int main(int argc, char** argv, char** env) {
             for(int i = 0; i<kernel_dim*kernel_dim; i++){
                 top->clk = 1;
 
-                top->input_index3 = j;
-                top->input_index2 = k;
-                top->input_index1 = i/kernel_dim;
-                top->input_index0 = i%kernel_dim;
+                top->input_write_weights = 1;
+                top->input_index[3] = j;
+                top->input_index[2] = k;
+                top->input_index[1] = i/kernel_dim;
+                top->input_index[0] = i%kernel_dim;
 
                 uint64 data_int;
                 memcpy(&data_int, &(_weights[j][k][i]), sizeof((_weights[j][k][i])));
@@ -166,7 +167,8 @@ int main(int argc, char** argv, char** env) {
                 cout <<endl<<"**********************CYCLE: "<< j*num_outputs+k*kernel_dim*kernel_dim+i << "**********************" <<endl;
                 top->eval();
 
-                //negedge
+
+
                 top->clk = 0;
                 top->eval();
             }
@@ -175,6 +177,22 @@ int main(int argc, char** argv, char** env) {
     top->input_write_weights = 0;
 
 
+
+    reset(top);
+    top->compute = 1;
+    std::printf("\n*****COMPUTE*****\n");
+    for(int i = 0; i<(364); i++){
+        top->clk = 1;
+        top->eval();
+
+        cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
+
+
+
+
+        top->clk = 0;
+        top->eval();
+    }
 
 
     // top->data = 2;
