@@ -5,7 +5,7 @@ module conv_layer(
 
     output [DATA_SIZE-1:0] out_data,
     output [15:0] out_index [2:0],
-    output output_valid,
+    output reg output_valid,
 
     input want_write_act,
     input want_write_weights,
@@ -70,7 +70,7 @@ module conv_layer(
     );
     act_memory 
         #(
-            .NAME({NAME, " ACT_MEM"}),
+            .NAME({NAME, " OUT_MEM"}),
             .DIM(INPUT_DIM), 
             .DATA_SIZE(DATA_SIZE),
             .ENTRY_NUM(NUM_INPUTS)
@@ -101,39 +101,38 @@ module conv_layer(
             weight_write = 0;
     end
 
-    
+    real temp;
 
     always @(posedge clk)begin
         if (want_write_weights) begin
-            $display("%s: = [%d][%d][%d][%d] = %f", NAME, in_index3, in_index2, in_index1, in_index0, $bitstoreal(write_data));
+            //$display("%s: = [%d][%d][%d][%d] = %f", NAME, in_index3, in_index2, in_index1, in_index0, $bitstoreal(write_data));
             weight_write = 1;
         end
 
         if (compute) begin
-            $display("%s: COMPUTE : %d", NAME, OUTPUT_DIM);
-            $display("%s: STATE :", NAME, state);
-            $display("%s: weight_read_index[%d][%d][%d][%d]", NAME, weight_read_index[3], weight_read_index[2], weight_read_index[1], weight_read_index[0]);
-            $display("%s: act_read_index[%d][%d][%d]", NAME, act_read_index[2], act_read_index[1], act_read_index[0]);
-            $display("%s: outmem_read_index[%d][%d][%d]", NAME, outmem_index[2], outmem_index[1], outmem_index[0]);
-
-            $display("%s: ACT READ %f:", NAME, $bitstoreal(act_out_data));
-            $display("%s: WEIGHT READ %f:", NAME, $bitstoreal(weights_out_data));
-            outmem_write_data = $realtobits($bitstoreal(weights_out_data) * $bitstoreal(act_out_data));
-            $display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
+            
+            if (weight_read_index[1]==(KERNEL_DIM-1) && weight_read_index[0]==(KERNEL_DIM-1)) begin
+                outmem_want_write = 1;
+            end
+            else begin
+                outmem_want_write = 0;
+                if (weight_read_index[1]==0 && weight_read_index[0]==0) begin
+                    outmem_write_data = 0;
+                end
+            end
 
             case (state)
                 0: begin
                     weight_read_index[3]=0;
                     weight_read_index[2]=0;
                     weight_read_index[1]=0;
-                    weight_read_index[0]=1;
+                    weight_read_index[0]=0;
                     act_read_index[2]=0;
                     act_read_index[1]=0;
                     act_read_index[0]=0;
                     outmem_index[0] = 0;
                     outmem_index[1] = 0;
-                    state = 1;
-                    outmem_want_write = 1;
+                    state = 2;
                 end
                 1: begin
                     //weight index update
@@ -179,13 +178,32 @@ module conv_layer(
                     end
                     act_read_index[2] = weight_read_index[3];
 
+                    state = 2;
 
 
                 end
+                2: begin
+                    outmem_write_data = $realtobits(
+                        $bitstoreal(outmem_write_data) + $bitstoreal(weights_out_data) * $bitstoreal(act_out_data));
+                    $display("%s: STATE :", NAME, state);
+                    $display("%s: weight_read_index[%d][%d][%d][%d]", NAME, weight_read_index[3], weight_read_index[2], weight_read_index[1], weight_read_index[0]);
+                    $display("%s: act_read_index[%d][%d][%d]", NAME, act_read_index[2], act_read_index[1], act_read_index[0]);
+                    $display("%s: outmem_read_index[%d][%d][%d]", NAME, outmem_index[2], outmem_index[1], outmem_index[0]);
+
+                    $display("%s: ACT READ %f:", NAME, $bitstoreal(act_out_data));
+                    $display("%s: WEIGHT READ %f:", NAME, $bitstoreal(weights_out_data));
+                    $display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
+                    state = 1;
+                end
+                3: begin
+                    output_valid = 1;
+                    state = 0;
+                end 
              
 
             endcase
-        
+            $display("%s: STATE : %d", NAME, state);
+
 
 
 

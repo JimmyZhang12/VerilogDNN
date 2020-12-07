@@ -28,7 +28,45 @@ class Net(nn.Module):
     
     def forward(self, x):
         # Set 1
+        print(x.shape)
+        print(x)
         out = self.cnn1(x)
+        print(out.shape)
+        print(out)
+        out = self.relu1(out)
+        out = self.maxpool1(out)
+        # Set 2
+        out = self.cnn2(out)
+        out = self.relu2(out)
+        out = self.maxpool2(out)
+        #Flatten
+        out = out.view(out.size(0), -1)
+        #Dense
+        out = self.fc1(out)
+        
+        return out
+    def forward_print(self, x):
+        xnp = x.numpy()
+
+        file1 = open("./verilog_data/input.txt","w") 
+        for i in xnp.shape:
+            file1.write(str(i)+"\n")
+
+        for i in np.nditer(xnp):
+            file1.write(str(i)+"\n")
+        file1.close()
+
+        out = self.cnn1(x)
+
+        outnp = out.numpy()
+        file1 = open("./verilog_data/l1_act.txt","w") 
+        for x in outnp.shape:
+            file1.write(str(x)+"\n")
+
+        for x in np.nditer(outnp):
+            file1.write(str(x)+"\n")
+        file1.close()
+
         out = self.relu1(out)
         out = self.maxpool1(out)
         # Set 2
@@ -113,23 +151,11 @@ def eval(network):
             test_loss, correct, len(test_loader.dataset),
             100. * correct / len(test_loader.dataset)))
 #def model_as_txt(network):
-    
-
-if __name__ == '__main__':
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
-    #train(num_epoch=20, device=device, lr=0.01, batch_size=64, momentum=0.5)
-
-    cwd = os.path.dirname(os.path.abspath(__file__))
-
-    network = Net()
-    network.load_state_dict(torch.load(cwd + '/model.pth'))
+def eval_single(network): 
 
     cnn1 = network.cnn1.weight.data.numpy()
     print(network.cnn1.weight.shape)
-    #print(cnn1)
-
-    file1 = open(cwd + "/cnn1.txt","w") 
+    file1 = open("./verilog_data/cnn1.txt","w") 
     for x in network.cnn1.weight.shape:
         file1.write(str(x)+"\n")
 
@@ -138,4 +164,74 @@ if __name__ == '__main__':
         file1.write(str(x)+"\n")
     file1.close()
 
-    eval(network)
+    network.eval()
+    torch.no_grad()
+
+    batch_size_test = 1
+    testset = torchvision.datasets.MNIST(
+                                        './data', train=False, download=True,
+                                        transform=torchvision.transforms.Compose(
+                                            [torchvision.transforms.ToTensor(),
+                                            torchvision.transforms.Normalize((0.1307,), (0.3081,))
+                                            ]
+                                            )
+                                        )
+    test_loader = torch.utils.data.DataLoader(testset, batch_size=batch_size_test, shuffle=True)
+
+    with torch.no_grad():
+        for data, target in test_loader:
+            output = network.forward_print(data)
+            break
+def save_input():
+    cwd = os.path.dirname(os.path.abspath(__file__))
+    batch_size_test = 1
+    testset = torchvision.datasets.MNIST(
+                                        './data', train=False, download=True,
+                                        transform=torchvision.transforms.Compose(
+                                            [torchvision.transforms.ToTensor(),
+                                            torchvision.transforms.Normalize((0.1307,), (0.3081,))
+                                            ]
+                                            )
+                                        )
+    test_loader = torch.utils.data.DataLoader(testset, batch_size=batch_size_test, shuffle=True)
+    with torch.no_grad():
+        for data, target in test_loader:
+            
+            data = data.numpy()
+            print(data.shape)
+
+            file1 = open("./verilog_data/input.txt","w") 
+            for x in data.shape:
+                file1.write(str(x)+"\n")
+
+            for x in np.nditer(data):
+                file1.write(str(x)+"\n")
+            file1.close()
+            break
+
+
+if __name__ == '__main__':
+
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    #save_input()
+    #train(num_epoch=20, device=device, lr=0.01, batch_size=64, momentum=0.5)
+
+    cwd = os.path.dirname(os.path.abspath(__file__))
+    network = Net()
+    network.load_state_dict(torch.load(cwd + '/model.pth'))
+
+    eval_single(network)
+
+    # cnn1 = network.cnn1.weight.data.numpy()
+    # print(network.cnn1.weight.shape)
+    # #print(cnn1)
+
+    # file1 = open(cwd + "/cnn1.txt","w") 
+    # for x in network.cnn1.weight.shape:
+    #     file1.write(str(x)+"\n")
+
+    # for x in np.nditer(cnn1):
+    #     #print(x)
+    #     file1.write(str(x)+"\n")
+    # file1.close()
+

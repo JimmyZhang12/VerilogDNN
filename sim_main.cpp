@@ -12,6 +12,7 @@ typedef unsigned long long int uint64;
 typedef unsigned short int uint16;
 
 using namespace std;
+
 uchar** read_mnist_images(string full_path, int& number_of_images, int& image_size, int& image_dim) {
     auto reverseInt = [](int i) {
         unsigned char c1, c2, c3, c4;
@@ -46,7 +47,7 @@ uchar** read_mnist_images(string full_path, int& number_of_images, int& image_si
         throw runtime_error("Cannot open file `" + full_path + "`!");
     }
 }
-double*** read_weights(string full_path, int& num_inputs, int& num_outputs, int& kernel_dim){
+double*** read_txt(string full_path, int& num_inputs, int& num_outputs, int& kernel_dim){
 
     ifstream file(full_path, ios::in);
 
@@ -83,7 +84,6 @@ double*** read_weights(string full_path, int& num_inputs, int& num_outputs, int&
 
 }
 
-
 uint64 toBits(double data){
     uint64 data_int;
     memcpy(&data_int, &data, sizeof(data));
@@ -105,24 +105,30 @@ int main(int argc, char** argv, char** env) {
     Vtop* top = new Vtop;
 
     //load input
-    std::string fname = "t10k-images.idx3-ubyte";
+    // std::string fname = "t10k-images.idx3-ubyte";
+    // int num_images;
+    // int image_size;
+    // int image_dim;
+    //uchar** _dataset = read_mnist_images(fname,num_images, image_size, image_dim);
+
+    string fname = "verilog_data/input.txt";
+    int num_images_;
     int num_images;
-    int image_size;
     int image_dim;
-    uchar** _dataset = read_mnist_images(fname,num_images, image_size, image_dim);
+    double*** _dataset  = read_txt(fname, num_images_, num_images, image_dim);
+
 
     //load weights
-    fname = "cnn1.txt";
+    fname = "verilog_data/cnn1.txt";
     int num_inputs;
     int num_outputs;
     int kernel_dim;
-    double*** _weights  = read_weights(fname, num_inputs, num_outputs, kernel_dim);
+    double*** _weights  = read_txt(fname, num_inputs, num_outputs, kernel_dim);
 
 
 
-    //std::printf("\n*****LOAD IMAGE INTO INPUT LAYER*****\n");
+    std::printf("\n*****LOAD IMAGE INTO INPUT LAYER*****\n");
     reset(top);
-
     top->input_write_act = 1;
     for(int i = 0; i<image_dim*image_dim; i++){
         top->clk = 1;
@@ -131,10 +137,13 @@ int main(int argc, char** argv, char** env) {
         top->input_index[1] = i/image_dim;
         top->input_index[0] = i%image_dim;
         
-        double data = 1.0;
-        //double data = (double) (_dataset[0][i]);
+        // double data = (double) (_dataset[0][i]);
+        // uint64 data_int;
+        // memcpy(&data_int, &data, sizeof(data));
+        // top->input_data = data_int;
+
         uint64 data_int;
-        memcpy(&data_int, &data, sizeof(data));
+        memcpy(&data_int, &(_dataset[0][0][i]), sizeof((_dataset[0][0][i])));
         top->input_data = data_int;
 
         //cout <<endl<<"**********************CYCLE: "<< i <<"**********************" <<endl;
@@ -146,7 +155,6 @@ int main(int argc, char** argv, char** env) {
     }
 
     reset(top);
-
     std::printf("\n*****LOAD WEIGHTS INTO INPUT LAYER*****\n");
     top->input_write_weights = 1;
     for(int j = 0; j<num_inputs; j++){
@@ -164,10 +172,8 @@ int main(int argc, char** argv, char** env) {
                 memcpy(&data_int, &(_weights[j][k][i]), sizeof((_weights[j][k][i])));
                 top->input_data = data_int;
 
-                cout <<endl<<"**********************CYCLE: "<< j*num_outputs+k*kernel_dim*kernel_dim+i << "**********************" <<endl;
+                //cout <<endl<<"**********************CYCLE: "<< j*num_outputs+k*kernel_dim*kernel_dim+i << "**********************" <<endl;
                 top->eval();
-
-
 
                 top->clk = 0;
                 top->eval();
@@ -181,14 +187,25 @@ int main(int argc, char** argv, char** env) {
     reset(top);
     top->compute = 1;
     std::printf("\n*****COMPUTE*****\n");
-    for(int i = 0; i<(364); i++){
+    int i = 0;
+    // while(!Verilated::gotFinish()) {
+    //     top->clk = 1;
+    //     top->eval();
+
+    //     cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
+
+    //     top->clk = 0;
+    //     top->eval();
+    //     i++;
+	// } exit(EXIT_SUCCESS);
+
+    //for(int i = 0; i<(26*26*9*16); i++){
+    for(int i = 0; i<(26*2); i++){
+
         top->clk = 1;
         top->eval();
 
         cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
-
-
-
 
         top->clk = 0;
         top->eval();

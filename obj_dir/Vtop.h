@@ -38,16 +38,16 @@ VL_MODULE(Vtop) {
     SData/*15:0*/ top__DOT__l1__DOT__out_memory__DOT__read_index_y;
     SData/*15:0*/ top__DOT__l1__DOT__out_memory__DOT__read_index_x;
     QData/*63:0*/ top__DOT__out_data;
-    QData/*63:0*/ top__DOT__l1__DOT__act_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__weights_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data;
-    WData/*3199:0*/ top__DOT__l1__DOT__activation__DOT__mem[100];
-    WData/*2303:0*/ top__DOT__l1__DOT__weights__DOT__mem[72];
-    WData/*3199:0*/ top__DOT__l1__DOT__out_memory__DOT__mem[100];
+    WData/*50175:0*/ top__DOT__l1__DOT__activation__DOT__mem[1568];
+    WData/*9215:0*/ top__DOT__l1__DOT__weights__DOT__mem[288];
+    WData/*50175:0*/ top__DOT__l1__DOT__out_memory__DOT__mem[1568];
     SData/*15:0*/ top__DOT__L1_to_L2_out_index[3];
     SData/*15:0*/ top__DOT__l1__DOT__weight_read_index[4];
     SData/*15:0*/ top__DOT__l1__DOT__act_read_index[3];
     SData/*15:0*/ top__DOT__l1__DOT__outmem_index[3];
+    double top__DOT__l1__DOT__temp;
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code

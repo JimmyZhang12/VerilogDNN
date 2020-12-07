@@ -20,9 +20,9 @@ module top(
     conv_layer
         #(
             .NAME("INPUT LAYER"),
-            .NUM_INPUTS(2),
-            .INPUT_DIM(5),
-            .NUM_OUTPUTS(2),
+            .NUM_INPUTS(1),
+            .INPUT_DIM(28),
+            .NUM_OUTPUTS(16),
             .KERNEL_DIM(3),
             .DATA_SIZE(DATA_SIZE)
         )
@@ -45,7 +45,10 @@ module top(
 
     always @(posedge clk)begin
         if (input_write_weights) begin
-            $display("TOP: = [%d][%d][%d][%d] = %f", input_index[3], input_index[2], input_index[1], input_index[0], $bitstoreal(input_data));
+            if (output_valid) begin
+                $finish();
+            end
+            //$display("TOP: = [%d][%d][%d][%d] = %f", input_index[3], input_index[2], input_index[1], input_index[0], $bitstoreal(input_data));
         end
     end
     
