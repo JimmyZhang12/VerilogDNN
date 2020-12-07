@@ -224,7 +224,7 @@ int main(int argc, char** argv, char** env) {
         memcpy(&data_int, &(_bias[j]), sizeof(_bias[j]));
         top->input_data = data_int;
 
-        cout <<endl<<"**********************CYCLE: "<< j << "**********************" <<endl;
+        //cout <<endl<<"**********************CYCLE: "<< j << "**********************" <<endl;
         top->eval();
 
         top->clk = 0;
@@ -255,7 +255,7 @@ int main(int argc, char** argv, char** env) {
         top->eval();
         i++;
 	} exit(EXIT_SUCCESS);
-    // for(int i = 0; i<(26*26*9*16*2 + 15000); i++){
+    // for(int i = 0; i<(26*26*9*16*2 + 30000); i++){
     // //for(int i = 0; i<(26*9); i++){
     //     top->clk = 1;
     //     top->eval();
@@ -265,27 +265,6 @@ int main(int argc, char** argv, char** env) {
     //     top->clk = 0;
     //     top->eval();
     // }
-
-
-    // top->data = 2;
-    // top->clk = 0;
-    // top->eval(); 
-    // top->data = 2;
-    // top->data = 6343;
-    // top->clk = 0;
-    // top->eval(); 
- 
-
-    //bool clk = 1;
-    //while (!Verilated::gotFinish()) {
-    // for(int i=0; i<2;i++){
-    //     top->clk = clk;
-    //     top->eval(); 
-    //     clk = !clk;
-    // }
-
-
-    //}
 
     delete top;
     exit(0);

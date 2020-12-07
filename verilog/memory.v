@@ -1,9 +1,14 @@
 //very simple memory model
 
 /* verilator lint_off DECLFILENAME */
-module act_memory(
-    input clk,
+module act_memory
+    #(
+        parameter NAME = "DEFAULT ACT MEM",
+        parameter ENTRY_NUM = 16,
+        parameter DIM = 1,
+        parameter DATA_SIZE = 64)(
 
+    input clk,
     output [DATA_SIZE-1:0] out_data,
 
     input write,
@@ -15,25 +20,27 @@ module act_memory(
     input [15:0] read_index_y,
     input [15:0] read_index_x
 );
-    parameter NAME = "DEFAULT ACT MEM";
-    parameter ENTRY_NUM = 1;
-    parameter DIM = 1;
-    parameter DATA_SIZE = 64;
-
-    reg [ENTRY_NUM-1:0][DIM-1:0][DIM-1:0][DATA_SIZE-1:0] mem;
+    reg [DATA_SIZE-1:0] mem [ENTRY_NUM-1:0][DIM-1:0][DIM-1:0];
 
     assign out_data = mem[read_index_entry][read_index_y][read_index_x];
 
     always @(posedge clk)begin
         if (write)begin
-            mem[index_entry][index_y][index_x] <= in_data;
-            $display("%s : WRITE : mem[%d][%d][%d] = %f", NAME, index_entry, index_y, index_x, $bitstoreal(in_data));
+            mem[index_entry][index_y][index_x] = in_data;
+            $display("%s : WRITE : mem[%d][%d][%d] = %f", NAME, index_entry, index_y, index_x, $bitstoreal(mem[index_entry][index_y][index_x]));
+            //$display("%s : WRITE : = %f", NAME,  $bitstoreal(mem[0][0][0]));
+
         end
 
     end
 endmodule
 
-module weight_memory(
+module weight_memory #(    
+    parameter NAME = "DEFAULT WEIGHT MEM",
+    parameter NUM_INPUTS = 1,
+    parameter NUM_OUTPUTS = 1,
+    parameter DIM = 1,
+    parameter DATA_SIZE = 64)(
 
     input clk,
     output [DATA_SIZE-1:0] out_data_weight,
@@ -57,14 +64,10 @@ module weight_memory(
     input [DATA_SIZE-1:0] in_data
 
 );
-    parameter NAME = "DEFAULT WEIGHT MEM";
-    parameter NUM_INPUTS = 1;
-    parameter NUM_OUTPUTS = 1;
-    parameter DIM = 1;
-    parameter DATA_SIZE = 64;
 
-    reg [NUM_INPUTS-1:0][NUM_OUTPUTS-1:0][DIM-1:0][DIM-1:0][DATA_SIZE-1:0] mem_weight;
-    reg [NUM_OUTPUTS-1:0][DATA_SIZE-1:0] mem_bias;
+
+    reg [DATA_SIZE-1:0] mem_weight [NUM_INPUTS-1:0][NUM_OUTPUTS-1:0][DIM-1:0][DIM-1:0];
+    reg [DATA_SIZE-1:0] mem_bias [NUM_OUTPUTS-1:0];
 
     assign out_data_weight = mem_weight[read_index_in][read_index_out][read_index_y][read_index_x];
     assign out_data_bias = mem_bias[read_index_bias];

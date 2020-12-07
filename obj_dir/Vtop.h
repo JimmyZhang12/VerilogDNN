@@ -32,34 +32,41 @@ VL_MODULE(Vtop) {
     
     // LOCAL SIGNALS
     // Internals; generally not touched by application code
+    CData/*0:0*/ top__DOT__scheduler_2_l2_inmem_wantwrite;
     CData/*0:0*/ top__DOT__scheduler_2_input_start;
     CData/*0:0*/ top__DOT__input_2_scheduler_done;
     CData/*0:0*/ top__DOT__l1__DOT__outmem_want_write;
+    CData/*0:0*/ top__DOT__l2__DOT__output_valid;
     SData/*15:0*/ top__DOT__scheduler__DOT__state;
     SData/*15:0*/ top__DOT__l1__DOT__state;
-    QData/*63:0*/ top__DOT__out_data;
     QData/*63:0*/ top__DOT__l1__DOT__act_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__weights_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__bias_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data;
-    WData/*50175:0*/ top__DOT__l1__DOT__activation__DOT__mem[1568];
-    WData/*9215:0*/ top__DOT__l1__DOT__weights__DOT__mem_weight[288];
-    WData/*1023:0*/ top__DOT__l1__DOT__weights__DOT__mem_bias[32];
-    WData/*50175:0*/ top__DOT__l1__DOT__out_memory__DOT__mem[1568];
-    SData/*15:0*/ top__DOT__L1_to_L2_out_index[3];
+    QData/*63:0*/ top__DOT__l2__DOT__read_data;
+    SData/*15:0*/ top__DOT__scheduler_2_l1_index[3];
     SData/*15:0*/ top__DOT__l1__DOT__weight_read_index[4];
     SData/*15:0*/ top__DOT__l1__DOT__act_read_index[3];
     SData/*15:0*/ top__DOT__l1__DOT__outmem_index[3];
+    QData/*63:0*/ top__DOT__l1__DOT__activation__DOT__mem[1][28][28];
+    QData/*63:0*/ top__DOT__l1__DOT__weights__DOT__mem_weight[1][16][3][3];
+    QData/*63:0*/ top__DOT__l1__DOT__weights__DOT__mem_bias[16];
+    QData/*63:0*/ top__DOT__l1__DOT__out_memory__DOT__mem[16][26][26];
+    SData/*15:0*/ top__DOT__l2__DOT__outmem_index[3];
+    SData/*15:0*/ top__DOT__l2__DOT__read_outmem_index[3];
+    QData/*63:0*/ top__DOT__l2__DOT__in_memory__DOT__mem[16][26][26];
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
     CData/*0:0*/ __Vclklast__TOP__clk;
-    SData/*15:0*/ __Vchglast__TOP__top__DOT__scheduler__DOT__state;
     IData/*31:0*/ __Vm_traceActivity;
     QData/*63:0*/ top__DOT__l1__DOT__activation__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l1__DOT__weights__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l1__DOT__out_memory__DOT____Vlvbound1;
+    QData/*63:0*/ top__DOT__l2__DOT__in_memory__DOT____Vlvbound1;
+    SData/*15:0*/ top__DOT____Vcellout__scheduler__l1_l2_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l1__read_outmem_index[3];
+    SData/*15:0*/ top__DOT____Vcellinp__l2__inmem_index[3];
     
     // INTERNAL VARIABLES
     // Internals; generally not touched by application code
@@ -105,15 +112,12 @@ VL_MODULE(Vtop) {
     static void _eval_initial(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _eval_settle(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _initial__TOP__2(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _sequent__TOP__3(Vtop__Syms* __restrict vlSymsp);
-    static void _settle__TOP__1(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _settle__TOP__4(Vtop__Syms* __restrict vlSymsp);
+    static void _sequent__TOP__1(Vtop__Syms* __restrict vlSymsp);
+    static void _settle__TOP__3(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void traceChgThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__2(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__3(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__4(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
-    static void traceChgThis__5(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
-    static void traceChgThis__6(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceFullThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;
     static void traceFullThis__1(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;
     static void traceInitThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;

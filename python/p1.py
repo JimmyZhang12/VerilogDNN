@@ -68,6 +68,15 @@ class Net(nn.Module):
         file1.close()
 
         out = self.relu1(out)
+
+        outnp = out.numpy()
+        file1 = open("./verilog_data/l1_act_relu.txt","w") 
+        for x in outnp.shape:
+            file1.write(str(x)+"\n")
+        for x in np.nditer(outnp):
+            file1.write(str(x)+"\n")
+        file1.close()
+
         out = self.maxpool1(out)
         # Set 2
         out = self.cnn2(out)

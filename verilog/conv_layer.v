@@ -1,10 +1,16 @@
 
 
-module conv_layer(
+module conv_layer #(
+        parameter NAME = "CONV_LAYER_DEFAULT_NAME",
+        parameter NUM_INPUTS = 1,
+        parameter INPUT_DIM = 5,
+        parameter NUM_OUTPUTS = 1,
+        parameter KERNEL_DIM = 3,
+        parameter DATA_SIZE = 64,
+        parameter OUTPUT_DIM = INPUT_DIM - KERNEL_DIM + 1)(
+
     input clk,
-
-    output [DATA_SIZE-1:0] out_data,
-
+    output [DATA_SIZE-1:0] outmem_out_data,
 
     input want_write_act,
     input want_write_weights,
@@ -20,16 +26,8 @@ module conv_layer(
     input [15:0] read_outmem_index [2:0],
 
     output reg output_valid
-
- 
 );
-    parameter NAME = "CONV_LAYER_DEFAULT_NAME";
-    parameter NUM_INPUTS = 1;
-    parameter INPUT_DIM = 5;
-    parameter NUM_OUTPUTS = 1;
-    parameter KERNEL_DIM = 3;
-    parameter DATA_SIZE = 64;
-    parameter OUTPUT_DIM = INPUT_DIM - KERNEL_DIM + 1; 
+
 
     act_memory
         #(
@@ -83,9 +81,9 @@ module conv_layer(
     act_memory 
         #(
             .NAME({NAME, " OUT_MEM"}),
-            .DIM(INPUT_DIM), 
+            .DIM(26), 
             .DATA_SIZE(DATA_SIZE),
-            .ENTRY_NUM(NUM_INPUTS)
+            .ENTRY_NUM(16)
         )
         out_memory(
             .out_data(outmem_out_data),
@@ -103,7 +101,6 @@ module conv_layer(
     reg [DATA_SIZE-1:0] act_out_data;
     reg [DATA_SIZE-1:0] weights_out_data;
     reg [DATA_SIZE-1:0] bias_out_data;
-    reg [DATA_SIZE-1:0] outmem_out_data;
     reg [DATA_SIZE-1:0] outmem_write_data;
 
     reg [15:0] weight_read_index [3:0];
@@ -117,6 +114,7 @@ module conv_layer(
 
 
     always @(posedge clk)begin
+    
         case (state)
             0: begin
                 if(compute) begin
@@ -210,10 +208,21 @@ module conv_layer(
 
             end
             3: begin
+                //add bias
                 outmem_write_data = $realtobits(
                     $bitstoreal(outmem_write_data) + $bitstoreal(bias_out_data)
                     );
+                //$display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
+
+                //relu done inplace
+                // if ($bitstoreal(outmem_write_data) <= 0) begin
+                //     outmem_write_data = 0.0;
+                // end
+
                 outmem_want_write=1;
+
+                // $display("%s: bias_read_index[%d]", NAME, bias_read_index);
+                // $display("%s: BIAS READ %f:", NAME, $bitstoreal(bias_out_data));
 
                 if (outmem_index[0] == OUTPUT_DIM-1 && outmem_index[1] == OUTPUT_DIM-1 && outmem_index[2] == NUM_OUTPUTS-1) begin
                     state = 4;
@@ -221,9 +230,7 @@ module conv_layer(
                 else begin
                     state = 1;
                 end
-                // $display("%s: bias_read_index[%d]", NAME, bias_read_index);
-                // $display("%s: BIAS READ %f:", NAME, $bitstoreal(bias_out_data));
-                // $display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
+
             end
                 
             4: begin

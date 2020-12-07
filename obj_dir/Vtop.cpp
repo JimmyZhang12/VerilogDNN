@@ -95,496 +95,94 @@ void Vtop::_eval_initial_loop(Vtop__Syms* __restrict vlSymsp) {
 //--------------------
 // Internal Methods
 
-void Vtop::_settle__TOP__1(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_settle__TOP__1\n"); );
+VL_INLINE_OPT void Vtop::_sequent__TOP__1(Vtop__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_sequent__TOP__1\n"); );
     Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Variables
+    CData/*0:0*/ __Vdlyvdim0__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    CData/*3:0*/ __Vdlyvdim1__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    CData/*1:0*/ __Vdlyvdim2__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    CData/*1:0*/ __Vdlyvdim3__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    CData/*0:0*/ __Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    CData/*3:0*/ __Vdlyvdim0__top__DOT__l1__DOT__weights__DOT__mem_bias__v0;
+    CData/*0:0*/ __Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_bias__v0;
+    QData/*63:0*/ __Vdlyvval__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    QData/*63:0*/ __Vdlyvval__top__DOT__l1__DOT__weights__DOT__mem_bias__v0;
     // Body
-    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[2U] 
-        = vlTOPp->top__DOT__L1_to_L2_out_index[2U];
-    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[1U] 
-        = vlTOPp->top__DOT__L1_to_L2_out_index[1U];
-    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[0U] 
-        = vlTOPp->top__DOT__L1_to_L2_out_index[0U];
-    vlTOPp->top__DOT__l1__DOT__act_out_data = ((0xc3ffU 
-                                                >= 
-                                                (0xffffU 
-                                                 & ((((IData)(0xc400U) 
-                                                      * 
-                                                      vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                      [2U]) 
-                                                     + 
-                                                     (0xffffU 
-                                                      & ((IData)(0x700U) 
-                                                         * 
-                                                         vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                         [1U]))) 
-                                                    + 
-                                                    (0x7ffU 
-                                                     & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                        [0U] 
-                                                        << 6U)))))
-                                                ? (
-                                                   ((0U 
-                                                     == 
-                                                     (0x1fU 
-                                                      & ((((IData)(0xc400U) 
-                                                           * 
-                                                           vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                           [2U]) 
-                                                          + 
-                                                          (0xffffU 
-                                                           & ((IData)(0x700U) 
-                                                              * 
-                                                              vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                              [1U]))) 
-                                                         + 
-                                                         (0x7ffU 
-                                                          & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                             [0U] 
-                                                             << 6U)))))
-                                                     ? VL_ULL(0)
-                                                     : 
-                                                    ((QData)((IData)(
-                                                                     vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                                     ((IData)(2U) 
-                                                                      + 
-                                                                      (0x7ffU 
-                                                                       & (((((IData)(0xc400U) 
-                                                                             * 
-                                                                             vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                             [2U]) 
-                                                                            + 
-                                                                            (0xffffU 
-                                                                             & ((IData)(0x700U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [1U]))) 
-                                                                           + 
-                                                                           (0x7ffU 
-                                                                            & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                               [0U] 
-                                                                               << 6U))) 
-                                                                          >> 5U)))])) 
-                                                     << 
-                                                     ((IData)(0x40U) 
-                                                      - 
-                                                      (0x1fU 
-                                                       & ((((IData)(0xc400U) 
-                                                            * 
-                                                            vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                            [2U]) 
-                                                           + 
-                                                           (0xffffU 
-                                                            & ((IData)(0x700U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [1U]))) 
-                                                          + 
-                                                          (0x7ffU 
-                                                           & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                              [0U] 
-                                                              << 6U))))))) 
-                                                   | (((QData)((IData)(
-                                                                       vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                                       ((IData)(1U) 
-                                                                        + 
-                                                                        (0x7ffU 
-                                                                         & (((((IData)(0xc400U) 
-                                                                               * 
-                                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                               [2U]) 
-                                                                              + 
-                                                                              (0xffffU 
-                                                                               & ((IData)(0x700U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [1U]))) 
-                                                                             + 
-                                                                             (0x7ffU 
-                                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                            >> 5U)))])) 
-                                                       << 
-                                                       ((0U 
-                                                         == 
-                                                         (0x1fU 
-                                                          & ((((IData)(0xc400U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [2U]) 
-                                                              + 
-                                                              (0xffffU 
-                                                               & ((IData)(0x700U) 
-                                                                  * 
-                                                                  vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                  [1U]))) 
-                                                             + 
-                                                             (0x7ffU 
-                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                 [0U] 
-                                                                 << 6U)))))
-                                                         ? 0x20U
-                                                         : 
-                                                        ((IData)(0x20U) 
-                                                         - 
-                                                         (0x1fU 
-                                                          & ((((IData)(0xc400U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [2U]) 
-                                                              + 
-                                                              (0xffffU 
-                                                               & ((IData)(0x700U) 
-                                                                  * 
-                                                                  vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                  [1U]))) 
-                                                             + 
-                                                             (0x7ffU 
-                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                 [0U] 
-                                                                 << 6U))))))) 
-                                                      | ((QData)((IData)(
-                                                                         vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                                         (0x7ffU 
-                                                                          & (((((IData)(0xc400U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [2U]) 
-                                                                               + 
-                                                                               (0xffffU 
-                                                                                & ((IData)(0x700U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [1U]))) 
-                                                                              + 
-                                                                              (0x7ffU 
-                                                                               & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                             >> 5U))])) 
-                                                         >> 
-                                                         (0x1fU 
-                                                          & ((((IData)(0xc400U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [2U]) 
-                                                              + 
-                                                              (0xffffU 
-                                                               & ((IData)(0x700U) 
-                                                                  * 
-                                                                  vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                  [1U]))) 
-                                                             + 
-                                                             (0x7ffU 
-                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                 [0U] 
-                                                                 << 6U)))))))
-                                                : VL_ULL(0));
-    vlTOPp->top__DOT__l1__DOT__weights_out_data = (
-                                                   (0x23ffU 
-                                                    >= 
-                                                    (0x3fffU 
-                                                     & (((((IData)(0x2400U) 
-                                                           * 
-                                                           vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                           [3U]) 
-                                                          + 
-                                                          (0x3fffU 
-                                                           & ((IData)(0x240U) 
-                                                              * 
-                                                              vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                              [2U]))) 
-                                                         + 
-                                                         (0x3ffU 
-                                                          & ((IData)(0xc0U) 
-                                                             * 
-                                                             vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                             [1U]))) 
-                                                        + 
-                                                        (0xffU 
-                                                         & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                            [0U] 
-                                                            << 6U)))))
-                                                    ? 
-                                                   (((0U 
-                                                      == 
-                                                      (0x1fU 
-                                                       & (((((IData)(0x2400U) 
-                                                             * 
-                                                             vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                             [3U]) 
-                                                            + 
-                                                            (0x3fffU 
-                                                             & ((IData)(0x240U) 
-                                                                * 
-                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                [2U]))) 
-                                                           + 
-                                                           (0x3ffU 
-                                                            & ((IData)(0xc0U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                               [1U]))) 
-                                                          + 
-                                                          (0xffU 
-                                                           & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                              [0U] 
-                                                              << 6U)))))
-                                                      ? VL_ULL(0)
-                                                      : 
-                                                     ((QData)((IData)(
-                                                                      vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[
-                                                                      ((IData)(2U) 
-                                                                       + 
-                                                                       (0x1ffU 
-                                                                        & ((((((IData)(0x2400U) 
-                                                                               * 
-                                                                               vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                               [3U]) 
-                                                                              + 
-                                                                              (0x3fffU 
-                                                                               & ((IData)(0x240U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [2U]))) 
-                                                                             + 
-                                                                             (0x3ffU 
-                                                                              & ((IData)(0xc0U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [1U]))) 
-                                                                            + 
-                                                                            (0xffU 
-                                                                             & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                           >> 5U)))])) 
-                                                      << 
-                                                      ((IData)(0x40U) 
-                                                       - 
-                                                       (0x1fU 
-                                                        & (((((IData)(0x2400U) 
-                                                              * 
-                                                              vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                              [3U]) 
-                                                             + 
-                                                             (0x3fffU 
-                                                              & ((IData)(0x240U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [2U]))) 
-                                                            + 
-                                                            (0x3ffU 
-                                                             & ((IData)(0xc0U) 
-                                                                * 
-                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                [1U]))) 
-                                                           + 
-                                                           (0xffU 
-                                                            & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                               [0U] 
-                                                               << 6U))))))) 
-                                                    | (((QData)((IData)(
-                                                                        vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[
-                                                                        ((IData)(1U) 
-                                                                         + 
-                                                                         (0x1ffU 
-                                                                          & ((((((IData)(0x2400U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [3U]) 
-                                                                                + 
-                                                                                (0x3fffU 
-                                                                                & ((IData)(0x240U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [2U]))) 
-                                                                               + 
-                                                                               (0x3ffU 
-                                                                                & ((IData)(0xc0U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [1U]))) 
-                                                                              + 
-                                                                              (0xffU 
-                                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                             >> 5U)))])) 
-                                                        << 
-                                                        ((0U 
-                                                          == 
-                                                          (0x1fU 
-                                                           & (((((IData)(0x2400U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [3U]) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * 
-                                                                    vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                    [2U]))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * 
-                                                                   vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                   [1U]))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                  [0U] 
-                                                                  << 6U)))))
-                                                          ? 0x20U
-                                                          : 
-                                                         ((IData)(0x20U) 
-                                                          - 
-                                                          (0x1fU 
-                                                           & (((((IData)(0x2400U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [3U]) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * 
-                                                                    vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                    [2U]))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * 
-                                                                   vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                   [1U]))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                  [0U] 
-                                                                  << 6U))))))) 
-                                                       | ((QData)((IData)(
-                                                                          vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[
-                                                                          (0x1ffU 
-                                                                           & ((((((IData)(0x2400U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [3U]) 
-                                                                                + 
-                                                                                (0x3fffU 
-                                                                                & ((IData)(0x240U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [2U]))) 
-                                                                                + 
-                                                                                (0x3ffU 
-                                                                                & ((IData)(0xc0U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [1U]))) 
-                                                                               + 
-                                                                               (0xffU 
-                                                                                & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                              >> 5U))])) 
-                                                          >> 
-                                                          (0x1fU 
-                                                           & (((((IData)(0x2400U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [3U]) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * 
-                                                                    vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                    [2U]))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * 
-                                                                   vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                   [1U]))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                  [0U] 
-                                                                  << 6U)))))))
-                                                    : VL_ULL(0));
-    vlTOPp->top__DOT__l1__DOT__bias_out_data = (((0U 
-                                                  == 
-                                                  (0x1fU 
-                                                   & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                      [2U] 
-                                                      << 6U)))
-                                                  ? VL_ULL(0)
-                                                  : 
-                                                 ((QData)((IData)(
-                                                                  vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[
-                                                                  ((IData)(2U) 
-                                                                   + 
-                                                                   (0x1eU 
-                                                                    & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                       [2U] 
-                                                                       << 1U)))])) 
-                                                  << 
-                                                  ((IData)(0x40U) 
-                                                   - 
-                                                   (0x1fU 
-                                                    & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                       [2U] 
-                                                       << 6U))))) 
-                                                | (((QData)((IData)(
-                                                                    vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[
-                                                                    ((IData)(1U) 
-                                                                     + 
-                                                                     (0x1eU 
-                                                                      & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                         [2U] 
-                                                                         << 1U)))])) 
-                                                    << 
-                                                    ((0U 
-                                                      == 
-                                                      (0x1fU 
-                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                          [2U] 
-                                                          << 6U)))
-                                                      ? 0x20U
-                                                      : 
-                                                     ((IData)(0x20U) 
-                                                      - 
-                                                      (0x1fU 
-                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                          [2U] 
-                                                          << 6U))))) 
-                                                   | ((QData)((IData)(
-                                                                      vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[
-                                                                      (0x1eU 
-                                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                          [2U] 
-                                                                          << 1U))])) 
-                                                      >> 
-                                                      (0x1fU 
-                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                          [2U] 
-                                                          << 6U)))));
-}
-
-void Vtop::_initial__TOP__2(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_initial__TOP__2\n"); );
-    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    vlTOPp->top__DOT__scheduler__DOT__state = 0U;
-    vlTOPp->top__DOT__l1__DOT__state = 0U;
-    vlTOPp->top__DOT__scheduler_2_input_start = 0U;
-    vlTOPp->top__DOT__l1__DOT__outmem_want_write = 0U;
-}
-
-VL_INLINE_OPT void Vtop::_sequent__TOP__3(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_sequent__TOP__3\n"); );
-    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
+    __Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_bias__v0 = 0U;
+    __Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 = 0U;
+    if (VL_UNLIKELY(vlTOPp->top__DOT__l1__DOT__outmem_want_write)) {
+        vlTOPp->top__DOT__l1__DOT__out_memory__DOT____Vlvbound1 
+            = vlTOPp->top__DOT__l1__DOT__outmem_write_data;
+        if (((0x19U >= (0x1fU & vlTOPp->top__DOT__l1__DOT__outmem_index
+                        [0U])) & (0x19U >= (0x1fU & 
+                                            vlTOPp->top__DOT__l1__DOT__outmem_index
+                                            [1U])))) {
+            vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem[(0xfU 
+                                                             & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                                             [2U])][(0x1fU 
+                                                                     & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                                                     [1U])][(0x1fU 
+                                                                             & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                                                             [0U])] 
+                = vlTOPp->top__DOT__l1__DOT__out_memory__DOT____Vlvbound1;
+        }
+        VL_WRITEF("INPUT LAYER OUT_MEM : WRITE : mem[%5#][%5#][%5#] = %f\n",
+                  16,vlTOPp->top__DOT__l1__DOT__outmem_index
+                  [2U],16,vlTOPp->top__DOT__l1__DOT__outmem_index
+                  [1U],16,vlTOPp->top__DOT__l1__DOT__outmem_index
+                  [0U],64,VL_CVT_D_Q(((0x19U >= (0x1fU 
+                                                 & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                                 [0U]))
+                                       ? vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem
+                                      [(0xfU & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                        [2U])][((0x19U 
+                                                 >= 
+                                                 (0x1fU 
+                                                  & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                                  [1U]))
+                                                 ? 
+                                                (0x1fU 
+                                                 & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                                 [1U])
+                                                 : 0U)]
+                                      [(0x1fU & vlTOPp->top__DOT__l1__DOT__outmem_index
+                                        [0U])] : VL_ULL(0))));
+    }
+    if (VL_UNLIKELY(vlTOPp->input_write_act)) {
+        vlTOPp->top__DOT__l1__DOT__activation__DOT____Vlvbound1 
+            = vlTOPp->input_data;
+        if (((0x1bU >= (0x1fU & vlTOPp->input_index
+                        [0U])) & ((0x1bU >= (0x1fU 
+                                             & vlTOPp->input_index
+                                             [1U])) 
+                                  & (0U >= (1U & vlTOPp->input_index
+                                            [2U]))))) {
+            vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[(1U 
+                                                             & vlTOPp->input_index
+                                                             [2U])][(0x1fU 
+                                                                     & vlTOPp->input_index
+                                                                     [1U])][(0x1fU 
+                                                                             & vlTOPp->input_index
+                                                                             [0U])] 
+                = vlTOPp->top__DOT__l1__DOT__activation__DOT____Vlvbound1;
+        }
+        VL_WRITEF("INPUT LAYER ACT_MEM : WRITE : mem[%5#][%5#][%5#] = %f\n",
+                  16,vlTOPp->input_index[2U],16,vlTOPp->input_index
+                  [1U],16,vlTOPp->input_index[0U],64,
+                  VL_CVT_D_Q(((0x1bU >= (0x1fU & vlTOPp->input_index
+                                         [0U])) ? vlTOPp->top__DOT__l1__DOT__activation__DOT__mem
+                              [((0U >= (1U & vlTOPp->input_index
+                                        [2U])) & vlTOPp->input_index
+                                [2U])][((0x1bU >= (0x1fU 
+                                                   & vlTOPp->input_index
+                                                   [1U]))
+                                         ? (0x1fU & 
+                                            vlTOPp->input_index
+                                            [1U]) : 0U)]
+                              [(0x1fU & vlTOPp->input_index
+                                [0U])] : VL_ULL(0))));
+    }
     if ((0U == (IData)(vlTOPp->top__DOT__l1__DOT__state))) {
         if (vlTOPp->top__DOT__scheduler_2_input_start) {
             vlTOPp->top__DOT__l1__DOT__outmem_write_data = VL_ULL(0);
@@ -706,587 +304,52 @@ VL_INLINE_OPT void Vtop::_sequent__TOP__3(Vtop__Syms* __restrict vlSymsp) {
             }
         }
     }
-    if (VL_UNLIKELY(vlTOPp->top__DOT__l1__DOT__outmem_want_write)) {
-        vlTOPp->top__DOT__l1__DOT__out_memory__DOT____Vlvbound1 
-            = vlTOPp->top__DOT__l1__DOT__outmem_write_data;
-        VL_WRITEF("INPUT LAYER OUT_MEM : WRITE : mem[%5#][%5#][%5#] = %f\n",
-                  16,vlTOPp->top__DOT__l1__DOT__outmem_index
-                  [2U],16,vlTOPp->top__DOT__l1__DOT__outmem_index
-                  [1U],16,vlTOPp->top__DOT__l1__DOT__outmem_index
-                  [0U],64,VL_CVT_D_Q(vlTOPp->top__DOT__l1__DOT__outmem_write_data));
-        if ((0xc3ffU >= (0xffffU & ((((IData)(0xc400U) 
-                                      * vlTOPp->top__DOT__l1__DOT__outmem_index
-                                      [2U]) + (0xffffU 
-                                               & ((IData)(0x700U) 
-                                                  * 
-                                                  vlTOPp->top__DOT__l1__DOT__outmem_index
-                                                  [1U]))) 
-                                    + (0x7ffU & (vlTOPp->top__DOT__l1__DOT__outmem_index
-                                                 [0U] 
-                                                 << 6U)))))) {
-            VL_ASSIGNSEL_WIIQ(64,(0xffffU & ((((IData)(0xc400U) 
-                                               * vlTOPp->top__DOT__l1__DOT__outmem_index
-                                               [2U]) 
-                                              + (0xffffU 
-                                                 & ((IData)(0x700U) 
-                                                    * 
-                                                    vlTOPp->top__DOT__l1__DOT__outmem_index
-                                                    [1U]))) 
-                                             + (0x7ffU 
-                                                & (vlTOPp->top__DOT__l1__DOT__outmem_index
-                                                   [0U] 
-                                                   << 6U)))), vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem, vlTOPp->top__DOT__l1__DOT__out_memory__DOT____Vlvbound1);
+    if (VL_UNLIKELY(vlTOPp->top__DOT__scheduler_2_l2_inmem_wantwrite)) {
+        vlTOPp->top__DOT__l2__DOT__in_memory__DOT____Vlvbound1 
+            = ((0x19U >= (0x1fU & vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index
+                          [0U])) ? vlTOPp->top__DOT__l1__DOT__out_memory__DOT__mem
+               [(0xfU & vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index
+                 [2U])][((0x19U >= (0x1fU & vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index
+                                    [1U])) ? (0x1fU 
+                                              & vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index
+                                              [1U])
+                          : 0U)][(0x1fU & vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index
+                                  [0U])] : VL_ULL(0));
+        if (((0x19U >= (0x1fU & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                        [0U])) & (0x19U >= (0x1fU & 
+                                            vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                            [1U])))) {
+            vlTOPp->top__DOT__l2__DOT__in_memory__DOT__mem[(0xfU 
+                                                            & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                                            [2U])][(0x1fU 
+                                                                    & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                                                    [1U])][(0x1fU 
+                                                                            & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                                                            [0U])] 
+                = vlTOPp->top__DOT__l2__DOT__in_memory__DOT____Vlvbound1;
         }
+        VL_WRITEF("MAXPOOL1 OUT_MEM : WRITE : mem[%5#][%5#][%5#] = %f\n",
+                  16,vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                  [2U],16,vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                  [1U],16,vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                  [0U],64,VL_CVT_D_Q(((0x19U >= (0x1fU 
+                                                 & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                                 [0U]))
+                                       ? vlTOPp->top__DOT__l2__DOT__in_memory__DOT__mem
+                                      [(0xfU & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                        [2U])][((0x19U 
+                                                 >= 
+                                                 (0x1fU 
+                                                  & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                                  [1U]))
+                                                 ? 
+                                                (0x1fU 
+                                                 & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                                 [1U])
+                                                 : 0U)]
+                                      [(0x1fU & vlTOPp->top__DOT____Vcellinp__l2__inmem_index
+                                        [0U])] : VL_ULL(0))));
     }
-    if (VL_UNLIKELY(vlTOPp->input_write_act)) {
-        vlTOPp->top__DOT__l1__DOT__activation__DOT____Vlvbound1 
-            = vlTOPp->input_data;
-        VL_WRITEF("INPUT LAYER ACT_MEM : WRITE : mem[%5#][%5#][%5#] = %f\n",
-                  16,vlTOPp->input_index[2U],16,vlTOPp->input_index
-                  [1U],16,vlTOPp->input_index[0U],64,
-                  VL_CVT_D_Q(vlTOPp->input_data));
-        if ((0xc3ffU >= (0xffffU & ((((IData)(0xc400U) 
-                                      * vlTOPp->input_index
-                                      [2U]) + (0xffffU 
-                                               & ((IData)(0x700U) 
-                                                  * 
-                                                  vlTOPp->input_index
-                                                  [1U]))) 
-                                    + (0x7ffU & (vlTOPp->input_index
-                                                 [0U] 
-                                                 << 6U)))))) {
-            VL_ASSIGNSEL_WIIQ(64,(0xffffU & ((((IData)(0xc400U) 
-                                               * vlTOPp->input_index
-                                               [2U]) 
-                                              + (0xffffU 
-                                                 & ((IData)(0x700U) 
-                                                    * 
-                                                    vlTOPp->input_index
-                                                    [1U]))) 
-                                             + (0x7ffU 
-                                                & (vlTOPp->input_index
-                                                   [0U] 
-                                                   << 6U)))), vlTOPp->top__DOT__l1__DOT__activation__DOT__mem, vlTOPp->top__DOT__l1__DOT__activation__DOT____Vlvbound1);
-        }
-    }
-    if (VL_UNLIKELY(vlTOPp->input_write_weights)) {
-        vlTOPp->top__DOT__l1__DOT__weights__DOT____Vlvbound1 
-            = vlTOPp->input_data;
-        VL_WRITEF("INPUT LAYER WEIGHT_MEM : WRITE weight: mem[%5#][%5#][%5#][%5#] = %f\n",
-                  16,vlTOPp->input_index[3U],16,vlTOPp->input_index
-                  [2U],16,vlTOPp->input_index[1U],16,
-                  vlTOPp->input_index[0U],64,VL_CVT_D_Q(vlTOPp->input_data));
-        if ((0x23ffU >= (0x3fffU & (((((IData)(0x2400U) 
-                                       * vlTOPp->input_index
-                                       [3U]) + (0x3fffU 
-                                                & ((IData)(0x240U) 
-                                                   * 
-                                                   vlTOPp->input_index
-                                                   [2U]))) 
-                                     + (0x3ffU & ((IData)(0xc0U) 
-                                                  * 
-                                                  vlTOPp->input_index
-                                                  [1U]))) 
-                                    + (0xffU & (vlTOPp->input_index
-                                                [0U] 
-                                                << 6U)))))) {
-            VL_ASSIGNSEL_WIIQ(64,(0x3fffU & (((((IData)(0x2400U) 
-                                                * vlTOPp->input_index
-                                                [3U]) 
-                                               + (0x3fffU 
-                                                  & ((IData)(0x240U) 
-                                                     * 
-                                                     vlTOPp->input_index
-                                                     [2U]))) 
-                                              + (0x3ffU 
-                                                 & ((IData)(0xc0U) 
-                                                    * 
-                                                    vlTOPp->input_index
-                                                    [1U]))) 
-                                             + (0xffU 
-                                                & (vlTOPp->input_index
-                                                   [0U] 
-                                                   << 6U)))), vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight, vlTOPp->top__DOT__l1__DOT__weights__DOT____Vlvbound1);
-        }
-    } else {
-        if (VL_UNLIKELY(vlTOPp->input_write_bias)) {
-            VL_WRITEF("INPUT LAYER WEIGHT_MEM : WRITE bias: mem[%5#] = %f\n",
-                      16,vlTOPp->input_index[0U],64,
-                      VL_CVT_D_Q(vlTOPp->input_data));
-            VL_ASSIGNSEL_WIIQ(64,(0x3ffU & (vlTOPp->input_index
-                                            [0U] << 6U)), vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias, vlTOPp->input_data);
-        }
-    }
-    vlTOPp->top__DOT__l1__DOT__act_out_data = ((0xc3ffU 
-                                                >= 
-                                                (0xffffU 
-                                                 & ((((IData)(0xc400U) 
-                                                      * 
-                                                      vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                      [2U]) 
-                                                     + 
-                                                     (0xffffU 
-                                                      & ((IData)(0x700U) 
-                                                         * 
-                                                         vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                         [1U]))) 
-                                                    + 
-                                                    (0x7ffU 
-                                                     & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                        [0U] 
-                                                        << 6U)))))
-                                                ? (
-                                                   ((0U 
-                                                     == 
-                                                     (0x1fU 
-                                                      & ((((IData)(0xc400U) 
-                                                           * 
-                                                           vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                           [2U]) 
-                                                          + 
-                                                          (0xffffU 
-                                                           & ((IData)(0x700U) 
-                                                              * 
-                                                              vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                              [1U]))) 
-                                                         + 
-                                                         (0x7ffU 
-                                                          & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                             [0U] 
-                                                             << 6U)))))
-                                                     ? VL_ULL(0)
-                                                     : 
-                                                    ((QData)((IData)(
-                                                                     vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                                     ((IData)(2U) 
-                                                                      + 
-                                                                      (0x7ffU 
-                                                                       & (((((IData)(0xc400U) 
-                                                                             * 
-                                                                             vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                             [2U]) 
-                                                                            + 
-                                                                            (0xffffU 
-                                                                             & ((IData)(0x700U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [1U]))) 
-                                                                           + 
-                                                                           (0x7ffU 
-                                                                            & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                               [0U] 
-                                                                               << 6U))) 
-                                                                          >> 5U)))])) 
-                                                     << 
-                                                     ((IData)(0x40U) 
-                                                      - 
-                                                      (0x1fU 
-                                                       & ((((IData)(0xc400U) 
-                                                            * 
-                                                            vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                            [2U]) 
-                                                           + 
-                                                           (0xffffU 
-                                                            & ((IData)(0x700U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [1U]))) 
-                                                          + 
-                                                          (0x7ffU 
-                                                           & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                              [0U] 
-                                                              << 6U))))))) 
-                                                   | (((QData)((IData)(
-                                                                       vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                                       ((IData)(1U) 
-                                                                        + 
-                                                                        (0x7ffU 
-                                                                         & (((((IData)(0xc400U) 
-                                                                               * 
-                                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                               [2U]) 
-                                                                              + 
-                                                                              (0xffffU 
-                                                                               & ((IData)(0x700U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [1U]))) 
-                                                                             + 
-                                                                             (0x7ffU 
-                                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                            >> 5U)))])) 
-                                                       << 
-                                                       ((0U 
-                                                         == 
-                                                         (0x1fU 
-                                                          & ((((IData)(0xc400U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [2U]) 
-                                                              + 
-                                                              (0xffffU 
-                                                               & ((IData)(0x700U) 
-                                                                  * 
-                                                                  vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                  [1U]))) 
-                                                             + 
-                                                             (0x7ffU 
-                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                 [0U] 
-                                                                 << 6U)))))
-                                                         ? 0x20U
-                                                         : 
-                                                        ((IData)(0x20U) 
-                                                         - 
-                                                         (0x1fU 
-                                                          & ((((IData)(0xc400U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [2U]) 
-                                                              + 
-                                                              (0xffffU 
-                                                               & ((IData)(0x700U) 
-                                                                  * 
-                                                                  vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                  [1U]))) 
-                                                             + 
-                                                             (0x7ffU 
-                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                 [0U] 
-                                                                 << 6U))))))) 
-                                                      | ((QData)((IData)(
-                                                                         vlTOPp->top__DOT__l1__DOT__activation__DOT__mem[
-                                                                         (0x7ffU 
-                                                                          & (((((IData)(0xc400U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [2U]) 
-                                                                               + 
-                                                                               (0xffffU 
-                                                                                & ((IData)(0x700U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [1U]))) 
-                                                                              + 
-                                                                              (0x7ffU 
-                                                                               & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                             >> 5U))])) 
-                                                         >> 
-                                                         (0x1fU 
-                                                          & ((((IData)(0xc400U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                               [2U]) 
-                                                              + 
-                                                              (0xffffU 
-                                                               & ((IData)(0x700U) 
-                                                                  * 
-                                                                  vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                  [1U]))) 
-                                                             + 
-                                                             (0x7ffU 
-                                                              & (vlTOPp->top__DOT__l1__DOT__act_read_index
-                                                                 [0U] 
-                                                                 << 6U)))))))
-                                                : VL_ULL(0));
-    vlTOPp->top__DOT__l1__DOT__weights_out_data = (
-                                                   (0x23ffU 
-                                                    >= 
-                                                    (0x3fffU 
-                                                     & (((((IData)(0x2400U) 
-                                                           * 
-                                                           vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                           [3U]) 
-                                                          + 
-                                                          (0x3fffU 
-                                                           & ((IData)(0x240U) 
-                                                              * 
-                                                              vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                              [2U]))) 
-                                                         + 
-                                                         (0x3ffU 
-                                                          & ((IData)(0xc0U) 
-                                                             * 
-                                                             vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                             [1U]))) 
-                                                        + 
-                                                        (0xffU 
-                                                         & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                            [0U] 
-                                                            << 6U)))))
-                                                    ? 
-                                                   (((0U 
-                                                      == 
-                                                      (0x1fU 
-                                                       & (((((IData)(0x2400U) 
-                                                             * 
-                                                             vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                             [3U]) 
-                                                            + 
-                                                            (0x3fffU 
-                                                             & ((IData)(0x240U) 
-                                                                * 
-                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                [2U]))) 
-                                                           + 
-                                                           (0x3ffU 
-                                                            & ((IData)(0xc0U) 
-                                                               * 
-                                                               vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                               [1U]))) 
-                                                          + 
-                                                          (0xffU 
-                                                           & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                              [0U] 
-                                                              << 6U)))))
-                                                      ? VL_ULL(0)
-                                                      : 
-                                                     ((QData)((IData)(
-                                                                      vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[
-                                                                      ((IData)(2U) 
-                                                                       + 
-                                                                       (0x1ffU 
-                                                                        & ((((((IData)(0x2400U) 
-                                                                               * 
-                                                                               vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                               [3U]) 
-                                                                              + 
-                                                                              (0x3fffU 
-                                                                               & ((IData)(0x240U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [2U]))) 
-                                                                             + 
-                                                                             (0x3ffU 
-                                                                              & ((IData)(0xc0U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [1U]))) 
-                                                                            + 
-                                                                            (0xffU 
-                                                                             & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                           >> 5U)))])) 
-                                                      << 
-                                                      ((IData)(0x40U) 
-                                                       - 
-                                                       (0x1fU 
-                                                        & (((((IData)(0x2400U) 
-                                                              * 
-                                                              vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                              [3U]) 
-                                                             + 
-                                                             (0x3fffU 
-                                                              & ((IData)(0x240U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [2U]))) 
-                                                            + 
-                                                            (0x3ffU 
-                                                             & ((IData)(0xc0U) 
-                                                                * 
-                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                [1U]))) 
-                                                           + 
-                                                           (0xffU 
-                                                            & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                               [0U] 
-                                                               << 6U))))))) 
-                                                    | (((QData)((IData)(
-                                                                        vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[
-                                                                        ((IData)(1U) 
-                                                                         + 
-                                                                         (0x1ffU 
-                                                                          & ((((((IData)(0x2400U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [3U]) 
-                                                                                + 
-                                                                                (0x3fffU 
-                                                                                & ((IData)(0x240U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [2U]))) 
-                                                                               + 
-                                                                               (0x3ffU 
-                                                                                & ((IData)(0xc0U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [1U]))) 
-                                                                              + 
-                                                                              (0xffU 
-                                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                             >> 5U)))])) 
-                                                        << 
-                                                        ((0U 
-                                                          == 
-                                                          (0x1fU 
-                                                           & (((((IData)(0x2400U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [3U]) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * 
-                                                                    vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                    [2U]))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * 
-                                                                   vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                   [1U]))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                  [0U] 
-                                                                  << 6U)))))
-                                                          ? 0x20U
-                                                          : 
-                                                         ((IData)(0x20U) 
-                                                          - 
-                                                          (0x1fU 
-                                                           & (((((IData)(0x2400U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [3U]) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * 
-                                                                    vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                    [2U]))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * 
-                                                                   vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                   [1U]))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                  [0U] 
-                                                                  << 6U))))))) 
-                                                       | ((QData)((IData)(
-                                                                          vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[
-                                                                          (0x1ffU 
-                                                                           & ((((((IData)(0x2400U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [3U]) 
-                                                                                + 
-                                                                                (0x3fffU 
-                                                                                & ((IData)(0x240U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [2U]))) 
-                                                                                + 
-                                                                                (0x3ffU 
-                                                                                & ((IData)(0xc0U) 
-                                                                                * 
-                                                                                vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [1U]))) 
-                                                                               + 
-                                                                               (0xffU 
-                                                                                & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                                [0U] 
-                                                                                << 6U))) 
-                                                                              >> 5U))])) 
-                                                          >> 
-                                                          (0x1fU 
-                                                           & (((((IData)(0x2400U) 
-                                                                 * 
-                                                                 vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                 [3U]) 
-                                                                + 
-                                                                (0x3fffU 
-                                                                 & ((IData)(0x240U) 
-                                                                    * 
-                                                                    vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                    [2U]))) 
-                                                               + 
-                                                               (0x3ffU 
-                                                                & ((IData)(0xc0U) 
-                                                                   * 
-                                                                   vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                   [1U]))) 
-                                                              + 
-                                                              (0xffU 
-                                                               & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                  [0U] 
-                                                                  << 6U)))))))
-                                                    : VL_ULL(0));
-    vlTOPp->top__DOT__l1__DOT__bias_out_data = (((0U 
-                                                  == 
-                                                  (0x1fU 
-                                                   & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                      [2U] 
-                                                      << 6U)))
-                                                  ? VL_ULL(0)
-                                                  : 
-                                                 ((QData)((IData)(
-                                                                  vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[
-                                                                  ((IData)(2U) 
-                                                                   + 
-                                                                   (0x1eU 
-                                                                    & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                       [2U] 
-                                                                       << 1U)))])) 
-                                                  << 
-                                                  ((IData)(0x40U) 
-                                                   - 
-                                                   (0x1fU 
-                                                    & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                       [2U] 
-                                                       << 6U))))) 
-                                                | (((QData)((IData)(
-                                                                    vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[
-                                                                    ((IData)(1U) 
-                                                                     + 
-                                                                     (0x1eU 
-                                                                      & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                         [2U] 
-                                                                         << 1U)))])) 
-                                                    << 
-                                                    ((0U 
-                                                      == 
-                                                      (0x1fU 
-                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                          [2U] 
-                                                          << 6U)))
-                                                      ? 0x20U
-                                                      : 
-                                                     ((IData)(0x20U) 
-                                                      - 
-                                                      (0x1fU 
-                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                          [2U] 
-                                                          << 6U))))) 
-                                                   | ((QData)((IData)(
-                                                                      vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[
-                                                                      (0x1eU 
-                                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                                          [2U] 
-                                                                          << 1U))])) 
-                                                      >> 
-                                                      (0x1fU 
-                                                       & (vlTOPp->top__DOT__l1__DOT__weight_read_index
-                                                          [2U] 
-                                                          << 6U)))));
-}
-
-VL_INLINE_OPT void Vtop::_settle__TOP__4(Vtop__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_settle__TOP__4\n"); );
-    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
     if ((0U == (IData)(vlTOPp->top__DOT__scheduler__DOT__state))) {
         if (vlTOPp->compute) {
             vlTOPp->top__DOT__scheduler_2_input_start = 1U;
@@ -1297,15 +360,273 @@ VL_INLINE_OPT void Vtop::_settle__TOP__4(Vtop__Syms* __restrict vlSymsp) {
     } else {
         if ((1U == (IData)(vlTOPp->top__DOT__scheduler__DOT__state))) {
             vlTOPp->top__DOT__scheduler_2_input_start = 0U;
-            vlTOPp->top__DOT__scheduler__DOT__state 
-                = ((IData)(vlTOPp->top__DOT__input_2_scheduler_done)
-                    ? 0xaU : 1U);
+            if (vlTOPp->top__DOT__input_2_scheduler_done) {
+                vlTOPp->top__DOT__scheduler__DOT__state = 2U;
+                vlTOPp->top__DOT__scheduler_2_l2_inmem_wantwrite = 1U;
+            } else {
+                vlTOPp->top__DOT__scheduler__DOT__state = 1U;
+            }
         } else {
-            if (VL_UNLIKELY((0xaU == (IData)(vlTOPp->top__DOT__scheduler__DOT__state)))) {
-                VL_FINISH_MT("verilog/scheduler.v", 39, "");
+            if ((2U == (IData)(vlTOPp->top__DOT__scheduler__DOT__state))) {
+                if ((0x19U == vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+                     [0U])) {
+                    vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index[0U] = 0U;
+                    vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index[1U] 
+                        = (0xffffU & ((IData)(1U) + 
+                                      vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+                                      [1U]));
+                } else {
+                    vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index[0U] 
+                        = (0xffffU & ((IData)(1U) + 
+                                      vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+                                      [0U]));
+                }
+                if ((0x19U == vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+                     [1U])) {
+                    vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index[1U] = 0U;
+                    vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index[2U] 
+                        = (0xffffU & ((IData)(1U) + 
+                                      vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+                                      [2U]));
+                }
+                if ((0xfU == vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+                     [2U])) {
+                    vlTOPp->top__DOT__scheduler__DOT__state = 0xaU;
+                }
+            } else {
+                if (VL_UNLIKELY((0xaU == (IData)(vlTOPp->top__DOT__scheduler__DOT__state)))) {
+                    vlTOPp->top__DOT__scheduler_2_l2_inmem_wantwrite = 0U;
+                    VL_FINISH_MT("verilog/scheduler.v", 77, "");
+                }
             }
         }
     }
+    if (VL_UNLIKELY(vlTOPp->input_write_weights)) {
+        vlTOPp->top__DOT__l1__DOT__weights__DOT____Vlvbound1 
+            = vlTOPp->input_data;
+        VL_WRITEF("INPUT LAYER WEIGHT_MEM : WRITE weight: mem[%5#][%5#][%5#][%5#] = %f\n",
+                  16,vlTOPp->input_index[3U],16,vlTOPp->input_index
+                  [2U],16,vlTOPp->input_index[1U],16,
+                  vlTOPp->input_index[0U],64,VL_CVT_D_Q(vlTOPp->input_data));
+        if (((2U >= (3U & vlTOPp->input_index[0U])) 
+             & ((2U >= (3U & vlTOPp->input_index[1U])) 
+                & (0U >= (1U & vlTOPp->input_index[3U]))))) {
+            __Vdlyvval__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 
+                = vlTOPp->top__DOT__l1__DOT__weights__DOT____Vlvbound1;
+            __Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 = 1U;
+            __Vdlyvdim3__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 
+                = (3U & vlTOPp->input_index[0U]);
+            __Vdlyvdim2__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 
+                = (3U & vlTOPp->input_index[1U]);
+            __Vdlyvdim1__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 
+                = (0xfU & vlTOPp->input_index[2U]);
+            __Vdlyvdim0__top__DOT__l1__DOT__weights__DOT__mem_weight__v0 
+                = (1U & vlTOPp->input_index[3U]);
+        }
+    } else {
+        if (VL_UNLIKELY(vlTOPp->input_write_bias)) {
+            VL_WRITEF("INPUT LAYER WEIGHT_MEM : WRITE bias: mem[%5#] = %f\n",
+                      16,vlTOPp->input_index[0U],64,
+                      VL_CVT_D_Q(vlTOPp->input_data));
+            __Vdlyvval__top__DOT__l1__DOT__weights__DOT__mem_bias__v0 
+                = vlTOPp->input_data;
+            __Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_bias__v0 = 1U;
+            __Vdlyvdim0__top__DOT__l1__DOT__weights__DOT__mem_bias__v0 
+                = (0xfU & vlTOPp->input_index[0U]);
+        }
+    }
+    vlTOPp->top__DOT__l1__DOT__act_out_data = ((0x1bU 
+                                                >= 
+                                                (0x1fU 
+                                                 & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                 [0U]))
+                                                ? vlTOPp->top__DOT__l1__DOT__activation__DOT__mem
+                                               [((0U 
+                                                  >= 
+                                                  (1U 
+                                                   & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                   [2U])) 
+                                                 & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                 [2U])]
+                                               [((0x1bU 
+                                                  >= 
+                                                  (0x1fU 
+                                                   & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                   [1U]))
+                                                  ? 
+                                                 (0x1fU 
+                                                  & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                  [1U])
+                                                  : 0U)]
+                                               [(0x1fU 
+                                                 & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                 [0U])]
+                                                : VL_ULL(0));
+    vlTOPp->top__DOT__scheduler_2_l1_index[2U] = vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+        [2U];
+    vlTOPp->top__DOT__scheduler_2_l1_index[1U] = vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+        [1U];
+    vlTOPp->top__DOT__scheduler_2_l1_index[0U] = vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+        [0U];
+    if (__Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_bias__v0) {
+        vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias[__Vdlyvdim0__top__DOT__l1__DOT__weights__DOT__mem_bias__v0] 
+            = __Vdlyvval__top__DOT__l1__DOT__weights__DOT__mem_bias__v0;
+    }
+    if (__Vdlyvset__top__DOT__l1__DOT__weights__DOT__mem_weight__v0) {
+        vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight[__Vdlyvdim0__top__DOT__l1__DOT__weights__DOT__mem_weight__v0][__Vdlyvdim1__top__DOT__l1__DOT__weights__DOT__mem_weight__v0][__Vdlyvdim2__top__DOT__l1__DOT__weights__DOT__mem_weight__v0][__Vdlyvdim3__top__DOT__l1__DOT__weights__DOT__mem_weight__v0] 
+            = __Vdlyvval__top__DOT__l1__DOT__weights__DOT__mem_weight__v0;
+    }
+    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[2U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[2U];
+    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[1U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[1U];
+    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[0U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[0U];
+    vlTOPp->top__DOT____Vcellinp__l2__inmem_index[2U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[2U];
+    vlTOPp->top__DOT____Vcellinp__l2__inmem_index[1U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[1U];
+    vlTOPp->top__DOT____Vcellinp__l2__inmem_index[0U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[0U];
+    vlTOPp->top__DOT__l1__DOT__bias_out_data = vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias
+        [(0xfU & vlTOPp->top__DOT__l1__DOT__weight_read_index
+          [2U])];
+    vlTOPp->top__DOT__l1__DOT__weights_out_data = (
+                                                   (2U 
+                                                    >= 
+                                                    (3U 
+                                                     & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                     [0U]))
+                                                    ? 
+                                                   vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight
+                                                   [
+                                                   ((0U 
+                                                     >= 
+                                                     (1U 
+                                                      & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                      [3U])) 
+                                                    & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                    [3U])]
+                                                   [
+                                                   (0xfU 
+                                                    & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                    [2U])]
+                                                   [
+                                                   ((2U 
+                                                     >= 
+                                                     (3U 
+                                                      & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                      [1U]))
+                                                     ? 
+                                                    (3U 
+                                                     & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                     [1U])
+                                                     : 0U)]
+                                                   [
+                                                   (3U 
+                                                    & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                    [0U])]
+                                                    : VL_ULL(0));
+}
+
+void Vtop::_initial__TOP__2(Vtop__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_initial__TOP__2\n"); );
+    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlTOPp->top__DOT__scheduler_2_input_start = 0U;
+    vlTOPp->top__DOT__scheduler__DOT__state = 0U;
+    vlTOPp->top__DOT__l1__DOT__outmem_want_write = 0U;
+    vlTOPp->top__DOT__l1__DOT__state = 0U;
+}
+
+void Vtop::_settle__TOP__3(Vtop__Syms* __restrict vlSymsp) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_settle__TOP__3\n"); );
+    Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Body
+    vlTOPp->top__DOT__l1__DOT__act_out_data = ((0x1bU 
+                                                >= 
+                                                (0x1fU 
+                                                 & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                 [0U]))
+                                                ? vlTOPp->top__DOT__l1__DOT__activation__DOT__mem
+                                               [((0U 
+                                                  >= 
+                                                  (1U 
+                                                   & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                   [2U])) 
+                                                 & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                 [2U])]
+                                               [((0x1bU 
+                                                  >= 
+                                                  (0x1fU 
+                                                   & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                   [1U]))
+                                                  ? 
+                                                 (0x1fU 
+                                                  & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                  [1U])
+                                                  : 0U)]
+                                               [(0x1fU 
+                                                 & vlTOPp->top__DOT__l1__DOT__act_read_index
+                                                 [0U])]
+                                                : VL_ULL(0));
+    vlTOPp->top__DOT__scheduler_2_l1_index[2U] = vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+        [2U];
+    vlTOPp->top__DOT__scheduler_2_l1_index[1U] = vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+        [1U];
+    vlTOPp->top__DOT__scheduler_2_l1_index[0U] = vlTOPp->top__DOT____Vcellout__scheduler__l1_l2_index
+        [0U];
+    vlTOPp->top__DOT__l1__DOT__weights_out_data = (
+                                                   (2U 
+                                                    >= 
+                                                    (3U 
+                                                     & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                     [0U]))
+                                                    ? 
+                                                   vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_weight
+                                                   [
+                                                   ((0U 
+                                                     >= 
+                                                     (1U 
+                                                      & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                      [3U])) 
+                                                    & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                    [3U])]
+                                                   [
+                                                   (0xfU 
+                                                    & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                    [2U])]
+                                                   [
+                                                   ((2U 
+                                                     >= 
+                                                     (3U 
+                                                      & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                      [1U]))
+                                                     ? 
+                                                    (3U 
+                                                     & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                     [1U])
+                                                     : 0U)]
+                                                   [
+                                                   (3U 
+                                                    & vlTOPp->top__DOT__l1__DOT__weight_read_index
+                                                    [0U])]
+                                                    : VL_ULL(0));
+    vlTOPp->top__DOT__l1__DOT__bias_out_data = vlTOPp->top__DOT__l1__DOT__weights__DOT__mem_bias
+        [(0xfU & vlTOPp->top__DOT__l1__DOT__weight_read_index
+          [2U])];
+    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[2U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[2U];
+    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[1U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[1U];
+    vlTOPp->top__DOT____Vcellinp__l1__read_outmem_index[0U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[0U];
+    vlTOPp->top__DOT____Vcellinp__l2__inmem_index[2U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[2U];
+    vlTOPp->top__DOT____Vcellinp__l2__inmem_index[1U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[1U];
+    vlTOPp->top__DOT____Vcellinp__l2__inmem_index[0U] 
+        = vlTOPp->top__DOT__scheduler_2_l1_index[0U];
 }
 
 void Vtop::_eval(Vtop__Syms* __restrict vlSymsp) {
@@ -1313,11 +634,9 @@ void Vtop::_eval(Vtop__Syms* __restrict vlSymsp) {
     Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     if (((IData)(vlTOPp->clk) & (~ (IData)(vlTOPp->__Vclklast__TOP__clk)))) {
-        vlTOPp->_sequent__TOP__3(vlSymsp);
+        vlTOPp->_sequent__TOP__1(vlSymsp);
         vlTOPp->__Vm_traceActivity = (2U | vlTOPp->__Vm_traceActivity);
     }
-    vlTOPp->_settle__TOP__4(vlSymsp);
-    vlTOPp->__Vm_traceActivity = (4U | vlTOPp->__Vm_traceActivity);
     // Final
     vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
 }
@@ -1326,9 +645,9 @@ void Vtop::_eval_initial(Vtop__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_eval_initial\n"); );
     Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
+    vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
     vlTOPp->_initial__TOP__2(vlSymsp);
     vlTOPp->__Vm_traceActivity = (1U | vlTOPp->__Vm_traceActivity);
-    vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
 }
 
 void Vtop::final() {
@@ -1342,9 +661,8 @@ void Vtop::_eval_settle(Vtop__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_eval_settle\n"); );
     Vtop* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->_settle__TOP__1(vlSymsp);
+    vlTOPp->_settle__TOP__3(vlSymsp);
     vlTOPp->__Vm_traceActivity = (1U | vlTOPp->__Vm_traceActivity);
-    vlTOPp->_settle__TOP__4(vlSymsp);
 }
 
 VL_INLINE_OPT QData Vtop::_change_request(Vtop__Syms* __restrict vlSymsp) {
@@ -1353,11 +671,6 @@ VL_INLINE_OPT QData Vtop::_change_request(Vtop__Syms* __restrict vlSymsp) {
     // Body
     // Change detection
     QData __req = false;  // Logically a bool
-    __req |= ((vlTOPp->top__DOT__scheduler__DOT__state ^ vlTOPp->__Vchglast__TOP__top__DOT__scheduler__DOT__state));
-    VL_DEBUG_IF( if(__req && ((vlTOPp->top__DOT__scheduler__DOT__state ^ vlTOPp->__Vchglast__TOP__top__DOT__scheduler__DOT__state))) VL_DBG_MSGF("        CHANGE: verilog/scheduler.v:15: top.scheduler.state\n"); );
-    // Final
-    vlTOPp->__Vchglast__TOP__top__DOT__scheduler__DOT__state 
-        = vlTOPp->top__DOT__scheduler__DOT__state;
     return __req;
 }
 
@@ -1393,14 +706,20 @@ void Vtop::_ctor_var_reset() {
     input_write_bias = VL_RAND_RESET_I(1);
     compute = VL_RAND_RESET_I(1);
     reset = VL_RAND_RESET_I(1);
-    top__DOT__out_data = VL_RAND_RESET_Q(64);
     { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
-            top__DOT__L1_to_L2_out_index[__Vi0] = VL_RAND_RESET_I(16);
+            top__DOT__scheduler_2_l1_index[__Vi0] = VL_RAND_RESET_I(16);
     }}
+    top__DOT__scheduler_2_l2_inmem_wantwrite = VL_RAND_RESET_I(1);
     top__DOT__scheduler_2_input_start = VL_RAND_RESET_I(1);
     top__DOT__input_2_scheduler_done = VL_RAND_RESET_I(1);
     { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
+            top__DOT____Vcellout__scheduler__l1_l2_index[__Vi0] = VL_RAND_RESET_I(16);
+    }}
+    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
             top__DOT____Vcellinp__l1__read_outmem_index[__Vi0] = VL_RAND_RESET_I(16);
+    }}
+    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
+            top__DOT____Vcellinp__l2__inmem_index[__Vi0] = VL_RAND_RESET_I(16);
     }}
     top__DOT__scheduler__DOT__state = VL_RAND_RESET_I(16);
     top__DOT__l1__DOT__act_out_data = VL_RAND_RESET_Q(64);
@@ -1418,13 +737,50 @@ void Vtop::_ctor_var_reset() {
     }}
     top__DOT__l1__DOT__outmem_want_write = VL_RAND_RESET_I(1);
     top__DOT__l1__DOT__state = VL_RAND_RESET_I(16);
-    VL_RAND_RESET_W(50176, top__DOT__l1__DOT__activation__DOT__mem);
+    { int __Vi0=0; for (; __Vi0<1; ++__Vi0) {
+            { int __Vi1=0; for (; __Vi1<28; ++__Vi1) {
+                    { int __Vi2=0; for (; __Vi2<28; ++__Vi2) {
+                            top__DOT__l1__DOT__activation__DOT__mem[__Vi0][__Vi1][__Vi2] = VL_RAND_RESET_Q(64);
+                    }}
+            }}
+    }}
     top__DOT__l1__DOT__activation__DOT____Vlvbound1 = VL_RAND_RESET_Q(64);
-    VL_RAND_RESET_W(9216, top__DOT__l1__DOT__weights__DOT__mem_weight);
-    VL_RAND_RESET_W(1024, top__DOT__l1__DOT__weights__DOT__mem_bias);
+    { int __Vi0=0; for (; __Vi0<1; ++__Vi0) {
+            { int __Vi1=0; for (; __Vi1<16; ++__Vi1) {
+                    { int __Vi2=0; for (; __Vi2<3; ++__Vi2) {
+                            { int __Vi3=0; for (; __Vi3<3; ++__Vi3) {
+                                    top__DOT__l1__DOT__weights__DOT__mem_weight[__Vi0][__Vi1][__Vi2][__Vi3] = VL_RAND_RESET_Q(64);
+                            }}
+                    }}
+            }}
+    }}
+    { int __Vi0=0; for (; __Vi0<16; ++__Vi0) {
+            top__DOT__l1__DOT__weights__DOT__mem_bias[__Vi0] = VL_RAND_RESET_Q(64);
+    }}
     top__DOT__l1__DOT__weights__DOT____Vlvbound1 = VL_RAND_RESET_Q(64);
-    VL_RAND_RESET_W(50176, top__DOT__l1__DOT__out_memory__DOT__mem);
+    { int __Vi0=0; for (; __Vi0<16; ++__Vi0) {
+            { int __Vi1=0; for (; __Vi1<26; ++__Vi1) {
+                    { int __Vi2=0; for (; __Vi2<26; ++__Vi2) {
+                            top__DOT__l1__DOT__out_memory__DOT__mem[__Vi0][__Vi1][__Vi2] = VL_RAND_RESET_Q(64);
+                    }}
+            }}
+    }}
     top__DOT__l1__DOT__out_memory__DOT____Vlvbound1 = VL_RAND_RESET_Q(64);
-    __Vchglast__TOP__top__DOT__scheduler__DOT__state = VL_RAND_RESET_I(16);
+    top__DOT__l2__DOT__read_data = VL_RAND_RESET_Q(64);
+    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
+            top__DOT__l2__DOT__outmem_index[__Vi0] = VL_RAND_RESET_I(16);
+    }}
+    top__DOT__l2__DOT__output_valid = VL_RAND_RESET_I(1);
+    { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
+            top__DOT__l2__DOT__read_outmem_index[__Vi0] = VL_RAND_RESET_I(16);
+    }}
+    { int __Vi0=0; for (; __Vi0<16; ++__Vi0) {
+            { int __Vi1=0; for (; __Vi1<26; ++__Vi1) {
+                    { int __Vi2=0; for (; __Vi2<26; ++__Vi2) {
+                            top__DOT__l2__DOT__in_memory__DOT__mem[__Vi0][__Vi1][__Vi2] = VL_RAND_RESET_Q(64);
+                    }}
+            }}
+    }}
+    top__DOT__l2__DOT__in_memory__DOT____Vlvbound1 = VL_RAND_RESET_Q(64);
     __Vm_traceActivity = 0;
 }
