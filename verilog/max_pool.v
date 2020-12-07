@@ -1,6 +1,6 @@
 
 
-module conv_layer(
+module max_pool(
     input clk,
 
     output [DATA_SIZE-1:0] out_data,
@@ -20,65 +20,13 @@ module conv_layer(
     input [15:0] read_outmem_index [2:0],
 
     output reg output_valid
-
- 
 );
-    parameter NAME = "CONV_LAYER_DEFAULT_NAME";
+    parameter NAME = "MAXPOOL_DEFAULT_NAME";
     parameter NUM_INPUTS = 1;
     parameter INPUT_DIM = 5;
-    parameter NUM_OUTPUTS = 1;
     parameter KERNEL_DIM = 3;
     parameter DATA_SIZE = 64;
     parameter OUTPUT_DIM = INPUT_DIM - KERNEL_DIM + 1; 
-
-    act_memory
-        #(
-            .NAME({NAME, " ACT_MEM"}),
-            .DIM(INPUT_DIM), 
-            .DATA_SIZE(DATA_SIZE),
-            .ENTRY_NUM(NUM_INPUTS)
-        )
-        activation(
-            .out_data(act_out_data),
-            .in_data(write_data),
-            .write(want_write_act),
-            .index_entry(in_index2),
-            .index_y(in_index1),
-            .index_x(in_index0),
-            .read_index_entry(act_read_index[2]),
-            .read_index_y(act_read_index[1]),
-            .read_index_x(act_read_index[0]),
-            .clk(clk)
-    );
-
-    weight_memory 
-        #(
-            .NAME({NAME, " WEIGHT_MEM"}),
-            .NUM_INPUTS(NUM_INPUTS), 
-            .NUM_OUTPUTS(NUM_OUTPUTS),
-            .DIM(KERNEL_DIM),
-        )
-        weights(
-            .clk(clk),
-            .out_data_weight(weights_out_data),
-            .out_data_bias(bias_out_data),
-
-            .weight_write(want_write_weights),
-            .bias_write(want_write_bias),
-
-            .in_data(write_data),
-            .index_in(in_index3),
-            .index_out(in_index2),
-            .index_k_y(in_index1),
-            .index_k_x(in_index0),
-
-            .read_index_in(weight_read_index[3]),
-            .read_index_out(weight_read_index[2]),
-            .read_index_y(weight_read_index[1]),
-            .read_index_x(weight_read_index[0]),
-            .read_index_bias(weight_read_index[2])
-
-    );
 
     act_memory 
         #(
@@ -114,8 +62,6 @@ module conv_layer(
  
 
     reg [15:0] state = 0;
-
-
     always @(posedge clk)begin
         case (state)
             0: begin

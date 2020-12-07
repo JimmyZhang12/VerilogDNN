@@ -182,18 +182,18 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   12] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   13] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   14] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   15] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   16] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   17] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   18] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   19] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   20] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   21] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   22] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   23] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   24] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   25] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   14] = -0.055094
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   15] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   16] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   17] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   18] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   19] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   20] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   21] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   22] = 2.452368
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   23] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   24] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   25] = 0.670415
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   26] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    6][   27] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][    0] = -0.424213
@@ -206,19 +206,19 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][    9] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   10] = -0.411485
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   11] = -0.195105
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   12] = 0.772241
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   13] = 2.375998
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   14] = 1.663218
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   15] = 2.592379
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   16] = 1.446838
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   17] = -0.284202
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   18] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   19] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   20] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   21] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   22] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   10] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   11] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   12] = -0.055094
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   13] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   14] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   15] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   16] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   17] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   18] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   19] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   20] = 1.739587
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   21] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   22] = 0.301296
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   23] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   24] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    7][   25] = -0.424213
@@ -234,15 +234,15 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][    9] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   10] = 1.485022
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   11] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   12] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   13] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   14] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   17] = 2.070521
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   18] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   10] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   11] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   12] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   13] = 2.452368
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   14] = 1.739587
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   15] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   16] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   17] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   18] = 0.670415
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   20] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    8][   21] = -0.424213
@@ -261,15 +261,15 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][    5] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][    9] = 0.504948
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   10] = 2.770574
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   11] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   12] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   13] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   14] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   17] = 2.668748
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][    9] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   10] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   11] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   12] = 1.739587
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   13] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   16] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][    9][   20] = -0.424213
@@ -289,15 +289,15 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][    5] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][    9] = 0.950436
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   10] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   11] = 2.299629
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   12] = 1.905054
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   13] = 0.848610
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   14] = 2.261444
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   17] = 1.523207
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][    9] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   10] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   11] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   12] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   13] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   16] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   10][   20] = -0.424213
@@ -315,17 +315,17 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    3] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    4] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    5] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    6] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    7] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    9] = 0.950436
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   10] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   11] = 1.014077
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   12] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    7] = 0.301296
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    8] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][    9] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   10] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   11] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   12] = -0.055094
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   13] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   14] = 2.070521
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   17] = 2.388727
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   16] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   11][   20] = -0.424213
@@ -342,19 +342,19 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    2] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    3] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    4] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    5] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    6] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    7] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    9] = 1.574120
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   10] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   11] = 1.765043
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   12] = 0.721328
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   13] = 0.899523
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   14] = 2.732389
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   17] = 2.732389
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   18] = 0.148558
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    6] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    7] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    8] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][    9] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   10] = 2.452368
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   11] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   12] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   13] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   16] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   17] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   20] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   12][   21] = -0.424213
@@ -370,19 +370,19 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    2] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    3] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    4] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    5] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    6] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    7] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    9] = 2.414183
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   10] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   11] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   12] = 2.541466
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   13] = 2.325086
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   14] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   17] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   18] = 0.899523
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    6] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    7] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    8] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][    9] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   10] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   11] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   12] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   13] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   14] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   16] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   17] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   20] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   13][   21] = -0.424213
@@ -401,15 +401,15 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][    5] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][    9] = 0.186742
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   10] = 2.732389
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   11] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   12] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   13] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   14] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   17] = 2.375998
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][    9] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   10] = -0.055094
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   11] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   12] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   13] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   14] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   15] = 2.095977
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   16] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   14][   20] = -0.424213
@@ -430,14 +430,14 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][    9] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   10] = 1.421381
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   11] = 1.663218
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   12] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   13] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   14] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   17] = -0.360572
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   10] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   11] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   12] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   13] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   14] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   15] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   16] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   15][   20] = -0.424213
@@ -459,13 +459,13 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][    9] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   10] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   11] = -0.322387
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   12] = 0.797697
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   13] = 2.057793
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   14] = 1.128631
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   15] = 2.579650
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   17] = -0.360572
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   11] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   12] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   13] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   14] = 1.739587
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   15] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   16] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   16][   20] = -0.424213
@@ -490,10 +490,10 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   12] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   13] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   14] = 1.726859
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   17] = -0.360572
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   14] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   15] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   16] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   17][   20] = -0.424213
@@ -518,10 +518,10 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   12] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   13] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   14] = 2.070521
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   14] = 0.670415
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   15] = 2.821487
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   16] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   17] = -0.360572
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   16] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   18][   20] = -0.424213
@@ -546,10 +546,10 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   12] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   13] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   14] = 2.070521
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   16] = 2.172347
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   17] = -0.386028
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   14] = 1.739587
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   15] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   16] = 2.452368
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   19] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   19][   20] = -0.424213
@@ -573,10 +573,10 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][    9] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   13] = -0.386028
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   14] = 2.108706
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   16] = 1.306827
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   13] = 0.301296
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   14] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   15] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   16] = 1.026806
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   20][   19] = -0.424213
@@ -601,10 +601,10 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][    9] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   13] = 0.250383
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   14] = 2.732389
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   16] = -0.131464
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   13] = 2.452368
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   14] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   15] = 2.452368
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   16] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   21][   19] = -0.424213
@@ -628,11 +628,11 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][    9] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   11] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   13] = -0.271474
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   14] = 2.210531
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   16] = 0.148558
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   12] = 0.301296
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   13] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   14] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   15] = -0.055094
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   16] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   22][   19] = -0.424213
@@ -655,12 +655,12 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][    9] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   10] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   11] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   13] = 0.339481
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   14] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   16] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   11] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   12] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   13] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   14] = 0.670415
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   16] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   23][   19] = -0.424213
@@ -682,13 +682,13 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][    8] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][    9] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   10] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   11] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   13] = 0.097645
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   14] = 2.566922
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   15] = 2.808758
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   16] = 0.886795
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   10] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   11] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   12] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   13] = 1.739587
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   16] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   24][   19] = -0.424213
@@ -709,14 +709,14 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][    5] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][    6] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][    7] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][    8] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][    9] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   10] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   11] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   13] = -0.118735
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   14] = 2.363270
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   15] = 1.765043
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   16] = -0.373300
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][    9] = 1.370468
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   10] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   11] = 2.821487
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   12] = 1.026806
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   13] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   15] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   16] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   18] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   25][   19] = -0.424213
@@ -741,9 +741,9 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][    9] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   10] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   11] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   12] = -0.424213
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   13] = -0.016909
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   14] = 2.465096
-INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   15] = 0.899523
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   13] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   14] = -0.424213
+INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   15] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   16] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   17] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   26][   18] = -0.424213
@@ -786,305 +786,196 @@ INPUT LAYER ACT_MEM : WRITE : mem[    0][   27][   26] = -0.424213
 INPUT LAYER ACT_MEM : WRITE : mem[    0][   27][   27] = -0.424213
 
 *****LOAD WEIGHTS INTO INPUT LAYER*****
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][0][0] = 0.043694
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][0][1] = 0.218797
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][0][2] = 0.376839
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][1][0] = -0.347401
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][1][1] = -0.217286
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][1][2] = -0.031156
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][2][0] = -0.098283
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][2][1] = -0.161845
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][0][2][2] = -0.285325
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][0][0] = 0.266758
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][0][1] = 0.109337
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][0][2] = -0.426632
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][1][0] = 0.135978
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][1][1] = 0.167289
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][1][2] = -0.246144
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][2][0] = -0.060962
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][2][1] = 0.296878
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][1][2][2] = -0.021881
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][0][0] = -0.214227
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][0][1] = 0.089178
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][0][2] = -0.017091
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][1][0] = 0.030812
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][1][1] = -0.160993
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][1][2] = -0.258711
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][2][0] = 0.049179
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][2][1] = 0.018521
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][2][2][2] = 0.287275
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][0][0] = -0.124247
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][0][1] = -0.222089
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][0][2] = -0.156826
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][1][0] = -0.054537
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][1][1] = -0.178554
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][1][2] = -0.224874
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][2][0] = 0.404063
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][2][1] = 0.415352
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][3][2][2] = 0.136682
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][0][0] = -0.128489
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][0][1] = -0.312868
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][0][2] = -0.142414
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][1][0] = 0.450439
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][1][1] = -0.323860
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][1][2] = 0.252823
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][2][0] = 0.410252
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][2][1] = -0.138707
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][4][2][2] = -0.107659
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][0][0] = 0.314242
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][0][1] = 0.485052
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][0][2] = 0.382976
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][1][0] = 0.428702
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][1][1] = -0.160656
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][1][2] = 0.139447
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][2][0] = 0.301695
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][2][1] = -0.271721
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][5][2][2] = 0.250881
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][0][0] = 0.498366
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][0][1] = 0.555000
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][0][2] = 0.536937
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][1][0] = 0.318010
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][1][1] = -0.091679
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][1][2] = -0.047364
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][2][0] = -0.491283
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][2][1] = -0.480034
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][6][2][2] = -0.389455
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][0][0] = 0.115892
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][0][1] = 0.543703
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][0][2] = 0.341648
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][1][0] = 0.386224
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][1][1] = 0.635299
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][1][2] = 0.348441
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][2][0] = 0.136662
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][2][1] = 0.414871
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][7][2][2] = 0.389725
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][0][0] = -0.001195
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][0][1] = -0.255600
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][0][2] = -0.234478
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][1][0] = -0.083768
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][1][1] = -0.063672
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][1][2] = 0.097527
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][2][0] = 0.458976
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][2][1] = -0.101592
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][8][2][2] = 0.158573
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][0][0] = -0.130773
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][0][1] = 0.302255
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][0][2] = 0.266182
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][1][0] = -0.276965
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][1][1] = 0.524930
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][1][2] = 0.488930
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][2][0] = 0.176812
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][2][1] = 0.492622
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][9][2][2] = 0.054099
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][0][0] = 0.426917
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][0][1] = 0.550524
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][0][2] = 0.100774
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][1][0] = 0.201923
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][1][1] = 0.289256
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][1][2] = 0.649561
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][2][0] = -0.419984
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][2][1] = -0.413726
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][10][2][2] = 0.079160
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][0][0] = 0.236456
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][0][1] = -0.094538
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][0][2] = -0.030800
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][1][0] = 0.071243
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][1][1] = 0.059837
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][1][2] = 0.232613
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][2][0] = 0.143950
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][2][1] = -0.290440
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][11][2][2] = -0.369419
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][0][0] = 0.341850
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][0][1] = -0.138628
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][0][2] = 0.437603
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][1][0] = 0.354605
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][1][1] = 0.321226
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][1][2] = 0.262147
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][2][0] = -0.263492
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][2][1] = -0.327619
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][12][2][2] = -0.338660
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][0][0] = -0.239210
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][0][1] = 0.468900
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][0][2] = 0.247300
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][1][0] = 0.301135
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][1][1] = 0.362973
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][1][2] = 0.091027
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][2][0] = -0.301324
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][2][1] = 0.345390
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][13][2][2] = 0.348053
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][0][0] = 0.101455
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][0][1] = -0.050089
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][0][2] = 0.374929
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][1][0] = 0.009897
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][1][1] = 0.203213
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][1][2] = 0.418754
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][2][0] = -0.349827
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][2][1] = -0.337748
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][14][2][2] = 0.120821
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][0][0] = 0.461049
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][0][1] = 0.430848
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][0][2] = 0.318426
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][1][0] = 0.656309
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][1][1] = 0.042018
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][1][2] = -0.417550
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][2][0] = 0.455224
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][2][1] = 0.272561
-INPUT LAYER WEIGHT_MEM : WRITE : mem[0][15][2][2] = -0.513502
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    0][    0] = 0.043694
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    0][    1] = 0.218797
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    0][    2] = 0.376839
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    1][    0] = -0.347401
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    1][    1] = -0.217286
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    1][    2] = -0.031156
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    2][    0] = -0.098283
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    2][    1] = -0.161845
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    0][    2][    2] = -0.285325
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    0][    0] = 0.266758
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    0][    1] = 0.109337
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    0][    2] = -0.426632
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    1][    0] = 0.135978
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    1][    1] = 0.167289
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    1][    2] = -0.246144
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    2][    0] = -0.060962
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    2][    1] = 0.296878
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    1][    2][    2] = -0.021881
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    0][    0] = -0.214227
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    0][    1] = 0.089178
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    0][    2] = -0.017091
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    1][    0] = 0.030812
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    1][    1] = -0.160993
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    1][    2] = -0.258711
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    2][    0] = 0.049179
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    2][    1] = 0.018521
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    2][    2][    2] = 0.287275
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    0][    0] = -0.124247
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    0][    1] = -0.222089
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    0][    2] = -0.156826
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    1][    0] = -0.054537
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    1][    1] = -0.178554
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    1][    2] = -0.224874
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    2][    0] = 0.404063
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    2][    1] = 0.415352
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    3][    2][    2] = 0.136682
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    0][    0] = -0.128489
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    0][    1] = -0.312868
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    0][    2] = -0.142414
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    1][    0] = 0.450439
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    1][    1] = -0.323860
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    1][    2] = 0.252823
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    2][    0] = 0.410252
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    2][    1] = -0.138707
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    4][    2][    2] = -0.107659
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    0][    0] = 0.314242
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    0][    1] = 0.485052
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    0][    2] = 0.382976
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    1][    0] = 0.428702
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    1][    1] = -0.160656
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    1][    2] = 0.139447
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    2][    0] = 0.301695
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    2][    1] = -0.271721
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    5][    2][    2] = 0.250881
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    0][    0] = 0.498366
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    0][    1] = 0.555000
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    0][    2] = 0.536937
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    1][    0] = 0.318010
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    1][    1] = -0.091679
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    1][    2] = -0.047364
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    2][    0] = -0.491283
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    2][    1] = -0.480034
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    6][    2][    2] = -0.389455
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    0][    0] = 0.115892
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    0][    1] = 0.543703
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    0][    2] = 0.341648
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    1][    0] = 0.386224
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    1][    1] = 0.635299
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    1][    2] = 0.348441
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    2][    0] = 0.136662
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    2][    1] = 0.414871
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    7][    2][    2] = 0.389725
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    0][    0] = -0.001195
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    0][    1] = -0.255600
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    0][    2] = -0.234478
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    1][    0] = -0.083768
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    1][    1] = -0.063672
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    1][    2] = 0.097527
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    2][    0] = 0.458976
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    2][    1] = -0.101592
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    8][    2][    2] = 0.158573
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    0][    0] = -0.130773
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    0][    1] = 0.302255
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    0][    2] = 0.266182
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    1][    0] = -0.276965
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    1][    1] = 0.524930
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    1][    2] = 0.488930
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    2][    0] = 0.176812
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    2][    1] = 0.492622
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][    9][    2][    2] = 0.054099
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    0][    0] = 0.426917
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    0][    1] = 0.550524
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    0][    2] = 0.100774
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    1][    0] = 0.201923
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    1][    1] = 0.289256
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    1][    2] = 0.649561
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    2][    0] = -0.419984
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    2][    1] = -0.413726
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   10][    2][    2] = 0.079160
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    0][    0] = 0.236456
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    0][    1] = -0.094538
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    0][    2] = -0.030800
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    1][    0] = 0.071243
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    1][    1] = 0.059837
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    1][    2] = 0.232613
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    2][    0] = 0.143950
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    2][    1] = -0.290440
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   11][    2][    2] = -0.369419
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    0][    0] = 0.341850
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    0][    1] = -0.138628
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    0][    2] = 0.437603
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    1][    0] = 0.354605
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    1][    1] = 0.321226
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    1][    2] = 0.262147
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    2][    0] = -0.263492
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    2][    1] = -0.327619
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   12][    2][    2] = -0.338660
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    0][    0] = -0.239210
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    0][    1] = 0.468900
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    0][    2] = 0.247300
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    1][    0] = 0.301135
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    1][    1] = 0.362973
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    1][    2] = 0.091027
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    2][    0] = -0.301324
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    2][    1] = 0.345390
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   13][    2][    2] = 0.348053
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    0][    0] = 0.101455
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    0][    1] = -0.050089
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    0][    2] = 0.374929
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    1][    0] = 0.009897
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    1][    1] = 0.203213
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    1][    2] = 0.418754
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    2][    0] = -0.349827
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    2][    1] = -0.337748
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   14][    2][    2] = 0.120821
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    0][    0] = 0.461049
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    0][    1] = 0.430848
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    0][    2] = 0.318426
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    1][    0] = 0.656309
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    1][    1] = 0.042018
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    1][    2] = -0.417550
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    2][    0] = 0.455224
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    2][    1] = 0.272561
+INPUT LAYER WEIGHT_MEM : WRITE weight: mem[    0][   15][    2][    2] = -0.513502
 
-*****COMPUTE*****
-INPUT LAYER: STATE : 0
+*****LOAD BIAS INTO INPUT LAYER*****
 
 **********************CYCLE: 0**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    0] = 0.074905
 
 **********************CYCLE: 1**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    1] = -0.132175
 
 **********************CYCLE: 2**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    2] = -0.169141
 
 **********************CYCLE: 3**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    3] = -0.100460
 
 **********************CYCLE: 4**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    4] = 0.243701
 
 **********************CYCLE: 5**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    5] = 0.303069
 
 **********************CYCLE: 6**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    6] = -0.054916
 
 **********************CYCLE: 7**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    7] = 0.186627
 
 **********************CYCLE: 8**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    8] = 0.192869
 
 **********************CYCLE: 9**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[    9] = -0.233172
 
 **********************CYCLE: 10**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[   10] = 0.038996
 
 **********************CYCLE: 11**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[   11] = 0.113372
 
 **********************CYCLE: 12**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[   12] = 0.030444
 
 **********************CYCLE: 13**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[   13] = -0.010083
 
 **********************CYCLE: 14**********************
-INPUT LAYER: STATE : 0
+INPUT LAYER WEIGHT_MEM : WRITE bias: mem[   14] = -0.012048
 
 **********************CYCLE: 15**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 16**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 17**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 18**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 19**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 20**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 21**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 22**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 23**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 24**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 25**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 26**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 27**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 28**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 29**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 30**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 31**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 32**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 33**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 34**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 35**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 36**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 37**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 38**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 39**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 40**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 41**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 42**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 43**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 44**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 45**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 46**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 47**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 48**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 49**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 50**********************
-INPUT LAYER: STATE : 0
-
-**********************CYCLE: 51**********************

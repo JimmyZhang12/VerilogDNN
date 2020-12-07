@@ -84,6 +84,31 @@ double*** read_txt(string full_path, int& num_inputs, int& num_outputs, int& ker
 
 }
 
+double* read_bias(string full_path, int& num_outputs){
+
+    ifstream file(full_path, ios::in);
+
+    if(file.is_open()) {
+        string tp;
+        getline(file, tp);
+        num_outputs = stoi(tp);
+
+        double* _data = new double[num_outputs];
+
+        for(int i=0;i<num_outputs;i++){
+            getline(file, tp);
+            _data[i] = stof(tp);
+        }
+
+        file.close(); //close the file object.
+        return _data;
+    } else {
+        throw runtime_error("Cannot open file `" + full_path + "`!");
+    }
+
+}
+
+
 uint64 toBits(double data){
     uint64 data_int;
     memcpy(&data_int, &data, sizeof(data));
@@ -92,11 +117,13 @@ uint64 toBits(double data){
 void reset(Vtop* top){
     top->input_write_act = 0;
     top->input_write_weights = 0;
+    top->input_write_bias = 0;
     top->input_index[3] = 0;
     top->input_index[2] = 0;
     top->input_index[1] = 0;
     top->input_index[0] = 0;
     top->clk = 0;
+    top->compute = 0;
     top->eval();
 }
 
@@ -124,6 +151,10 @@ int main(int argc, char** argv, char** env) {
     int num_outputs;
     int kernel_dim;
     double*** _weights  = read_txt(fname, num_inputs, num_outputs, kernel_dim);
+
+    fname = "verilog_data/cnn1_bias.txt";
+    int num_bias;
+    double* _bias  = read_bias(fname, num_bias);
 
 
 
@@ -180,36 +211,60 @@ int main(int argc, char** argv, char** env) {
             }
         }
     }
+
+    reset(top);
+    std::printf("\n*****LOAD BIAS INTO INPUT LAYER*****\n");
+    top->input_write_bias = 1;
+    for(int j = 0; j<num_bias; j++){
+        top->clk = 1;
+
+        top->input_index[0] = j;
+
+        uint64 data_int;
+        memcpy(&data_int, &(_bias[j]), sizeof(_bias[j]));
+        top->input_data = data_int;
+
+        cout <<endl<<"**********************CYCLE: "<< j << "**********************" <<endl;
+        top->eval();
+
+        top->clk = 0;
+        top->eval();
+
+    }
     top->input_write_weights = 0;
 
 
 
     reset(top);
     top->compute = 1;
+    top->clk = 1;
+    top->eval();
+    top->clk = 0;
+    top->eval();
+
     std::printf("\n*****COMPUTE*****\n");
+    reset(top);
     int i = 0;
-    // while(!Verilated::gotFinish()) {
-    //     top->clk = 1;
-    //     top->eval();
-
-    //     cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
-
-    //     top->clk = 0;
-    //     top->eval();
-    //     i++;
-	// } exit(EXIT_SUCCESS);
-
-    //for(int i = 0; i<(26*26*9*16); i++){
-    for(int i = 0; i<(26*2); i++){
-
+    while(!Verilated::gotFinish()) {
         top->clk = 1;
         top->eval();
 
-        cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
+        //cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
 
         top->clk = 0;
         top->eval();
-    }
+        i++;
+	} exit(EXIT_SUCCESS);
+    // for(int i = 0; i<(26*26*9*16*2 + 15000); i++){
+    // //for(int i = 0; i<(26*9); i++){
+    //     top->clk = 1;
+    //     top->eval();
+
+    //     //cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
+
+    //     top->clk = 0;
+    //     top->eval();
+    // }
 
 
     // top->data = 2;

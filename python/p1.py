@@ -164,6 +164,17 @@ def eval_single(network):
         file1.write(str(x)+"\n")
     file1.close()
 
+    bias = network.cnn1.bias.data.numpy()
+    print(network.cnn1.bias.shape)
+    file1 = open("./verilog_data/cnn1_bias.txt","w") 
+    for x in network.cnn1.bias.shape:
+        file1.write(str(x)+"\n")
+
+    for x in np.nditer(bias):
+        #print(x)
+        file1.write(str(x)+"\n")
+    file1.close()
+
     network.eval()
     torch.no_grad()
 
