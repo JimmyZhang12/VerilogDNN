@@ -16,11 +16,15 @@ module conv_layer #(
     input want_write_weights,
     input want_write_bias,
     input [DATA_SIZE-1:0] write_data,
+
     
     input [15:0] in_index3,
     input [15:0] in_index2,
     input [15:0] in_index1,
     input [15:0] in_index0,
+    input [15:0] act_index2,
+    input [15:0] act_index1,
+    input [15:0] act_index0,
     input compute,
 
     input [15:0] read_outmem_index [2:0],
@@ -28,10 +32,17 @@ module conv_layer #(
     output reg output_valid
 );
 
+    parameter DEBUG = 0;
+    parameter DEBUG_WEIGHT = 0;
+    parameter DEBUG_ACT = 0;
+    parameter DEBUG_OUTMEM = 0;
+
+
+    //parameter DEBUG_BIAS = 0;
 
     act_memory
         #(
-            .DEBUG(0),
+            .DEBUG(DEBUG_ACT),
             .NAME({NAME, " ACT_MEM"}),
             .DIM(INPUT_DIM), 
             .DATA_SIZE(DATA_SIZE),
@@ -41,9 +52,9 @@ module conv_layer #(
             .out_data(act_out_data),
             .in_data(write_data),
             .write(want_write_act),
-            .index_entry(in_index2),
-            .index_y(in_index1),
-            .index_x(in_index0),
+            .index_entry(act_index2),
+            .index_y(act_index1),
+            .index_x(act_index0),
             .read_index_entry(act_read_index[2]),
             .read_index_y(act_read_index[1]),
             .read_index_x(act_read_index[0]),
@@ -52,7 +63,7 @@ module conv_layer #(
 
     weight_memory 
         #(
-            .DEBUG(0),
+            .DEBUG(DEBUG_WEIGHT),
             .NAME({NAME, " WEIGHT_MEM"}),
             .NUM_INPUTS(NUM_INPUTS), 
             .NUM_OUTPUTS(NUM_OUTPUTS),
@@ -82,7 +93,7 @@ module conv_layer #(
 
     act_memory 
         #(
-            .DEBUG(0),
+            .DEBUG(DEBUG_OUTMEM),
             .NAME({NAME, " OUT_MEM"}),
             .DIM(26), 
             .DATA_SIZE(DATA_SIZE),
@@ -115,7 +126,9 @@ module conv_layer #(
 
     reg [15:0] state = 0;
     always @(posedge clk)begin
-    
+        if (DEBUG && (state !=0)) begin
+        $display("*****");
+        end
         case (state)
             0: begin
                 if(compute) begin
@@ -200,13 +213,15 @@ module conv_layer #(
                 else begin
                     state = 1;  
                 end
-    
-                // $display("%s: weight_read_index[%d][%d][%d][%d]", NAME, weight_read_index[3], weight_read_index[2], weight_read_index[1], weight_read_index[0]);
-                // $display("%s: act_read_index[%d][%d][%d]", NAME, act_read_index[2], act_read_index[1], act_read_index[0]);
-                // $display("%s: outmem_read_index[%d][%d][%d]", NAME, outmem_index[2], outmem_index[1], outmem_index[0]);
-                // $display("%s: ACT READ %f:", NAME, $bitstoreal(act_out_data));
-                // $display("%s: WEIGHT READ %f:", NAME, $bitstoreal(weights_out_data));
-                // $display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
+                
+                if (DEBUG) begin
+                    $display("%s: weight_read_index[%d][%d][%d][%d]", NAME, weight_read_index[3], weight_read_index[2], weight_read_index[1], weight_read_index[0]);
+                    $display("%s: act_read_index[%d][%d][%d]", NAME, act_read_index[2], act_read_index[1], act_read_index[0]);
+                    $display("%s: outmem_read_index[%d][%d][%d]", NAME, outmem_index[2], outmem_index[1], outmem_index[0]);
+                    $display("%s: ACT READ %f:", NAME, $bitstoreal(act_out_data));
+                    $display("%s: WEIGHT READ %f:", NAME, $bitstoreal(weights_out_data));
+                    $display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
+                end
 
             end
             3: begin
@@ -223,8 +238,10 @@ module conv_layer #(
 
                 outmem_want_write=1;
 
-                // $display("%s: bias_read_index[%d]", NAME, bias_read_index);
-                // $display("%s: BIAS READ %f:", NAME, $bitstoreal(bias_out_data));
+                if (DEBUG) begin
+                    $display("%s: bias_read_index[%d]", NAME, weight_read_index[2]);
+                    $display("%s: BIAS READ %f:", NAME, $bitstoreal(bias_out_data));
+                end
 
                 if (outmem_index[0] == OUTPUT_DIM-1 && outmem_index[1] == OUTPUT_DIM-1 && outmem_index[2] == NUM_OUTPUTS-1) begin
                     state = 4;

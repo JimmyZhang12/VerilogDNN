@@ -143,7 +143,6 @@ module max_pool #(
 
             end 
             3: begin               
-            $display("**********");
                 output_valid = 1;
                 outmem_want_write = 0;
                 if(compute)begin
