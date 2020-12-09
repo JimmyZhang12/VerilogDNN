@@ -7,7 +7,9 @@ module scheduler(
     output reg input_compute_start,
     input input_compute_done,
     output wire [15:0] l1_l2_index [2:0],
-    output reg l2_inmem_wantwrite
+    output reg l2_inmem_wantwrite,
+    output reg l2_compute_start,
+    input l2_compute_done
 );
 
 parameter DATA_SIZE = 64;
@@ -66,14 +68,23 @@ always @(posedge clk) begin
                 l1_l2_index[2] = l1_l2_index[2] + 1;
             end
             if (l1_l2_index[2] == l2_NUM_INPUT-1) begin
-                state = 10;
+                l2_compute_start = 1;
+                state = 3;
+                l2_inmem_wantwrite = 0;
             end
 
-            
+
+        end
+        3: begin
+            l2_compute_start = 0;
+            if (l2_compute_done) begin
+                $finish(l2_compute_done); 
+                state = 10;
+            end
+            state = 3;
         end
 
         10: begin
-            l2_inmem_wantwrite = 0;
             $finish();
         end
     endcase

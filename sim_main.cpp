@@ -146,7 +146,7 @@ int main(int argc, char** argv, char** env) {
 
 
     //load weights
-    fname = "verilog_data/cnn1.txt";
+    fname = "verilog_data/cnn1_weights.txt";
     int num_inputs;
     int num_outputs;
     int kernel_dim;
@@ -255,7 +255,7 @@ int main(int argc, char** argv, char** env) {
         top->eval();
         i++;
 	} exit(EXIT_SUCCESS);
-    // for(int i = 0; i<(26*26*9*16*2 + 30000); i++){
+    // for(int i = 0; i<(26*26*9*16*2 + 40000); i++){
     // //for(int i = 0; i<(26*9); i++){
     //     top->clk = 1;
     //     top->eval();

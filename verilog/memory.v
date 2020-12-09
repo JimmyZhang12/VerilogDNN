@@ -3,6 +3,7 @@
 /* verilator lint_off DECLFILENAME */
 module act_memory
     #(
+        parameter DEBUG = 0,
         parameter NAME = "DEFAULT ACT MEM",
         parameter ENTRY_NUM = 16,
         parameter DIM = 1,
@@ -27,7 +28,9 @@ module act_memory
     always @(posedge clk)begin
         if (write)begin
             mem[index_entry][index_y][index_x] = in_data;
-            $display("%s : WRITE : mem[%d][%d][%d] = %f", NAME, index_entry, index_y, index_x, $bitstoreal(mem[index_entry][index_y][index_x]));
+            if (DEBUG) begin
+                $display("%s : WRITE : mem[%d][%d][%d] = %f", NAME, index_entry, index_y, index_x, $bitstoreal(mem[index_entry][index_y][index_x]));
+            end
             //$display("%s : WRITE : = %f", NAME,  $bitstoreal(mem[0][0][0]));
 
         end
@@ -36,6 +39,7 @@ module act_memory
 endmodule
 
 module weight_memory #(    
+    parameter DEBUG = 0,
     parameter NAME = "DEFAULT WEIGHT MEM",
     parameter NUM_INPUTS = 1,
     parameter NUM_OUTPUTS = 1,
@@ -75,11 +79,15 @@ module weight_memory #(
     always @(posedge clk)begin
         if (weight_write)begin
             mem_weight[index_in][index_out][index_k_y][index_k_x] <= in_data;
-            $display("%s : WRITE weight: mem[%d][%d][%d][%d] = %f", NAME, index_in, index_out, index_k_y, index_k_x, $bitstoreal(in_data));
+            if (DEBUG) begin
+                $display("%s : WRITE weight: mem[%d][%d][%d][%d] = %f", NAME, index_in, index_out, index_k_y, index_k_x, $bitstoreal(in_data));
+            end
         end
         else if (bias_write) begin
             mem_bias[index_k_x] <= in_data;
-            $display("%s : WRITE bias: mem[%d] = %f", NAME, index_k_x, $bitstoreal(in_data));
+            if (DEBUG) begin
+                $display("%s : WRITE bias: mem[%d] = %f", NAME, index_k_x, $bitstoreal(in_data));
+            end
         end
 
     end

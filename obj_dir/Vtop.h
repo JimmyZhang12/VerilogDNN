@@ -35,15 +35,21 @@ VL_MODULE(Vtop) {
     CData/*0:0*/ top__DOT__scheduler_2_l2_inmem_wantwrite;
     CData/*0:0*/ top__DOT__scheduler_2_input_start;
     CData/*0:0*/ top__DOT__input_2_scheduler_done;
+    CData/*0:0*/ top__DOT__l2_compute_start;
+    CData/*0:0*/ top__DOT__l2_compute_done;
     CData/*0:0*/ top__DOT__l1__DOT__outmem_want_write;
-    CData/*0:0*/ top__DOT__l2__DOT__output_valid;
+    CData/*0:0*/ top__DOT__l2__DOT__outmem_want_write;
     SData/*15:0*/ top__DOT__scheduler__DOT__state;
     SData/*15:0*/ top__DOT__l1__DOT__state;
+    SData/*15:0*/ top__DOT__l2__DOT__state;
+    SData/*15:0*/ top__DOT__l2__DOT__k_state;
     QData/*63:0*/ top__DOT__l1__DOT__act_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__weights_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__bias_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data;
     QData/*63:0*/ top__DOT__l2__DOT__read_data;
+    QData/*63:0*/ top__DOT__l2__DOT__outmem_write_data;
+    QData/*63:0*/ top__DOT__l2__DOT__inmem_read_data;
     SData/*15:0*/ top__DOT__scheduler_2_l1_index[3];
     SData/*15:0*/ top__DOT__l1__DOT__weight_read_index[4];
     SData/*15:0*/ top__DOT__l1__DOT__act_read_index[3];
@@ -52,9 +58,11 @@ VL_MODULE(Vtop) {
     QData/*63:0*/ top__DOT__l1__DOT__weights__DOT__mem_weight[1][16][3][3];
     QData/*63:0*/ top__DOT__l1__DOT__weights__DOT__mem_bias[16];
     QData/*63:0*/ top__DOT__l1__DOT__out_memory__DOT__mem[16][26][26];
-    SData/*15:0*/ top__DOT__l2__DOT__outmem_index[3];
-    SData/*15:0*/ top__DOT__l2__DOT__read_outmem_index[3];
+    SData/*15:0*/ top__DOT__l2__DOT__outmem_read_index[3];
+    SData/*15:0*/ top__DOT__l2__DOT__outmem_write_index[3];
+    SData/*15:0*/ top__DOT__l2__DOT__inmem_read_index[3];
     QData/*63:0*/ top__DOT__l2__DOT__in_memory__DOT__mem[16][26][26];
+    QData/*63:0*/ top__DOT__l2__DOT__out_memory__DOT__mem[16][25][25];
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
@@ -64,9 +72,10 @@ VL_MODULE(Vtop) {
     QData/*63:0*/ top__DOT__l1__DOT__weights__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l1__DOT__out_memory__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l2__DOT__in_memory__DOT____Vlvbound1;
+    QData/*63:0*/ top__DOT__l2__DOT__out_memory__DOT____Vlvbound1;
     SData/*15:0*/ top__DOT____Vcellout__scheduler__l1_l2_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l1__read_outmem_index[3];
-    SData/*15:0*/ top__DOT____Vcellinp__l2__inmem_index[3];
+    SData/*15:0*/ top__DOT____Vcellinp__l2__inmem_write_index[3];
     
     // INTERNAL VARIABLES
     // Internals; generally not touched by application code

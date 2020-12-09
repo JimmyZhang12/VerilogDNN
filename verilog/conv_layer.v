@@ -31,6 +31,7 @@ module conv_layer #(
 
     act_memory
         #(
+            .DEBUG(0),
             .NAME({NAME, " ACT_MEM"}),
             .DIM(INPUT_DIM), 
             .DATA_SIZE(DATA_SIZE),
@@ -51,6 +52,7 @@ module conv_layer #(
 
     weight_memory 
         #(
+            .DEBUG(0),
             .NAME({NAME, " WEIGHT_MEM"}),
             .NUM_INPUTS(NUM_INPUTS), 
             .NUM_OUTPUTS(NUM_OUTPUTS),
@@ -80,6 +82,7 @@ module conv_layer #(
 
     act_memory 
         #(
+            .DEBUG(0),
             .NAME({NAME, " OUT_MEM"}),
             .DIM(26), 
             .DATA_SIZE(DATA_SIZE),
@@ -111,8 +114,6 @@ module conv_layer #(
  
 
     reg [15:0] state = 0;
-
-
     always @(posedge clk)begin
     
         case (state)
@@ -129,6 +130,7 @@ module conv_layer #(
                     act_read_index[0]=0;
                     outmem_index[0] = 0;
                     outmem_index[1] = 0;
+                    outmem_index[2] = 0;
                     state = 2;
                 end
             end
@@ -215,9 +217,9 @@ module conv_layer #(
                 //$display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
 
                 //relu done inplace
-                // if ($bitstoreal(outmem_write_data) <= 0) begin
-                //     outmem_write_data = 0.0;
-                // end
+                if ($bitstoreal(outmem_write_data) <= 0) begin
+                    outmem_write_data = 0.0;
+                end
 
                 outmem_want_write=1;
 

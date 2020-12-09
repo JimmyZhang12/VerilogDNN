@@ -33,6 +33,8 @@ module top(
 
     wire scheduler_2_input_start;
     wire input_2_scheduler_done;
+    wire l2_compute_start;
+    wire l2_compute_done;
 
     scheduler scheduler(
         .clk(clk),
@@ -41,7 +43,10 @@ module top(
         .input_compute_start(scheduler_2_input_start),
         .input_compute_done(input_2_scheduler_done),
         .l1_l2_index(scheduler_2_l1_index),
-        .l2_inmem_wantwrite(scheduler_2_l2_inmem_wantwrite)
+        .l2_inmem_wantwrite(scheduler_2_l2_inmem_wantwrite),
+        .l2_compute_start(l2_compute_start),
+        .l2_compute_done(l2_compute_done)
+
     );
 
     conv_layer
@@ -74,16 +79,17 @@ module top(
             .NUM_INPUTS(l2_NUM_INPUT),
             .INPUT_DIM(l2_INPUT_DIM),
             .KERNEL_DIM(L2_KERNEL_DIM),
-            .DATA_SIZE(DATA_SIZE),
+            .DATA_SIZE(DATA_SIZE)
         )
         l2(
             .clk(clk),
             .inmem_want_write(scheduler_2_l2_inmem_wantwrite),
             .read_data(),
             .inmem_write_data(l1_outmem_2_l2_inmem_data),
-            .inmem_index(scheduler_2_l1_index),
-            .outmem_index(),
-            .output_valid()
+            .inmem_write_index(scheduler_2_l1_index),
+            .outmem_read_index(),
+            .compute(l2_compute_start),
+            .output_valid(l2_compute_done)
     );
 
     // always @(posedge clk)begin

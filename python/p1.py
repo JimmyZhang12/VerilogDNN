@@ -46,38 +46,19 @@ class Net(nn.Module):
         
         return out
     def forward_print(self, x):
-        xnp = x.numpy()
 
-        file1 = open("./verilog_data/input.txt","w") 
-        for i in xnp.shape:
-            file1.write(str(i)+"\n")
-
-        for i in np.nditer(xnp):
-            file1.write(str(i)+"\n")
-        file1.close()
+        file_write("input.txt",x)
 
         out = self.cnn1(x)
-
-        outnp = out.numpy()
-        file1 = open("./verilog_data/l1_act.txt","w") 
-        for x in outnp.shape:
-            file1.write(str(x)+"\n")
-
-        for x in np.nditer(outnp):
-            file1.write(str(x)+"\n")
-        file1.close()
+        file_write("l1_act.txt",out)
 
         out = self.relu1(out)
-
-        outnp = out.numpy()
-        file1 = open("./verilog_data/l1_act_relu.txt","w") 
-        for x in outnp.shape:
-            file1.write(str(x)+"\n")
-        for x in np.nditer(outnp):
-            file1.write(str(x)+"\n")
-        file1.close()
+        file_write("l1_act_relu.txt",out)
 
         out = self.maxpool1(out)
+        file_write("l1_maxpool.txt",out)
+
+
         # Set 2
         out = self.cnn2(out)
         out = self.relu2(out)
@@ -162,27 +143,8 @@ def eval(network):
 #def model_as_txt(network):
 def eval_single(network): 
 
-    cnn1 = network.cnn1.weight.data.numpy()
-    print(network.cnn1.weight.shape)
-    file1 = open("./verilog_data/cnn1.txt","w") 
-    for x in network.cnn1.weight.shape:
-        file1.write(str(x)+"\n")
-
-    for x in np.nditer(cnn1):
-        #print(x)
-        file1.write(str(x)+"\n")
-    file1.close()
-
-    bias = network.cnn1.bias.data.numpy()
-    print(network.cnn1.bias.shape)
-    file1 = open("./verilog_data/cnn1_bias.txt","w") 
-    for x in network.cnn1.bias.shape:
-        file1.write(str(x)+"\n")
-
-    for x in np.nditer(bias):
-        #print(x)
-        file1.write(str(x)+"\n")
-    file1.close()
+    file_write("cnn1_weights.txt", network.cnn1.weight.data)
+    file_write("cnn1_bias.txt", network.cnn1.bias.data)
 
     network.eval()
     torch.no_grad()
@@ -228,7 +190,14 @@ def save_input():
                 file1.write(str(x)+"\n")
             file1.close()
             break
-
+def file_write(filename,out):
+    outnp = out.numpy()
+    file1 = open("./verilog_data/"+filename,"w") 
+    for x in outnp.shape:
+        file1.write(str(x)+"\n")
+    for x in np.nditer(outnp):
+        file1.write(str(x)+"\n")
+    file1.close()
 
 if __name__ == '__main__':
 
