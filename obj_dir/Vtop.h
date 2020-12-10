@@ -36,26 +36,26 @@ VL_MODULE(Vtop) {
     // Internals; generally not touched by application code
     CData/*0:0*/ top__DOT__scheduler_2_l2_inmem_wantwrite;
     CData/*0:0*/ top__DOT__scheduler_2_l3_inmem_wantwrite;
+    CData/*0:0*/ top__DOT__scheduler_2_l4_inmem_wantwrite;
     CData/*0:0*/ top__DOT__scheduler_2_input_start;
     CData/*0:0*/ top__DOT__input_2_scheduler_done;
     CData/*0:0*/ top__DOT__l2_compute_start;
     CData/*0:0*/ top__DOT__l2_compute_done;
     CData/*0:0*/ top__DOT__l3_compute_start;
     CData/*0:0*/ top__DOT__l3_compute_done;
-    CData/*0:0*/ top__DOT__scheduler__DOT__l3_compute_start;
-    CData/*0:0*/ top__DOT__scheduler__DOT__l3_compute_done;
+    CData/*0:0*/ top__DOT__l4_compute_start;
+    CData/*0:0*/ top__DOT__l4_compute_done;
     CData/*0:0*/ top__DOT__l1__DOT__outmem_want_write;
     CData/*0:0*/ top__DOT__l2__DOT__outmem_want_write;
-    CData/*0:0*/ top__DOT__l3__DOT__compute;
-    CData/*0:0*/ top__DOT__l3__DOT__output_valid;
     CData/*0:0*/ top__DOT__l3__DOT__outmem_want_write;
+    CData/*0:0*/ top__DOT__l4__DOT__outmem_want_write;
     SData/*15:0*/ top__DOT__scheduler__DOT__state;
     SData/*15:0*/ top__DOT__l1__DOT__state;
     SData/*15:0*/ top__DOT__l2__DOT__state;
     SData/*15:0*/ top__DOT__l2__DOT__k_state;
     SData/*15:0*/ top__DOT__l3__DOT__state;
-    QData/*63:0*/ top__DOT__l2_outmem_2_l3_inmem_data;
-    QData/*63:0*/ top__DOT__l3_input_data;
+    SData/*15:0*/ top__DOT__l4__DOT__state;
+    SData/*15:0*/ top__DOT__l4__DOT__k_state;
     QData/*63:0*/ top__DOT__l1__DOT__act_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__weights_out_data;
     QData/*63:0*/ top__DOT__l1__DOT__bias_out_data;
@@ -66,9 +66,11 @@ VL_MODULE(Vtop) {
     QData/*63:0*/ top__DOT__l3__DOT__weights_out_data;
     QData/*63:0*/ top__DOT__l3__DOT__bias_out_data;
     QData/*63:0*/ top__DOT__l3__DOT__outmem_write_data;
+    QData/*63:0*/ top__DOT__l4__DOT__outmem_write_data;
+    QData/*63:0*/ top__DOT__l4__DOT__inmem_read_data;
     SData/*15:0*/ top__DOT__scheduler_2_l1l2_index[3];
     SData/*15:0*/ top__DOT__scheduler_2_l2l3_index[4];
-    SData/*15:0*/ top__DOT__scheduler__DOT__l2_l3_index[3];
+    SData/*15:0*/ top__DOT__scheduler_2_l3l4_index[4];
     SData/*15:0*/ top__DOT__l1__DOT__weight_read_index[4];
     SData/*15:0*/ top__DOT__l1__DOT__act_read_index[3];
     SData/*15:0*/ top__DOT__l1__DOT__outmem_index[3];
@@ -80,14 +82,18 @@ VL_MODULE(Vtop) {
     SData/*15:0*/ top__DOT__l2__DOT__inmem_read_index[3];
     QData/*63:0*/ top__DOT__l2__DOT__in_memory__DOT__mem[16][26][26];
     QData/*63:0*/ top__DOT__l2__DOT__out_memory__DOT__mem[16][25][25];
-    SData/*15:0*/ top__DOT__l3__DOT__read_outmem_index[3];
     SData/*15:0*/ top__DOT__l3__DOT__weight_read_index[4];
     SData/*15:0*/ top__DOT__l3__DOT__act_read_index[3];
     SData/*15:0*/ top__DOT__l3__DOT__outmem_index[3];
     QData/*63:0*/ top__DOT__l3__DOT__activation__DOT__mem[16][13][13];
     QData/*63:0*/ top__DOT__l3__DOT__weights__DOT__mem_weight[16][32][3][3];
     QData/*63:0*/ top__DOT__l3__DOT__weights__DOT__mem_bias[32];
-    QData/*63:0*/ top__DOT__l3__DOT__out_memory__DOT__mem[16][26][26];
+    QData/*63:0*/ top__DOT__l3__DOT__out_memory__DOT__mem[32][11][11];
+    SData/*15:0*/ top__DOT__l4__DOT__outmem_read_index[3];
+    SData/*15:0*/ top__DOT__l4__DOT__outmem_write_index[3];
+    SData/*15:0*/ top__DOT__l4__DOT__inmem_read_index[3];
+    QData/*63:0*/ top__DOT__l4__DOT__in_memory__DOT__mem[32][11][11];
+    QData/*63:0*/ top__DOT__l4__DOT__out_memory__DOT__mem[32][10][10];
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
@@ -101,10 +107,16 @@ VL_MODULE(Vtop) {
     QData/*63:0*/ top__DOT__l3__DOT__activation__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l3__DOT__weights__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l3__DOT__out_memory__DOT____Vlvbound1;
+    QData/*63:0*/ top__DOT__l4__DOT__in_memory__DOT____Vlvbound1;
+    QData/*63:0*/ top__DOT__l4__DOT__out_memory__DOT____Vlvbound1;
+    SData/*15:0*/ top__DOT____Vcellout__scheduler__l3_l4_index[4];
+    SData/*15:0*/ top__DOT____Vcellout__scheduler__l2_l3_index[4];
     SData/*15:0*/ top__DOT____Vcellout__scheduler__l1_l2_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l1__read_outmem_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l2__outmem_read_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l2__inmem_write_index[3];
+    SData/*15:0*/ top__DOT____Vcellinp__l3__read_outmem_index[3];
+    SData/*15:0*/ top__DOT____Vcellinp__l4__inmem_write_index[3];
     
     // INTERNAL VARIABLES
     // Internals; generally not touched by application code
@@ -139,9 +151,6 @@ VL_MODULE(Vtop) {
     void __Vconfigure(Vtop__Syms* symsp, bool first);
   private:
     static QData _change_request(Vtop__Syms* __restrict vlSymsp);
-  public:
-    static void _combo__TOP__4(Vtop__Syms* __restrict vlSymsp);
-  private:
     void _ctor_var_reset() VL_ATTR_COLD;
   public:
     static void _eval(Vtop__Syms* __restrict vlSymsp);
@@ -152,15 +161,13 @@ VL_MODULE(Vtop) {
   public:
     static void _eval_initial(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _eval_settle(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _initial__TOP__3(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _sequent__TOP__2(Vtop__Syms* __restrict vlSymsp);
-    static void _settle__TOP__1(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _initial__TOP__2(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
+    static void _sequent__TOP__1(Vtop__Syms* __restrict vlSymsp);
+    static void _settle__TOP__3(Vtop__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void traceChgThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__2(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__3(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceChgThis__4(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
-    static void traceChgThis__5(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
-    static void traceChgThis__6(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code);
     static void traceFullThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;
     static void traceFullThis__1(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;
     static void traceInitThis(Vtop__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) VL_ATTR_COLD;

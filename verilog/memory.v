@@ -1,6 +1,7 @@
 //very simple memory model
 
 /* verilator lint_off DECLFILENAME */
+/* verilator lint_off WIDTH */
 module act_memory
     #(
         parameter DEBUG = 0,
@@ -31,7 +32,6 @@ module act_memory
             if (DEBUG) begin
                 $display("%s : WRITE : mem[%d][%d][%d] = %f", NAME, index_entry, index_y, index_x, $bitstoreal(mem[index_entry][index_y][index_x]));
             end
-            //$display("%s : WRITE : = %f", NAME,  $bitstoreal(mem[0][0][0]));
 
         end
 

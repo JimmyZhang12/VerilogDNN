@@ -28,11 +28,7 @@ class Net(nn.Module):
     
     def forward(self, x):
         # Set 1
-        print(x.shape)
-        print(x)
         out = self.cnn1(x)
-        print(out.shape)
-        print(out)
         out = self.relu1(out)
         out = self.maxpool1(out)
         # Set 2
@@ -61,12 +57,26 @@ class Net(nn.Module):
 
         # Set 2
         out = self.cnn2(out)
+
+        file_write("l2_act.txt",out)
+
         out = self.relu2(out)
+
+        file_write("l2_act_relu.txt",out)
+
         out = self.maxpool2(out)
+
+        file_write("l2_maxpool.txt",out)
         #Flatten
         out = out.view(out.size(0), -1)
+
+        file_write("flatten.txt",out)
+
         #Dense
         out = self.fc1(out)
+
+        file_write("final_out.txt",out)
+
         
         return out
 
@@ -145,7 +155,8 @@ def eval_single(network):
 
     file_write("cnn1_weights.txt", network.cnn1.weight.data)
     file_write("cnn1_bias.txt", network.cnn1.bias.data)
-
+    file_write("cnn2_weights.txt", network.cnn2.weight.data, True)
+    file_write("cnn2_bias.txt", network.cnn2.bias.data)
     network.eval()
     torch.no_grad()
 
@@ -190,13 +201,17 @@ def save_input():
                 file1.write(str(x)+"\n")
             file1.close()
             break
-def file_write(filename,out):
+def file_write(filename,out, flip=False):
     outnp = out.numpy()
     file1 = open("./verilog_data/"+filename,"w") 
     for x in outnp.shape:
         file1.write(str(x)+"\n")
+
+
+    # else:
     for x in np.nditer(outnp):
-        file1.write(str(x)+"\n")
+        file1.write(str(x)+"\n")      
+
     file1.close()
 
 if __name__ == '__main__':

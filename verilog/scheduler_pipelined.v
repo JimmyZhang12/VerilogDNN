@@ -1,5 +1,5 @@
 
-module scheduler(
+module scheduler_pipelined(
     input clk,
 
     input start,
@@ -14,12 +14,7 @@ module scheduler(
     output wire [15:0] l2_l3_index [3:0],
     output reg l3_inmem_wantwrite,
     output reg l3_compute_start,
-    input l3_compute_done,
-
-    output wire [15:0] l3_l4_index [3:0],
-    output reg l4_inmem_wantwrite,
-    output reg l4_compute_start, 
-    input l4_compute_done
+    input l3_compute_done
 );
 
 parameter DATA_SIZE = 64;
@@ -37,13 +32,12 @@ parameter l3_INPUT_DIM = 13;
 parameter l3_NUM_OUTPUT = 32;
 parameter L3_KERNEL_DIM = 3;
 
-parameter l4_NUM_INPUT = 32;
-parameter l4_INPUT_DIM = 11;
-parameter l4_KERNEL_DIM = 2;
 
 initial begin
     input_compute_start = 0;
 end
+
+
 
 
 reg [15:0] state = 0;
@@ -125,48 +119,15 @@ always @(posedge clk) begin
         5: begin
             l3_compute_start = 0;
             if (l3_compute_done) begin
-                state = 6;
-                l4_inmem_wantwrite = 1;
+                state = 10;
+                //l3_inmem_wantwrite = 1;
             end
             else begin
                 state = 5;
             end
         end
 
-        6: begin
-            if (l3_l4_index[0] == l4_INPUT_DIM-1) begin
-                l3_l4_index[0] = 0;
-                l3_l4_index[1] = l3_l4_index[1] + 1;
-
-            end
-            else begin
-                l3_l4_index[0] = l3_l4_index[0] + 1;
-            end
-
-            if (l3_l4_index[1] == l4_INPUT_DIM) begin
-                l3_l4_index[1] = 0;
-                l3_l4_index[2] = l3_l4_index[2] + 1;
-            end
-            if (l3_l4_index[2] == l4_NUM_INPUT) begin
-                l4_compute_start = 1;
-                state = 7;
-                l4_inmem_wantwrite = 0;
-            end    
-        end
-
-        7: begin
-            l4_compute_start = 0;
-            if (l4_compute_done) begin
-                state = 10;
-                //l5_inmem_wantwrite = 1;
-            end
-            else begin
-                state = 7;
-            end
-        end
-
         10: begin
-            l4_compute_start = 0;
             $finish();
         end
     endcase

@@ -1,6 +1,6 @@
 
 
-module weight_memory(
+module weight_memory_2(
 
     input clk,
     output [DATA_SIZE-1:0] out_data,

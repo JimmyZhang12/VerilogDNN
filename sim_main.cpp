@@ -64,17 +64,25 @@ double*** read_txt(string full_path, int& num_inputs, int& num_outputs, int& ker
 
         getline(file, tp);
         double*** _weights = new double**[num_inputs];
-
         for(int i = 0; i < num_inputs; i++) {
             _weights[i] = new double*[num_outputs];
             for(int j = 0; j < num_outputs; j++){
                 _weights[i][j] = new double[kernel_dim*kernel_dim];
-                    for(int k = 0; k < kernel_dim*kernel_dim; k++){
-                        getline(file, tp);
-                        _weights[i][j][k] = stof(tp);
-                    }
+                    // for(int k = 0; k < kernel_dim*kernel_dim; k++){
+                    //     getline(file, tp);
+                    //     _weights[i][j][k] = stof(tp);
+                    // }
             }
         }
+        for(int j = 0; j < num_outputs; j++){
+            for(int i = 0; i < num_inputs; i++) {
+                for(int k = 0; k < kernel_dim*kernel_dim; k++){
+                    getline(file, tp);
+                    _weights[i][j][k] = stof(tp);
+                }
+            }
+        }
+
 
         file.close(); //close the file object.
         return _weights;
@@ -309,7 +317,7 @@ int main(int argc, char** argv, char** env) {
     //     top->eval();
     //     i++;
 	//} exit(EXIT_SUCCESS);
-    for(int i = 0; i<(26*26*9*16*2 + 50000); i++){
+    for(int i = 0; i<(2000000); i++){
     //for(int i = 0; i<(26*9); i++){
         top->clk = 1;
         top->eval();

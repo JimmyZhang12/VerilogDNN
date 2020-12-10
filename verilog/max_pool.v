@@ -20,10 +20,12 @@ module max_pool #(
     output reg output_valid
 );
 
+    parameter DEBUG_INMEM=0;
+    parameter DEBUG_OUTMEM=0;
 
     act_memory 
         #(
-            .DEBUG(0),
+            .DEBUG(DEBUG_INMEM),
             .NAME({NAME, " IN_MEM"}),
             .DIM(INPUT_DIM), 
             .DATA_SIZE(DATA_SIZE),
@@ -43,14 +45,14 @@ module max_pool #(
     );
     act_memory 
         #(
-            .DEBUG(1),
+            .DEBUG(DEBUG_OUTMEM),
             .NAME({NAME, " OUT_MEM"}),
             .DIM(INPUT_DIM - KERNEL_DIM + 1), 
             .DATA_SIZE(DATA_SIZE),
             .ENTRY_NUM(NUM_INPUTS)
         )
         out_memory(
-            .out_data(outmem_read_data),
+            .out_data(read_data),
             .in_data(outmem_write_data),
             .write(outmem_want_write),
             .index_entry(outmem_write_index[2]),
@@ -62,7 +64,6 @@ module max_pool #(
             .clk(clk)
     );
 
-    reg [DATA_SIZE-1:0] outmem_read_data;
     reg [DATA_SIZE-1:0] outmem_write_data = 0;
     reg outmem_want_write;
     reg [15:0] outmem_write_index [2:0];
@@ -72,6 +73,7 @@ module max_pool #(
 
     reg [15:0] state = 0;
     reg [15:0] k_state = 0;
+    
     always @(posedge clk)begin
         case (state)
             0: begin

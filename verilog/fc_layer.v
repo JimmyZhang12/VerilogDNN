@@ -1,13 +1,11 @@
 
 
-module conv_layer #(
-        parameter NAME = "CONV_LAYER_DEFAULT_NAME",
-        parameter NUM_INPUTS = 1,
+module fc_layer #(
+        parameter NAME = "FC_LAYER_DEFAULT_NAME",
+        parameter NUM_INPUTS = 800,
         parameter INPUT_DIM = 5,
-        parameter NUM_OUTPUTS = 1,
-        parameter KERNEL_DIM = 3,
+        parameter NUM_OUTPUTS = 10,
         parameter DATA_SIZE = 64,
-        parameter OUTPUT_DIM = INPUT_DIM - KERNEL_DIM + 1)(
 
     input clk,
     output [DATA_SIZE-1:0] outmem_out_data,
