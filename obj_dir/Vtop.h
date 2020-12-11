@@ -84,6 +84,8 @@ VL_MODULE(Vtop) {
         SData/*15:0*/ top__DOT__l5__DOT__out_memory__DOT__read_index_y;
         IData/*31:0*/ top__DOT__scheduler__DOT__cnt;
         IData/*31:0*/ top__DOT__scheduler__DOT__cnt_prev;
+        IData/*31:0*/ top__DOT__scheduler__DOT__i;
+        IData/*31:0*/ top__DOT__scheduler__DOT__state_cnt;
         IData/*31:0*/ top__DOT__l1__DOT__i;
         IData/*31:0*/ top__DOT__l1__DOT__j;
         IData/*31:0*/ top__DOT__l3__DOT__i;
@@ -100,10 +102,11 @@ VL_MODULE(Vtop) {
         QData/*63:0*/ top__DOT__l5__DOT__outmem_write_data;
         SData/*15:0*/ top__DOT__scheduler_2_l1l2_index[3];
         SData/*15:0*/ top__DOT__scheduler_2_l2l3_index[4];
-        SData/*15:0*/ top__DOT__scheduler_2_l3l4_index[4];
-        SData/*15:0*/ top__DOT__scheduler_2_l4_outmem_index[3];
     };
     struct {
+        SData/*15:0*/ top__DOT__scheduler_2_l3l4_index[4];
+        SData/*15:0*/ top__DOT__scheduler_2_l4_outmem_index[3];
+        CData/*0:0*/ top__DOT__scheduler__DOT__mem_done[5];
         QData/*63:0*/ top__DOT__l1__DOT__act_out_data[1][3][3];
         QData/*63:0*/ top__DOT__l1__DOT__weights_out_data[1][3][3];
         QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data[1];

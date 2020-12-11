@@ -70,7 +70,7 @@ module top(
     wire l5_compute_start;
     wire l5_compute_done;
 
-    scheduler scheduler(
+    scheduler_pipelined scheduler(
         .clk(clk),
         .start(compute),
         .reset(reset),

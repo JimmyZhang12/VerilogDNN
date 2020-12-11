@@ -15,23 +15,478 @@
 
 *****COMPUTE*****
 state          0 done at           0 cycles
+    0: -0.022596:
+    1: 0.000000:
+    2: -0.022596:
+    3: 0.000000:
+    4: -0.022596:
+    5: 0.000000:
+    6: -0.022596:
+    7: 0.000000:
+    8: -0.022596:
+    9: 0.000000:
 state          1 done at       32449 cycles
-state          2 done at       10816 cycles
-state          3 done at       21633 cycles
-state          4 done at        2704 cycles
-state          5 done at       11617 cycles
-state          6 done at        3872 cycles
-state          7 done at        6401 cycles
-state          8 done at         800 cycles
-    0: -4.736288:
-    1: 4.409613:
-    2: -1.402888:
-    3: 5.389212:
-    4: -0.215640:
-    5: -0.108239:
-    6: -8.218532:
-    7: 3.144701:
-    8: 2.464135:
-    9: 1.448773:
-state          9 done at       16011 cycles
-- verilog/scheduler.v:214: Verilog $finish
+state          0 done at       10816 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.000325:
+    1: 0.084370:
+    2: -0.038326:
+    3: -0.040492:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+state          0 done at       65536 cycles
+state          1 done at           1 cycles
+    0: 0.010326:
+    1: 0.094833:
+    2: -0.034698:
+    3: -0.049698:
+    4: -0.055226:
+    5: -0.075215:
+    6: 0.039946:
+    7: -0.020587:
+    8: -0.098591:
+    9: -0.063878:
+state          0 done at       65536 cycles
+state          1 done at           1 cycle
