@@ -45,7 +45,8 @@ module conv_layer #(
             .NAME({NAME, " ACT_MEM"}),
             .DIM(INPUT_DIM), 
             .DATA_SIZE(DATA_SIZE),
-            .ENTRY_NUM(NUM_INPUTS)
+            .ENTRY_NUM(NUM_INPUTS),
+            .KERNEL_DIM(KERNEL_DIM)
         )
         activation(
             .out_data(act_out_data),
@@ -82,8 +83,6 @@ module conv_layer #(
             .index_k_x(in_index0),
 
             .read_index_out(weight_read_index[2]),
-            .read_index_y(weight_read_index[1]),
-            .read_index_x(weight_read_index[0]),
             .read_index_bias(weight_read_index[2])
     );
 
@@ -108,8 +107,8 @@ module conv_layer #(
             .clk(clk)
     );
 
-    reg [DATA_SIZE-1:0] act_out_data [NUM_INPUTS-1:0];
-    reg [DATA_SIZE-1:0] weights_out_data [NUM_INPUTS-1:0];
+    reg [DATA_SIZE-1:0] act_out_data [NUM_INPUTS-1:0][KERNEL_DIM-1:0][KERNEL_DIM-1:0];
+    reg [DATA_SIZE-1:0] weights_out_data [NUM_INPUTS-1:0][KERNEL_DIM-1:0][KERNEL_DIM-1:0];
     reg [DATA_SIZE-1:0] bias_out_data;
     reg [DATA_SIZE-1:0] outmem_write_data [NUM_INPUTS-1:0];
 
@@ -119,6 +118,7 @@ module conv_layer #(
     reg outmem_want_write = 0;
     
     integer i;
+    integer j;
     reg [15:0] state = 0;
     always @(posedge clk)begin
         if (DEBUG && (state !=0 && state != 4)) begin
@@ -127,7 +127,7 @@ module conv_layer #(
             0: begin
                 if(compute) begin
                     for (i = 0; i < NUM_INPUTS; i=i+1) begin
-                        outmem_write_data[i] = 0;
+                        outmem_write_data[i] = 0;                  
                     end
                     outmem_want_write=0;
                     weight_read_index[3]=0;
@@ -144,22 +144,13 @@ module conv_layer #(
                 end
             end
             1: begin
+                for (i = 0; i < NUM_INPUTS; i=i+1) begin
+                        outmem_write_data[i] = 0;
+                end
+                
                 outmem_want_write = 0;
-                //weight index update
 
-                weight_read_index[0] = weight_read_index[0] + 1;
-
-                if (weight_read_index[0]==KERNEL_DIM) begin
-                    weight_read_index[0] = 0;
-                    weight_read_index[1] = weight_read_index[1] + 1;
-                end
-
-                if (weight_read_index[1]==KERNEL_DIM) begin
-                    weight_read_index[1] = 0;
-                    outmem_index[0] = outmem_index[0] + 1;
-                end
-
-                //act index update
+                outmem_index[0] = outmem_index[0] + 1;
                 if (outmem_index[0]==(OUTPUT_DIM)) begin
                     outmem_index[0] = 0;
                     outmem_index[1] = outmem_index[1] + 1;
@@ -175,35 +166,28 @@ module conv_layer #(
 
                 end
 
-                act_read_index[1] = outmem_index[1] + weight_read_index[1];
-                act_read_index[0] = outmem_index[0] + weight_read_index[0];
+                act_read_index[1] = outmem_index[1];
+                act_read_index[0] = outmem_index[0];
                 outmem_index[2] = weight_read_index[2];
                 state = 2;
 
 
             end
             2: begin
-                if (weight_read_index[1]==0 && weight_read_index[0]==0) begin
-                        for (i = 0; i < NUM_INPUTS; i=i+1) begin
-                            outmem_write_data[i] = 0;
-                        end
-                    
-                end
 
-                
-                    for (i = 0; i < NUM_INPUTS; i=i+1) begin
+                for (i = 0; i < NUM_INPUTS; i=i+1) begin
+                    for (j = 0; j < KERNEL_DIM*KERNEL_DIM; j=j+1) begin
                         outmem_write_data[i] = $realtobits(
-                            $bitstoreal(outmem_write_data[i]) + $bitstoreal(weights_out_data[i]) * $bitstoreal(act_out_data[i])
+                            $bitstoreal(outmem_write_data[i]) +
+                            (
+                                $bitstoreal(weights_out_data[i][j/KERNEL_DIM][j%KERNEL_DIM]) * 
+                                $bitstoreal(act_out_data[i][j/KERNEL_DIM][j%KERNEL_DIM])
+                            )
                             );
                     end
 
-
-                if (weight_read_index[1]==(KERNEL_DIM-1) && weight_read_index[0]==(KERNEL_DIM-1)) begin
-                    state = 3;
                 end
-                else begin
-                    state = 1;  
-                end
+                state = 3;
                 
                 if (DEBUG) begin
                     $display("*****");
@@ -217,15 +201,14 @@ module conv_layer #(
 
             end
             3: begin
-                //add bias
 
-                    for (i = 1; i < NUM_INPUTS; i=i+1) begin
+                for (i = 1; i < NUM_INPUTS; i=i+1) begin
                         outmem_write_data[0] = $realtobits(
                             $bitstoreal(outmem_write_data[0]) + $bitstoreal(outmem_write_data[i])
                         );
-                    end
+                end
 
-                outmem_write_data[0] = $realtobits(
+                outmem_write_data[0]= $realtobits(
                     $bitstoreal(outmem_write_data[0]) + $bitstoreal(bias_out_data)
                 );
                 if ($bitstoreal(outmem_write_data[0]) <= 0) begin
@@ -255,14 +238,8 @@ module conv_layer #(
                     state = 0;
                 end
             end 
-            
-
         endcase
       
-
-
     end
-
-
 
 endmodule

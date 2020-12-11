@@ -37,9 +37,6 @@ initial begin
     input_compute_start = 0;
 end
 
-
-
-
 reg [15:0] state = 0;
 always @(posedge clk) begin
     case (state)

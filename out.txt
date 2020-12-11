@@ -15,23 +15,23 @@
 
 *****COMPUTE*****
 state          0 done at           0 cycles
-state          1 done at      205505 cycles
+state          1 done at       32449 cycles
 state          2 done at       10816 cycles
 state          3 done at       21633 cycles
 state          4 done at        2704 cycles
-state          5 done at       73569 cycles
+state          5 done at       11617 cycles
 state          6 done at        3872 cycles
 state          7 done at        6401 cycles
 state          8 done at         800 cycles
-    0: -5.911460:
-    1: -3.467709:
-    2: 8.487369:
-    3: 9.571991:
-    4: -1.264540:
-    5: -1.517915:
-    6: -16.270009:
-    7: 12.357273:
-    8: 1.447473:
-    9: -0.219240:
+    0: -4.736288:
+    1: 4.409613:
+    2: -1.402888:
+    3: 5.389212:
+    4: -0.215640:
+    5: -0.108239:
+    6: -8.218532:
+    7: 3.144701:
+    8: 2.464135:
+    9: 1.448773:
 state          9 done at       16011 cycles
 - verilog/scheduler.v:214: Verilog $finish
