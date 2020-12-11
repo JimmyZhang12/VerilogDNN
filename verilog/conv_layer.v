@@ -87,7 +87,6 @@ module conv_layer #(
             .read_index_y(weight_read_index[1]),
             .read_index_x(weight_read_index[0]),
             .read_index_bias(weight_read_index[2])
-
     );
 
     act_memory 

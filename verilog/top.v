@@ -12,6 +12,9 @@ module top(
     input l3_write_weights,
     input l3_write_bias,
 
+    input l5_write_weights,
+    input l5_write_bias,
+
     input compute,
     input reset
 );
@@ -36,17 +39,25 @@ module top(
     parameter l4_INPUT_DIM = 11;
     parameter l4_KERNEL_DIM = 2;
 
+    parameter l5_NUM_INPUT = 800;
+    parameter l5_NUM_OUTPUT = 10;
+
     reg [DATA_SIZE-1:0] l1_outmem_2_l2_inmem_data;
     reg [DATA_SIZE-1:0] l2_outmem_2_l3_inmem_data;
     reg [DATA_SIZE-1:0] l3_outmem_2_l4_inmem_data;
+    reg [DATA_SIZE-1:0] l4_outmem_2_l5_inmem_data;
 
     wire [15:0] scheduler_2_l1l2_index [2:0];
     wire [15:0] scheduler_2_l2l3_index [3:0];
     wire [15:0] scheduler_2_l3l4_index [3:0];
-
+    wire [15:0] scheduler_2_l4_outmem_index [2:0];
+    wire [15:0] scheduler_2_l5_inmem_index;
+    
     wire scheduler_2_l2_inmem_wantwrite;
     wire scheduler_2_l3_inmem_wantwrite;
     wire scheduler_2_l4_inmem_wantwrite;
+    wire scheduler_2_l5_inmem_wantwrite;
+
 
     wire scheduler_2_input_start;
     wire input_2_scheduler_done;
@@ -56,6 +67,8 @@ module top(
     wire l3_compute_done;
     wire l4_compute_start;
     wire l4_compute_done;
+    wire l5_compute_start;
+    wire l5_compute_done;
 
     scheduler scheduler(
         .clk(clk),
@@ -78,7 +91,13 @@ module top(
         .l3_l4_index(scheduler_2_l3l4_index),
         .l4_inmem_wantwrite(scheduler_2_l4_inmem_wantwrite),
         .l4_compute_start(l4_compute_start),
-        .l4_compute_done(l4_compute_done)
+        .l4_compute_done(l4_compute_done),
+
+        .l4_outmem_index(scheduler_2_l4_outmem_index),
+        .l5_inmem_index(scheduler_2_l5_inmem_index),
+        .l5_inmem_wantwrite(scheduler_2_l5_inmem_wantwrite),
+        .l5_compute_start(l5_compute_start),
+        .l5_compute_done(l5_compute_done)
 
     );
 
@@ -183,16 +202,43 @@ module top(
         l4(
             .clk(clk),
             .inmem_want_write(scheduler_2_l4_inmem_wantwrite),
-            .read_data(),
+            .read_data(l4_outmem_2_l5_inmem_data),
             .inmem_write_data(l3_outmem_2_l4_inmem_data),
             .inmem_write_index(scheduler_2_l3l4_index[2:0]),
-            .outmem_read_index(),
+            .outmem_read_index(scheduler_2_l4_outmem_index),
             .compute(l4_compute_start),
             .output_valid(l4_compute_done)
     );
 
     defparam l4.DEBUG_INMEM = 0;
-    defparam l4.DEBUG_OUTMEM = 1;
+    defparam l4.DEBUG_OUTMEM = 0;
+
+    fc_layer
+        #(
+            .NAME("FC1"),
+            .NUM_INPUTS(l5_NUM_INPUT),
+            .NUM_OUTPUTS(l5_NUM_OUTPUT),
+            .DATA_SIZE(DATA_SIZE)
+        )
+        l5(
+            .clk(clk),
+            .outmem_out_data(),
+            .want_write_act(scheduler_2_l5_inmem_wantwrite),
+            .want_write_weights(l5_write_weights),
+            .want_write_bias(l5_write_bias),
+            .write_data(input_data),
+            .write_data_act(l4_outmem_2_l5_inmem_data),
+            .in_index1(input_index[1]),
+            .in_index0(input_index[0]),
+            .act_index0(scheduler_2_l5_inmem_index),
+            .compute(l5_compute_start),
+            .read_outmem_index(),
+            .output_valid(l5_compute_done)
+    );
+    defparam l5.DEBUG_WEIGHT = 0;
+    defparam l5.DEBUG_ACT= 0;
+    defparam l5.DEBUG = 0;
+    defparam l5.DEBUG_OUTMEM = 0;
 
     always @(posedge clk)begin
             //  if (scheduler_2_l4_inmem_wantwrite) begin

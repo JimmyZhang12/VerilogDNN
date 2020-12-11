@@ -13,40 +13,6 @@ typedef unsigned short int uint16;
 
 using namespace std;
 
-uchar** read_mnist_images(string full_path, int& number_of_images, int& image_size, int& image_dim) {
-    auto reverseInt = [](int i) {
-        unsigned char c1, c2, c3, c4;
-        c1 = i & 255, c2 = (i >> 8) & 255, c3 = (i >> 16) & 255, c4 = (i >> 24) & 255;
-        return ((int)c1 << 24) + ((int)c2 << 16) + ((int)c3 << 8) + c4;
-    };
-
-    ifstream file(full_path, ios::binary);
-
-    if(file.is_open()) {
-        int magic_number = 0, n_rows = 0, n_cols = 0;
-
-        file.read((char *)&magic_number, sizeof(magic_number));
-        magic_number = reverseInt(magic_number);
-
-        if(magic_number != 2051) throw std::runtime_error("Invalid MNIST image file!");
-
-        file.read((char *)&number_of_images, sizeof(number_of_images)), number_of_images = reverseInt(number_of_images);
-        file.read((char *)&n_rows, sizeof(n_rows)), n_rows = reverseInt(n_rows);
-        file.read((char *)&n_cols, sizeof(n_cols)), n_cols = reverseInt(n_cols);
-
-        image_size = n_rows * n_cols;
-        image_dim = n_rows;
-
-        uchar** _dataset = new uchar*[number_of_images];
-        for(int i = 0; i < number_of_images; i++) {
-            _dataset[i] = new uchar[image_size];
-            file.read((char *)_dataset[i], image_size);
-        }
-        return _dataset;
-    } else {
-        throw runtime_error("Cannot open file `" + full_path + "`!");
-    }
-}
 double*** read_txt(string full_path, int& num_inputs, int& num_outputs, int& kernel_dim){
 
     ifstream file(full_path, ios::in);
@@ -68,10 +34,7 @@ double*** read_txt(string full_path, int& num_inputs, int& num_outputs, int& ker
             _weights[i] = new double*[num_outputs];
             for(int j = 0; j < num_outputs; j++){
                 _weights[i][j] = new double[kernel_dim*kernel_dim];
-                    // for(int k = 0; k < kernel_dim*kernel_dim; k++){
-                    //     getline(file, tp);
-                    //     _weights[i][j][k] = stof(tp);
-                    // }
+
             }
         }
         for(int j = 0; j < num_outputs; j++){
@@ -115,7 +78,34 @@ double* read_bias(string full_path, int& num_outputs){
     }
 
 }
+double** read_fc(string full_path, int& num_outputs,  int& num_inputs){
 
+    ifstream file(full_path, ios::in);
+
+    if(file.is_open()) {
+        string tp;
+        getline(file, tp);
+        num_outputs = stoi(tp);
+
+        getline(file, tp);
+        num_inputs = stoi(tp);
+
+        double** _data = new double*[num_outputs];
+        for(int i=0;i<num_outputs;i++){
+            _data[i] = new double[num_inputs];
+            for(int j = 0; j < num_inputs; j++){
+                getline(file, tp);
+                _data[i][j] = stof(tp);
+            }
+        }
+
+        file.close(); //close the file object.
+        return _data;
+    } else {
+        throw runtime_error("Cannot open file `" + full_path + "`!");
+    }
+
+}
 
 uint64 toBits(double data){
     uint64 data_int;
@@ -128,7 +118,8 @@ void reset(Vtop* top){
     top->input_write_bias = 0;
     top->l3_write_weights = 0;
     top->l3_write_bias = 0;
-
+    top->l5_write_weights = 0;
+    top->l5_write_bias = 0;
     top->input_index[3] = 0;
     top->input_index[2] = 0;
     top->input_index[1] = 0;
@@ -176,6 +167,15 @@ int main(int argc, char** argv, char** env) {
     fname = "verilog_data/cnn2_bias.txt";
     int num_bias2;
     double* _bias2  = read_bias(fname, num_bias2);
+
+    fname = "verilog_data/fc1_weights.txt";
+    int num_inputs3;
+    int num_outputs3;
+    double** _weights3 = read_fc(fname, num_outputs3, num_inputs3);
+
+    fname = "verilog_data/fc1_bias.txt";
+    int num_bias3;
+    double* _bias3  = read_bias(fname, num_bias3);
 
 
 
@@ -296,6 +296,48 @@ int main(int argc, char** argv, char** env) {
 
     }
 
+    reset(top);
+    std::printf("\n*****LOAD WEIGHTS INTO FC LAYER*****\n");
+    top->l5_write_weights = 1;
+    for(int i = 0; i<num_outputs3; i++){
+        for(int j = 0; j<num_inputs3; j++){
+            top->clk = 1;
+
+            top->input_index[1] = i;
+            top->input_index[0] = j;
+
+            uint64 data_int;
+            memcpy(&data_int, &(_weights3[i][j]), sizeof((_weights3[i][j])));
+            top->input_data = data_int;
+
+            //cout <<endl<<"**********************CYCLE: "<< j*num_outputs+k*kernel_dim*kernel_dim+i << "**********************" <<endl;
+            top->eval();
+
+            top->clk = 0;
+            top->eval();
+            
+        }
+    }
+
+    reset(top);
+    std::printf("\n*****LOAD BIAS INTO FC1 LAYER*****\n");
+    top->l5_write_bias = 1;
+    for(int j = 0; j<num_bias3; j++){
+        top->clk = 1;
+
+        top->input_index[0] = j;
+
+        uint64 data_int;
+        memcpy(&data_int, &(_bias3[j]), sizeof(_bias3[j]));
+        top->input_data = data_int;
+
+        //cout <<endl<<"**********************CYCLE: "<< j << "**********************" <<endl;
+        top->eval();
+
+        top->clk = 0;
+        top->eval();
+
+    }
 
     reset(top);
     top->compute = 1;
@@ -305,20 +347,9 @@ int main(int argc, char** argv, char** env) {
     top->eval();
 
     std::printf("\n*****COMPUTE*****\n");
-    // reset(top);
-    // int i = 0;
-    // while(!Verilated::gotFinish()) {
-    //     top->clk = 1;
-    //     top->eval();
-
-    //     //cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
-
-    //     top->clk = 0;
-    //     top->eval();
-    //     i++;
-	//} exit(EXIT_SUCCESS);
-    for(int i = 0; i<(2000000); i++){
-    //for(int i = 0; i<(26*9); i++){
+    reset(top);
+    int i = 0;
+    while(!Verilated::gotFinish()) {
         top->clk = 1;
         top->eval();
 
@@ -326,7 +357,18 @@ int main(int argc, char** argv, char** env) {
 
         top->clk = 0;
         top->eval();
-    }
+        i++;
+	} exit(EXIT_SUCCESS);
+    // for(int i = 0; i<(2000000); i++){
+    // //for(int i = 0; i<(26*9); i++){
+    //     top->clk = 1;
+    //     top->eval();
+
+    //     //cout <<endl<<"**********************CYCLE: "<< i << "**********************" <<endl;
+
+    //     top->clk = 0;
+    //     top->eval();
+    // }
 
     delete top;
     exit(0);

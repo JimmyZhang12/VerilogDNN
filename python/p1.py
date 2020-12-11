@@ -155,8 +155,11 @@ def eval_single(network):
 
     file_write("cnn1_weights.txt", network.cnn1.weight.data)
     file_write("cnn1_bias.txt", network.cnn1.bias.data)
-    file_write("cnn2_weights.txt", network.cnn2.weight.data, True)
+    file_write("cnn2_weights.txt", network.cnn2.weight.data)
     file_write("cnn2_bias.txt", network.cnn2.bias.data)
+    file_write("fc1_weights.txt", network.fc1.weight.data)
+    file_write("fc1_bias.txt", network.fc1.bias.data)   
+
     network.eval()
     torch.no_grad()
 
