@@ -39,7 +39,7 @@ module conv_layer #(
     parameter DEBUG_ACT = 0;
     parameter DEBUG_OUTMEM = 0;
 
-    act_memory
+    act_memory_parallel
         #(
             .DEBUG(DEBUG_ACT),
             .NAME({NAME, " ACT_MEM"}),
@@ -54,13 +54,12 @@ module conv_layer #(
             .index_entry(act_index2),
             .index_y(act_index1),
             .index_x(act_index0),
-            .read_index_entry(act_read_index[2]),
             .read_index_y(act_read_index[1]),
             .read_index_x(act_read_index[0]),
             .clk(clk)
     );
 
-    weight_memory 
+    weight_memory_parallel 
         #(
             .DEBUG(DEBUG_WEIGHT),
             .NAME({NAME, " WEIGHT_MEM"}),
@@ -82,7 +81,6 @@ module conv_layer #(
             .index_k_y(in_index1),
             .index_k_x(in_index0),
 
-            .read_index_in(weight_read_index[3]),
             .read_index_out(weight_read_index[2]),
             .read_index_y(weight_read_index[1]),
             .read_index_x(weight_read_index[0]),
@@ -99,7 +97,7 @@ module conv_layer #(
         )
         out_memory(
             .out_data(outmem_out_data),
-            .in_data(outmem_write_data),
+            .in_data(outmem_write_data[0]),
             .write(outmem_want_write),
             .index_entry(outmem_index[2]),
             .index_y(outmem_index[1]),
@@ -110,18 +108,17 @@ module conv_layer #(
             .clk(clk)
     );
 
-    reg [DATA_SIZE-1:0] act_out_data;
-    reg [DATA_SIZE-1:0] weights_out_data;
+    reg [DATA_SIZE-1:0] act_out_data [NUM_INPUTS-1:0];
+    reg [DATA_SIZE-1:0] weights_out_data [NUM_INPUTS-1:0];
     reg [DATA_SIZE-1:0] bias_out_data;
-    reg [DATA_SIZE-1:0] outmem_write_data;
+    reg [DATA_SIZE-1:0] outmem_write_data [NUM_INPUTS-1:0];
 
     reg [15:0] weight_read_index [3:0];
-    //reg [15:0] bias_read_index;
     reg [15:0] act_read_index [2:0];
     reg [15:0] outmem_index [2:0];
     reg outmem_want_write = 0;
- 
-
+    
+    integer i;
     reg [15:0] state = 0;
     always @(posedge clk)begin
         if (DEBUG && (state !=0 && state != 4)) begin
@@ -129,7 +126,9 @@ module conv_layer #(
         case (state)
             0: begin
                 if(compute) begin
-                    outmem_write_data=0;
+                    for (i = 0; i < NUM_INPUTS; i=i+1) begin
+                        outmem_write_data[i] = 0;
+                    end
                     outmem_want_write=0;
                     weight_read_index[3]=0;
                     weight_read_index[2]=0;
@@ -157,15 +156,8 @@ module conv_layer #(
 
                 if (weight_read_index[1]==KERNEL_DIM) begin
                     weight_read_index[1] = 0;
-                    weight_read_index[3] = weight_read_index[3] + 1;
-                end
-
-                //input neuron update
-                if (weight_read_index[3]==(NUM_INPUTS)) begin
-                    weight_read_index[3] = 0;
                     outmem_index[0] = outmem_index[0] + 1;
                 end
-
 
                 //act index update
                 if (outmem_index[0]==(OUTPUT_DIM)) begin
@@ -176,39 +168,37 @@ module conv_layer #(
                     outmem_index[1] = 0;
                     weight_read_index[2] = weight_read_index[2] + 1;
                 end
-
-                                                        
+                                         
                 //output neuron update
                 if (weight_read_index[2]==(NUM_OUTPUTS)) begin
                     weight_read_index[2] = 0;
-                    //weight_read_index[3] = weight_read_index[3] + 1;
-                    //act_read_index[2] = act_read_index[2] + 1;
+
                 end
 
                 act_read_index[1] = outmem_index[1] + weight_read_index[1];
                 act_read_index[0] = outmem_index[0] + weight_read_index[0];
-                act_read_index[2] = weight_read_index[3];
                 outmem_index[2] = weight_read_index[2];
-
-
                 state = 2;
 
 
             end
             2: begin
-                if (weight_read_index[1]==0 && weight_read_index[0]==0 && weight_read_index[3]==0) begin
-                    outmem_write_data = 0;
+                if (weight_read_index[1]==0 && weight_read_index[0]==0) begin
+                        for (i = 0; i < NUM_INPUTS; i=i+1) begin
+                            outmem_write_data[i] = 0;
+                        end
+                    
                 end
+
                 
-                outmem_write_data = $realtobits(
-                    $bitstoreal(outmem_write_data) + $bitstoreal(weights_out_data) * $bitstoreal(act_out_data)
-                    );
+                    for (i = 0; i < NUM_INPUTS; i=i+1) begin
+                        outmem_write_data[i] = $realtobits(
+                            $bitstoreal(outmem_write_data[i]) + $bitstoreal(weights_out_data[i]) * $bitstoreal(act_out_data[i])
+                            );
+                    end
 
 
-                if (weight_read_index[1]==(KERNEL_DIM-1) && 
-                    weight_read_index[0]==(KERNEL_DIM-1) && 
-                    weight_read_index[3]==(NUM_INPUTS-1)
-                    ) begin
+                if (weight_read_index[1]==(KERNEL_DIM-1) && weight_read_index[0]==(KERNEL_DIM-1)) begin
                     state = 3;
                 end
                 else begin
@@ -228,14 +218,18 @@ module conv_layer #(
             end
             3: begin
                 //add bias
-                outmem_write_data = $realtobits(
-                    $bitstoreal(outmem_write_data) + $bitstoreal(bias_out_data)
-                    );
-                //$display("%s: COMPUTE %f:", NAME, $bitstoreal(outmem_write_data));
 
-                //relu done inplace
-                if ($bitstoreal(outmem_write_data) <= 0) begin
-                    outmem_write_data = 0.0;
+                    for (i = 1; i < NUM_INPUTS; i=i+1) begin
+                        outmem_write_data[0] = $realtobits(
+                            $bitstoreal(outmem_write_data[0]) + $bitstoreal(outmem_write_data[i])
+                        );
+                    end
+
+                outmem_write_data[0] = $realtobits(
+                    $bitstoreal(outmem_write_data[0]) + $bitstoreal(bias_out_data)
+                );
+                if ($bitstoreal(outmem_write_data[0]) <= 0) begin
+                    outmem_write_data[0] = 0;
                 end
 
                 outmem_want_write=1;

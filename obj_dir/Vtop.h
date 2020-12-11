@@ -59,6 +59,7 @@ VL_MODULE(Vtop) {
         CData/*0:0*/ top__DOT__l5__DOT__outmem_want_write;
         SData/*15:0*/ top__DOT__scheduler_2_l5_inmem_index;
         SData/*15:0*/ top__DOT__scheduler__DOT__state;
+        SData/*15:0*/ top__DOT__scheduler__DOT__state_prev;
         SData/*15:0*/ top__DOT__l1__DOT__state;
         SData/*15:0*/ top__DOT__l2__DOT__state;
         SData/*15:0*/ top__DOT__l2__DOT__k_state;
@@ -82,16 +83,13 @@ VL_MODULE(Vtop) {
         SData/*15:0*/ top__DOT__l5__DOT__out_memory__DOT__read_index_entry;
         SData/*15:0*/ top__DOT__l5__DOT__out_memory__DOT__read_index_y;
         IData/*31:0*/ top__DOT__scheduler__DOT__cnt;
-        QData/*63:0*/ top__DOT__l1__DOT__act_out_data;
-        QData/*63:0*/ top__DOT__l1__DOT__weights_out_data;
+        IData/*31:0*/ top__DOT__scheduler__DOT__cnt_prev;
+        IData/*31:0*/ top__DOT__l1__DOT__i;
+        IData/*31:0*/ top__DOT__l3__DOT__i;
         QData/*63:0*/ top__DOT__l1__DOT__bias_out_data;
-        QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data;
         QData/*63:0*/ top__DOT__l2__DOT__outmem_write_data;
         QData/*63:0*/ top__DOT__l2__DOT__inmem_read_data;
-        QData/*63:0*/ top__DOT__l3__DOT__act_out_data;
-        QData/*63:0*/ top__DOT__l3__DOT__weights_out_data;
         QData/*63:0*/ top__DOT__l3__DOT__bias_out_data;
-        QData/*63:0*/ top__DOT__l3__DOT__outmem_write_data;
         QData/*63:0*/ top__DOT__l4__DOT__outmem_write_data;
         QData/*63:0*/ top__DOT__l4__DOT__inmem_read_data;
         QData/*63:0*/ top__DOT__l5__DOT__act_out_data;
@@ -102,8 +100,11 @@ VL_MODULE(Vtop) {
         SData/*15:0*/ top__DOT__scheduler_2_l2l3_index[4];
         SData/*15:0*/ top__DOT__scheduler_2_l3l4_index[4];
         SData/*15:0*/ top__DOT__scheduler_2_l4_outmem_index[3];
+        QData/*63:0*/ top__DOT__l1__DOT__act_out_data[1];
+        QData/*63:0*/ top__DOT__l1__DOT__weights_out_data[1];
     };
     struct {
+        QData/*63:0*/ top__DOT__l1__DOT__outmem_write_data[1];
         SData/*15:0*/ top__DOT__l1__DOT__weight_read_index[4];
         SData/*15:0*/ top__DOT__l1__DOT__act_read_index[3];
         SData/*15:0*/ top__DOT__l1__DOT__outmem_index[3];
@@ -115,6 +116,9 @@ VL_MODULE(Vtop) {
         SData/*15:0*/ top__DOT__l2__DOT__inmem_read_index[3];
         QData/*63:0*/ top__DOT__l2__DOT__in_memory__DOT__mem[16][26][26];
         QData/*63:0*/ top__DOT__l2__DOT__out_memory__DOT__mem[16][25][25];
+        QData/*63:0*/ top__DOT__l3__DOT__act_out_data[16];
+        QData/*63:0*/ top__DOT__l3__DOT__weights_out_data[16];
+        QData/*63:0*/ top__DOT__l3__DOT__outmem_write_data[16];
         SData/*15:0*/ top__DOT__l3__DOT__weight_read_index[4];
         SData/*15:0*/ top__DOT__l3__DOT__act_read_index[3];
         SData/*15:0*/ top__DOT__l3__DOT__outmem_index[3];
@@ -137,6 +141,7 @@ VL_MODULE(Vtop) {
     // Internals; generally not touched by application code
     CData/*0:0*/ __Vclklast__TOP__clk;
     IData/*31:0*/ __Vm_traceActivity;
+    QData/*63:0*/ top__DOT__l1__DOT____Vlvbound3;
     QData/*63:0*/ top__DOT__l1__DOT__activation__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l1__DOT__weights__DOT____Vlvbound1;
     QData/*63:0*/ top__DOT__l1__DOT__out_memory__DOT____Vlvbound1;
@@ -161,6 +166,10 @@ VL_MODULE(Vtop) {
     SData/*15:0*/ top__DOT____Vcellinp__l3__read_outmem_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l4__outmem_read_index[3];
     SData/*15:0*/ top__DOT____Vcellinp__l4__inmem_write_index[3];
+    QData/*63:0*/ top__DOT__l1__DOT____Vcellout__activation__out_data[1];
+    QData/*63:0*/ top__DOT__l1__DOT____Vcellout__weights__out_data_weight[1];
+    QData/*63:0*/ top__DOT__l3__DOT____Vcellout__activation__out_data[16];
+    QData/*63:0*/ top__DOT__l3__DOT____Vcellout__weights__out_data_weight[16];
     
     // INTERNAL VARIABLES
     // Internals; generally not touched by application code

@@ -58,15 +58,26 @@ end
 
 
 reg [15:0] state = 0;
+reg [15:0] state_prev = 0;
+
 integer cnt = 1;
+integer cnt_prev = 1;
 always @(posedge clk) begin
+
     cnt = cnt + 1;
+    if (state != state_prev) begin
+        $display("state %d done at %d cycles", state-1, cnt-cnt_prev);
+        cnt_prev = cnt;
+        state_prev = state;
+    end
+
     case (state)
         0 : begin
+            cnt = 0;
+
             if (start) begin
                 input_compute_start = 1;
                 state = 1;
-                cnt = 0;
             end
          
         end
@@ -76,9 +87,7 @@ always @(posedge clk) begin
             if (input_compute_done) begin
                 state = 2;
                 l2_inmem_wantwrite = 1;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
            
         end
@@ -101,9 +110,7 @@ always @(posedge clk) begin
                 l2_inmem_wantwrite = 0;
                 l2_compute_start = 1;
                 state = 3;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
         end
         3: begin
@@ -111,9 +118,7 @@ always @(posedge clk) begin
             if (l2_compute_done) begin
                 state = 4;
                 l3_inmem_wantwrite = 1;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
          
         end
@@ -136,9 +141,7 @@ always @(posedge clk) begin
                 l3_compute_start = 1;
                 state = 5;
                 l3_inmem_wantwrite = 0;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end    
         end
         5: begin
@@ -146,9 +149,7 @@ always @(posedge clk) begin
             if (l3_compute_done) begin
                 state = 6;
                 l4_inmem_wantwrite = 1;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
            
         end
@@ -171,9 +172,7 @@ always @(posedge clk) begin
                 l4_compute_start = 1;
                 state = 7;
                 l4_inmem_wantwrite = 0;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end    
         end
 
@@ -182,9 +181,7 @@ always @(posedge clk) begin
             if (l4_compute_done) begin
                 state = 8;
                 l5_inmem_wantwrite = 1;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
 
         end
@@ -198,9 +195,7 @@ always @(posedge clk) begin
                 l5_compute_start = 1;
                 state = 9;
                 l5_inmem_wantwrite = 0;
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
         
 
@@ -210,19 +205,13 @@ always @(posedge clk) begin
             l5_compute_start = 0;
             if (l5_compute_done) begin
                 state = 10;
-                $finish();
-                if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-                end
+
             end
 
         end
 
         10: begin
-            //$finish();
-            if (DEBUG_TIMINGS) begin
-                    $display("state %d done at %d cycles", state-1, cnt);
-            end
+            $finish();
         end
     endcase
 end
