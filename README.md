@@ -5,6 +5,8 @@ A Verilog implementation of the forward path, of a MNIST dataset classifier
 Run the run.sh script. This removes the old build, compiles verilog to cpp, compiles to cpp, and runs the executable.
 Output is dumped to the out.txt text file
 
+Other branches have different optimizations, branch name is self explantory
+
 # Dependecies
 This project was developed and tested on an Arch Linux distro
 Dependencies:<br/>
